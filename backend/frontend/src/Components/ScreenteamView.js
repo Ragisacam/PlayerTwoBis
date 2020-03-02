@@ -1,3 +1,13 @@
+import React from 'react';
+
+function ScreenteamView() {
+  return (
+          <h1>ScreenteamView</h1>
+    );
+}
+
+export default ScreenteamView;
+
 // div Title
   // avatar team
   // team's name

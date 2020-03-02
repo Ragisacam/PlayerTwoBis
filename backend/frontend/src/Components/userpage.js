@@ -1,14 +1,24 @@
 import React from 'react';
-import '../App.css';
-import { 
-  Button,
-  Col,
-  Card,
-  CardImg,
-  CardBody,
-  CardTitle,
-  CardText
- } from 'reactstrap';
+
+function userpage() {
+  return (
+          <h1>userpage</h1>
+    );
+}
+
+export default userpage;
+
+// import React from 'react';
+// import '../App.css';
+// import { 
+//   Button,
+//   Col,
+//   Card,
+//   CardImg,
+//   CardBody,
+//   CardTitle,
+//   CardText
+//  } from 'reactstrap';
 
 
 /* question pour Quentin : 4 DIV à la suite ou séparation sur 2 colonnes de la page ? */

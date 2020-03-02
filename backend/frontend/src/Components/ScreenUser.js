@@ -1,4 +1,14 @@
 import React from 'react';
+
+function ScreenUser() {
+  return (
+          <h1>ScreenUser</h1>
+    );
+}
+
+
+
+/* import React from 'react';
 import '../App.css';
 import { 
   Button,
@@ -8,7 +18,7 @@ import {
   CardBody,
   CardTitle,
   CardText
- } from 'reactstrap';
+ } from 'reactstrap'; */
 
 
 /* question pour Quentin : 4 DIV à la suite ou séparation sur 2 colonnes de la page ? */
@@ -23,6 +33,10 @@ Champ texte (chargé par le backend)
  */}
 
 {/* <DIV>
+
+
+
+  
 Title : "Mes Player Two"
 
 
@@ -58,3 +72,4 @@ Liste de flux d'actualité chargé par le backend
 
 
 
+export default ScreenUser;

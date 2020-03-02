@@ -1,3 +1,12 @@
+import React from 'react';
+
+function ScreenIdentity() {
+  return (
+          <h1>ScreenIdentity</h1>
+    );
+}
+
+export default ScreenIdentity;
 
 
 //Sign-up

@@ -2,6 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  Card,CardBody, CardLink,
+  CardTitle, CardSubtitle
+} from 'reactstrap';
+import { ListGroup, ListGroupItem } from 'reactstrap';
+
 
 function ScreenMatchPage() {
   return (
@@ -20,43 +26,146 @@ function ScreenMatchPage() {
 // Titre Your Player Two
 
 // Ajouter tout
+<Button color="primary" size="lg">Ajouter tout</Button>{' '}
+
 // Bouton switch
+<FormGroup>
+  <FormControlLabel
+    control={<Switch checked={checked} onChange={toggleChecked} />}
+    label="Normal"
+  />
+</FormGroup>
 
 //Card
+const Example = (props) => {
+  return (
+    <div>
+      <Card>
+        <CardBody>
+          <CardTitle>Pseudo P2</CardTitle>
+          <CardSubtitle>Identifiant</CardSubtitle>
+        </CardBody>
+        <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+        <CardBody>
+          <CardLink href="#">Card Link</CardLink>
+          <CardLink href="#">Another Link</CardLink>
+        </CardBody>
+      </Card>
+    </div>
+  );
+};
 
   // CardBody
+  const Example = (props) => {
+    return (
+      <ListGroup>
+        <ListGroupItem>Plateforme</ListGroupItem>
+        <ListGroupItem>Jeux</ListGroupItem>
+        <ListGroupItem>Mode</ListGroupItem>
+      </ListGroup>
+    );
+  
+  }
   // Icon avatar (image)
-  // Titre
-  // Bouton Switch
-  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
 
-  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+
+  // Bouton Switch
+  <FormGroup>
+  <FormControlLabel
+    control={<Switch checked={checked} onChange={toggleChecked} />}
+    label="Normal"
+  />
+</FormGroup>
 
       //Game's list backend
 
 
 //Card
+const Example = (props) => {
+  return (
+    <div>
+      <Card>
+        <CardBody>
+          <CardTitle>Pseudo P2</CardTitle>
+          <CardSubtitle>Identifiant</CardSubtitle>
+        </CardBody>
+        <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+        <CardBody>
+          <CardLink href="#">Card Link</CardLink>
+          <CardLink href="#">Another Link</CardLink>
+        </CardBody>
+      </Card>
+    </div>
+  );
+};
 
   // CardBody
+  const Example = (props) => {
+    return (
+      <ListGroup>
+        <ListGroupItem>Plateforme</ListGroupItem>
+        <ListGroupItem>Jeux</ListGroupItem>
+        <ListGroupItem>Mode</ListGroupItem>
+      </ListGroup>
+    );
+  
+  }
   // Icon avatar (image)
-  // Titre
-  // Bouton Switch
-  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
 
+
+  // Bouton Switch
+  <FormGroup>
+  <FormControlLabel
+    control={<Switch checked={checked} onChange={toggleChecked} />}
+    label="Normal"
+  />
+</FormGroup>
       //Game's list backend
 
 
 //Card
+const Example = (props) => {
+  return (
+    <div>
+      <Card>
+        <CardBody>
+          <CardTitle>Pseudo P2</CardTitle>
+          <CardSubtitle>Identifiant</CardSubtitle>
+        </CardBody>
+        <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+        <CardBody>
+          <CardLink href="#">Card Link</CardLink>
+          <CardLink href="#">Another Link</CardLink>
+        </CardBody>
+      </Card>
+    </div>
+  );
+};
 
   // CardBody
+  const Example = (props) => {
+    return (
+      <ListGroup>
+        <ListGroupItem>Plateforme</ListGroupItem>
+        <ListGroupItem>Jeux</ListGroupItem>
+        <ListGroupItem>Mode</ListGroupItem>
+      </ListGroup>
+    );
+  
+  }
   // Icon avatar (image)
-  // Titre
+  <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+
+
   // Bouton Switch
-  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
-
-  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
-
-  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+  <FormGroup>
+  <FormControlLabel
+    control={<Switch checked={checked} onChange={toggleChecked} />}
+    label="Normal"
+  />
+</FormGroup>
 
       //Game's list backend
 

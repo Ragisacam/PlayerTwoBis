@@ -1,12 +1,12 @@
 // card
 
-// Plateforme
+// Plateforme 
 // Champ de saisie
 
 // Service
 // Champ de saisie
 
-// Jeux
+// Jeux - image - API 
 // Champ de saisie
 
 // Tag

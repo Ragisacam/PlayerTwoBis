@@ -6,33 +6,39 @@
 //Card
 
   // CardBody
-  // Icon avatar
+  // Icon avatar (image)
   // Titre
   // Bouton Switch
-  // List Group Plateforme Jeux Mode
-  // List Group Plateforme Jeux Mode
+  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+
+  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+
       //Game's list backend
 
 
 //Card
 
   // CardBody
-  // Icon avatar
+  // Icon avatar (image)
   // Titre
   // Bouton Switch
-  // List Group Plateforme Jeux Mode
+  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+
       //Game's list backend
 
 
 //Card
 
   // CardBody
-  // Icon avatar
+  // Icon avatar (image)
   // Titre
   // Bouton Switch
-  // List Group Plateforme Jeux Mode
-  // List Group Plateforme Jeux Mode
-  // List Group Plateforme Jeux Mode
+  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+
+  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+
+  // List Group Plateforme Jeux Mode - récupérer db liste des jeux du user
+
       //Game's list backend
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* import logo from './logo.svg'; */
+import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Progress } from 'reactstrap';
 
@@ -45,7 +45,7 @@ const Example = (props) => {
   
 
 // Bouton Save (route)
-<Button color="primary" size="lg">Save</Button>
+{/* <Button color="primary" size="lg">Save</Button> */}
 
 
 

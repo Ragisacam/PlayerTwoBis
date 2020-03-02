@@ -1,10 +1,10 @@
-import React from 'react';
+/* import React, {FormControlLabel} from 'react';
 import logo from './logo.svg';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Card,CardBody, CardLink,
-  CardTitle, CardSubtitle
+  CardTitle, CardSubtitle, Button,FormGroup
 } from 'reactstrap';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
@@ -149,4 +149,4 @@ function ScreenMatchPage() {
 </div>
       );
     }
-      export default ScreenMatchPage
+      export default ScreenMatchPage */

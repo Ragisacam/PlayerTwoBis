@@ -6,19 +6,19 @@ function ScreenUser() {
     );
 }
 
-export default ScreenUser;
 
-// import React from 'react';
-// import '../App.css';
-// import { 
-//   Button,
-//   Col,
-//   Card,
-//   CardImg,
-//   CardBody,
-//   CardTitle,
-//   CardText
-//  } from 'reactstrap';
+
+/* import React from 'react';
+import '../App.css';
+import { 
+  Button,
+  Col,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardText
+ } from 'reactstrap'; */
 
 
 /* question pour Quentin : 4 DIV à la suite ou séparation sur 2 colonnes de la page ? */
@@ -72,3 +72,4 @@ Liste de flux d'actualité chargé par le backend
 
 
 
+export default ScreenUser;

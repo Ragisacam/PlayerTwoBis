@@ -7,13 +7,18 @@ import {
   CardImg,
   CardBody,
   CardTitle,
-  CardText
+  CardText,
+  ListGroup
  } from 'reactstrap';
  import Modal from 'react-bootstrap/Modal'
 
+
+ function ScreenHome() {
+  return (
+
 <DIV>
-    <Button onClick={() => route(modal à définir pour ajouter un jeu et trouver des joueurs)}>Find your player 2</Button>
-    {/* un bouton centré (en forme de triangle/flèche) avec pour cible la page inscription jeu
+    <Button onClick={() => ScreenMatchPage()}>Find your player 2</Button>
+     {/* un bouton centré (en forme de triangle/flèche) avec pour cible la page inscription jeu
 route GET à positionner sur ce bouton */}
 </DIV> 
 
@@ -59,21 +64,28 @@ route GET à positionner sur ce bouton */}
 
     <DIV>
           Comment ça marche ?
-            <p>Champ texte</p>
+          <p>Champ texte</p>
     </DIV>
  
     <DIV>
           Jeux populaires
                 {/* C'est une liste générée par le backend au chargement de cette page (route /homepage) */}
     </DIV>
-{/* 
-           /*  <!--     DIV "Notre philosophie" 
-                Champ texte
+
+    <DIV>
+          Notre philosophie
+          <p>Champ texte</p>
+    </DIV>
             --> */
 
-         /*    <!--     DIV actualité du jeu vidéo
-                C'est une liste générée par le backend au chargement de cette page (route /homepage)
+    <DIV>Actualité du jeu vidéo
+                {/* C'est une liste générée par le backend au chargement de cette page (route /homepage)
                 On s'oriente vers une intégration de flux RSS ici (à confirmer ultérieurement)
             -->*/}
-
+    </DIV>
 </DIV>
+
+);
+}
+
+export default ScreeHome

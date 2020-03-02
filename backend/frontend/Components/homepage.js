@@ -11,7 +11,7 @@ import {
  } from 'reactstrap';
 
 <DIV>
-    <Button onClick={() => route(inscriptionjeu)}>Find your player 2</Button>
+    <Button onClick={() => route(modal à définir pour ajouter un jeu et trouver des joueurs)}>Find your player 2</Button>
     {/* un bouton (en forme de triangle/flèche) avec pour cible la page inscription jeu
 route GET à positionner sur ce bouton */}
 </DIV> 
@@ -20,9 +20,10 @@ route GET à positionner sur ce bouton */}
 
 /* DIV cards avec : */
 
-           /*  <DIV "Qui sommes nous ?" 
-            C'est une modal
-             */
+             <DIV> "Qui sommes nous ?" 
+            {/* C'est une modal
+            modèle trouvé ici : https://react-bootstrap.github.io/components/modal/ */ }
+            </DIV>
 
            /*  <!--     DIV "Jeux prisés sur P2"
                 C'est une liste générée par le backend au chargement de cette page (route /homepage)

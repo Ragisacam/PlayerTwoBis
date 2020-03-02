@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Match() {
+function ScreenMatchPage() {
   return (
       <div className="App">
         <header className="App-header">
@@ -61,4 +61,4 @@ function Match() {
       //Game's list backend
 
 
-      export default Match;
+      export default ScreenMatchPage;

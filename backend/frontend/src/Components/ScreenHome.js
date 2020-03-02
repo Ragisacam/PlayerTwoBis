@@ -79,7 +79,6 @@ import {
           Notre philosophie
           <p>Champ texte</p>
     </div>
-            --> */
 
     <div>Actualité du jeu vidéo
                 {/* C'est une liste générée par le backend au chargement de cette page (route /homepage)
@@ -87,8 +86,8 @@ import {
             -->*/}
     </div>
 </div>
-</div>
 
+</div>
 );
 }
 

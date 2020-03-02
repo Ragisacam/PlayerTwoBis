@@ -44,4 +44,14 @@ function ScreenGame() {
 
 // Progression bar
 
+      <div>
+        <Progress value="25">25%</Progress>
+      </div>
+  
+
+// Bouton Save (route)
+{/* <Button color="primary" size="lg">Save</Button> */}
+
+
+
 export default ScreenGame;

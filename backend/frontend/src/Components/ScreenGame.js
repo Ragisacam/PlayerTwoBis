@@ -6,7 +6,7 @@ import { Progress } from 'reactstrap';
 
 
 
-function Inscription() {
+function ScreenGame() {
   return (
       <div className="App">
         <header className="App-header">
@@ -45,8 +45,8 @@ const Example = (props) => {
   
 
 // Bouton Save (route)
-<Button color="primary" size="lg">Save</Button>{' '}
+<Button color="primary" size="lg">Save</Button>
 
 
 
-export default Inscription;
+export default ScreenGame;

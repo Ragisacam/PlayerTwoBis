@@ -1,12 +1,12 @@
 import React from 'react';
 
-function userpage() {
+function ScreenUser() {
   return (
-          <h1>userpage</h1>
+          <h1>ScreenUser</h1>
     );
 }
 
-export default userpage;
+export default ScreenUser;
 
 // import React from 'react';
 // import '../App.css';

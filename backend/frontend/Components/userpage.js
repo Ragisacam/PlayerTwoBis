@@ -23,6 +23,10 @@ Champ texte (chargé par le backend)
  */}
 
 {/* <DIV>
+
+
+
+  
 Title : "Mes Player Two"
 
 

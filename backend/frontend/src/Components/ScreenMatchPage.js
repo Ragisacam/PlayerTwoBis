@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Card,CardBody, CardLink,
@@ -11,6 +11,8 @@ import { ListGroup, ListGroupItem } from 'reactstrap';
 
 function ScreenMatchPage() {
   return (
+<div>
+
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -19,14 +21,12 @@ function ScreenMatchPage() {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-      </div>
-    );
-}
 
+      </div>
 // Titre Your Player Two
 
 // Ajouter tout
-<Button color="primary" size="lg">Ajouter tout</Button>{' '}
+<Button color="primary" size="lg">Ajouter tout</Button>
 
 // Bouton switch
 <FormGroup>
@@ -37,8 +37,7 @@ function ScreenMatchPage() {
 </FormGroup>
 
 //Card
-const Example = (props) => {
-  return (
+
     <div>
       <Card>
         <CardBody>
@@ -51,21 +50,15 @@ const Example = (props) => {
           <CardLink href="#">Another Link</CardLink>
         </CardBody>
       </Card>
-    </div>
-  );
-};
 
+    </div>
   // CardBody
-  const Example = (props) => {
-    return (
       <ListGroup>
         <ListGroupItem>Plateforme</ListGroupItem>
         <ListGroupItem>Jeux</ListGroupItem>
         <ListGroupItem>Mode</ListGroupItem>
       </ListGroup>
-    );
   
-  }
   // Icon avatar (image)
   <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
 
@@ -82,8 +75,6 @@ const Example = (props) => {
 
 
 //Card
-const Example = (props) => {
-  return (
     <div>
       <Card>
         <CardBody>
@@ -97,20 +88,14 @@ const Example = (props) => {
         </CardBody>
       </Card>
     </div>
-  );
-};
 
   // CardBody
-  const Example = (props) => {
-    return (
       <ListGroup>
         <ListGroupItem>Plateforme</ListGroupItem>
         <ListGroupItem>Jeux</ListGroupItem>
         <ListGroupItem>Mode</ListGroupItem>
       </ListGroup>
-    );
   
-  }
   // Icon avatar (image)
   <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
 
@@ -126,8 +111,6 @@ const Example = (props) => {
 
 
 //Card
-const Example = (props) => {
-  return (
     <div>
       <Card>
         <CardBody>
@@ -141,20 +124,14 @@ const Example = (props) => {
         </CardBody>
       </Card>
     </div>
-  );
-};
 
   // CardBody
-  const Example = (props) => {
-    return (
       <ListGroup>
         <ListGroupItem>Plateforme</ListGroupItem>
         <ListGroupItem>Jeux</ListGroupItem>
         <ListGroupItem>Mode</ListGroupItem>
       </ListGroup>
-    );
   
-  }
   // Icon avatar (image)
   <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
 
@@ -169,5 +146,7 @@ const Example = (props) => {
 
       //Game's list backend
 
-
-      export default ScreenMatchPage;
+</div>
+      );
+    }
+      export default ScreenMatchPage

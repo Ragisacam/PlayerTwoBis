@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+//routes
 import ScreenHome from './Components/ScreenHome';
 import ScreenIdentity from './Components/ScreenIdentity';
 import ScreenGame from './Components/ScreenGame';
@@ -17,17 +19,16 @@ function App() {
     <Router>
       <Switch>
         <Route component={ScreenHome} path="/" exact />
-        <Route component={ScreenIdentity} path="/screenidentity" exact />
-        <Route component={ScreenGame} path="/screengame" exact />
-        <Route component={ScreenWish} path="/screenwish" exact />
-        <Route component={ScreenMatchPage} path="/screenmatchpage" exact />
-        <Route component={ScreenOtherUser} path="/screenotheruser" exact />
-        <Route component={ScreenteamAdmin} path="/screenteamadmin" exact />
-        <Route component={ScreenteamView} path="/screenteamview" exact />
-        <Route component={ScreenUser} path="/screenuser" exact />
+        <Route component={ScreenIdentity} path="/screenidentity"  />
+        <Route component={ScreenGame} path="/screengame"  />
+        <Route component={ScreenWish} path="/screenwish"  />
+        <Route component={ScreenMatchPage} path="/screenmatchpage"  />
+        <Route component={ScreenOtherUser} path="/screenotheruser"  />
+        <Route component={ScreenteamAdmin} path="/screenteamadmin"  />
+        <Route component={ScreenteamView} path="/screenteamview"  />
+        <Route component={ScreenUser} path="/screenuser"  />
       </Switch>
     </Router>
-
   );
 }
 

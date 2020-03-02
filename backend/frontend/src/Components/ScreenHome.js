@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import { Link } from 'react-router-dom';
 import { 
   Button,
   Col,
@@ -8,35 +8,38 @@ import {
   CardBody,
   CardTitle,
   CardText,
-  ListGroup
- } from 'reactstrap';
- import Modal from 'react-bootstrap/Modal'
+  ListGroup,
+  Modal
+   } from 'react-bootstrap'  ; 
+
 
 
  function ScreenHome() {
   return (
+      <div>
 
-<DIV>
-    <Button onClick={() => ScreenMatchPage()}>Find your player 2</Button>
-     {/* un bouton centré (en forme de triangle/flèche) avec pour cible la page inscription jeu
-route GET à positionner sur ce bouton */}
-</DIV> 
+      
+      <Link to="/ScreenMatchPage">
+            Find your player 2
+            {/* un bouton centré (en forme de triangle/flèche) avec pour cible la page inscription jeu
+            route GET à positionner sur ce bouton */}
+      </Link> 
 
 
 
-<DIV>
+<div>
 {/* La big DIV pour se mettre en flexwrap ! */}
 
 
-      <DIV> "Qui sommes nous ?" 
+      <div> "Qui sommes nous ?" 
             {/* C'est une modal
             modèle trouvé ici : https://react-bootstrap.github.io/components/modal/ 
             Est-ce qu'on écrit quelque chose ou on met des liens vers nos homepage perso/profil linkedin ?
             */ }
-      </DIV>
+      </div>
 
 
-    <DIV>
+    <div>
         Jeux prisés sur P2
         <ListGroup>
           {/* C'est une liste générée par le backend au chargement de cette page (route '/homepage') */}
@@ -46,11 +49,11 @@ route GET à positionner sur ce bouton */}
                 <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
                 <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
             </ListGroup>
-    </DIV>
+    </div>
 
 
 
-    <DIV>
+    <div>
           Actu player Two 
           <ListGroup>
           {/* C'est une liste générée par le backend au chargement de cette page (route '/homepage') */}
@@ -60,32 +63,33 @@ route GET à positionner sur ce bouton */}
                 <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
                 <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
             </ListGroup>
-    </DIV>
+    </div>
 
-    <DIV>
+    <div>
           Comment ça marche ?
           <p>Champ texte</p>
-    </DIV>
+    </div>
  
-    <DIV>
+    <div>
           Jeux populaires
                 {/* C'est une liste générée par le backend au chargement de cette page (route /homepage) */}
-    </DIV>
+    </div>
 
-    <DIV>
+    <div>
           Notre philosophie
           <p>Champ texte</p>
-    </DIV>
+    </div>
             --> */
 
-    <DIV>Actualité du jeu vidéo
+    <div>Actualité du jeu vidéo
                 {/* C'est une liste générée par le backend au chargement de cette page (route /homepage)
                 On s'oriente vers une intégration de flux RSS ici (à confirmer ultérieurement)
             -->*/}
-    </DIV>
-</DIV>
+    </div>
+</div>
+</div>
 
 );
 }
 
-export default ScreeHome
+export default ScreenHome

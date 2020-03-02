@@ -10,7 +10,29 @@ var teamModel = require("../Models/Teams")
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-// ______________ ADD GAME ______________
+// ______________ ADD GAME ______________ (ok)
+router.post('/plateform', async function(req, res, next) {
+  console.log("req body",req.body);
+  
+  var newPlateform = new plateformModel ({
+    plateform:   req.body.plateform,
+    img:         req.body.img,
+    website:     req.body.website,
+    service:     req.body.service,
+  });
+  
+  newPlateform.save(function(error, plateform){
+    if (error){
+      console.log("err",error);
+      res.json({error})
+    } else if (plateform){
+      console.log(plateform);
+      res.json({plateform})
+    }
+  });
+});
+
+// ______________ PLATEFORMS ______________
 router.post('/addgame', async function(req, res, next) {
   var result = false
   console.log("req body",req.body);
@@ -26,22 +48,16 @@ router.post('/addgame', async function(req, res, next) {
     category:     req.body.category
   });
   
- newGame.save(function(error, game){
-   if (error){
-
-     console.log("err",error);
-     res.json({error})
-   } else if (game){
-     console.log(game);
-     res.json({game})
-     
-   }
-   
- });
-
-
-  // if (game){result = true}
-  
+  newGame.save(function(error, game){
+    if (error){
+      console.log("err",error);
+      res.json({error})
+    } else if (game){
+      console.log(game);
+      res.json({game})
+    }
+  });
 });
+
 
 module.exports = router;

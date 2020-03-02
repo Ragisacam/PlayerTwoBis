@@ -4,7 +4,7 @@ var plateformSchema = mongoose.Schema({
   plateform:     String,
   img:           String,
   website:       String,
-  Service:       String,
+  service:       String,
 
   });
 

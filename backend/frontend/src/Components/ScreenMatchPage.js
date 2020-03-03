@@ -1,6 +1,6 @@
 // import React from 'react';
 // import logo from './logo.svg';
-// import './App.css';
+// import '../App.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import {
 //   Card,CardBody, CardLink,
@@ -128,7 +128,7 @@
 //     </div>
 
 
-//   // CardBody
+  // CardBody
 
 //       <ListGroup>
 //         <ListGroupItem>Plateforme</ListGroupItem>

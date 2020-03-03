@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { Col, Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
+import Header from "./header"
 
 const ScreenIdentity = (props) => {
   return (
@@ -8,6 +9,9 @@ const ScreenIdentity = (props) => {
     <div className="backgroundColor">
       
       <Container>
+
+        <Header/>
+
         <Form>
 
         <FormGroup row className="identity">

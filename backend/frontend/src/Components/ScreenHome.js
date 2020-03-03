@@ -5,13 +5,14 @@ import {
   Button,
   Col,
   Card,
-  CardImg,
+/*   CardImg,
   CardBody,
   CardTitle,
-  CardText,
+  CardText, */
   ListGroup,
   ButtonToolbar,
-  Modal
+  Modal,
+  Container,
    } from 'react-bootstrap'  ; 
 
 
@@ -64,9 +65,11 @@ function MyVerticallyCenteredModal(props) {
 
 
 
-<div>
+<Container fluid className="backgroundColor" >
 {/* La big DIV pour se mettre en flexwrap ! */}
-
+<row>
+<Col>1 of 3</Col>
+<Card body bg="dark">
 
       <div> 
             {/* C'est une modal
@@ -88,8 +91,9 @@ function MyVerticallyCenteredModal(props) {
     </ButtonToolbar>
 
       </div>
-
-
+      </Card>
+      <Col>1 of 3</Col>
+      <Card body bg="dark">
     <div>
         Jeux prisés sur P2
         <ListGroup>
@@ -101,9 +105,12 @@ function MyVerticallyCenteredModal(props) {
                 <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
             </ListGroup>
     </div>
+    </Card>
+</row>
 
-
-
+<row>
+<Col>1 of 3</Col>
+    <Card body bg="dark">
     <div>
           Actu player Two 
           <ListGroup>
@@ -115,28 +122,46 @@ function MyVerticallyCenteredModal(props) {
                 <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
             </ListGroup>
     </div>
-
+    </Card>
+</row>
+<Col>1 of 3</Col>
+    <Card body bg="dark">
     <div>
           Comment ça marche ?
-          <p>Champ texte</p>
+          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+              consectetur ac, vestibulum at eros.</p>
     </div>
- 
+    </Card>
+    <Col>1 of 3</Col>
+    <Card body bg="dark">
     <div>
           Jeux populaires
                 {/* C'est une liste générée par le backend au chargement de cette page (route /homepage) */}
     </div>
+    </Card>
 
+    <Col>1 of 3</Col>
+    <Card body bg="dark">
     <div>
           Notre philosophie
-          <p>Champ texte</p>
+          <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+              consectetur ac, vestibulum at eros.</p>
     </div>
-
+    </Card>
+    
+    <Col>1 of 3</Col>
+    <Card body bg="dark">
     <div>Actualité du jeu vidéo
                 {/* C'est une liste générée par le backend au chargement de cette page (route /homepage)
                 On s'oriente vers une intégration de flux RSS ici (à confirmer ultérieurement)
             -->*/}
     </div>
-</div>
+    </Card>
+
+
+</Container>
 </div>
 </div>
 );

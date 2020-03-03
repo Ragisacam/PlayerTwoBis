@@ -1,6 +1,6 @@
 import React from 'react';
 
-function footer () {
+function Footer () {
   return (
     <div className="headerFooter">
       <h1  style={{color:"white"}}className="heading">Footer</h1>
@@ -8,7 +8,7 @@ function footer () {
   )
 }
 
-export default footer
+export default Footer
 
 //contact
   //modal

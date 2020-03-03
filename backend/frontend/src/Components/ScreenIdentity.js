@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { Col, Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
-import Header from "./header"
+import Header from "./Header"
 
 const ScreenIdentity = (props) => {
   return (

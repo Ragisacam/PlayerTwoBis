@@ -12,8 +12,8 @@ import ScreenteamAdmin from './Components/ScreenteamAdmin';
 import ScreenteamView from './Components/ScreenteamView';
 import ScreenUser from './Components/ScreenUser';
 import ScreenMatchPage from './Components/ScreenMatchPage';
-import Header from './Components/header'
-import footer from './Components/footer'
+import Header from './Components/Header'
+import footer from './Components/Footer'
  
 
 function App() {

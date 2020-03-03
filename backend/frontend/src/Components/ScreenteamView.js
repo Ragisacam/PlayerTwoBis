@@ -4,8 +4,8 @@ import {
   Card, Button, CardImg, CardTitle, CardText, CardColumns,
   CardSubtitle, CardBody, Row,
 } from 'reactstrap';
-import Header from './header'
-import footer from './footer'
+import Header from './Header'
+import footer from './Footer'
 
 
 function ScreenteamView() {

@@ -5,7 +5,7 @@ import babyYoda from '../images/icons8-baby-yoda-48.png';
 import logo from '../images/logo-player2.png';
 import player2 from '../images/Player Two.png'
 
-function header() {
+function Header() {
 
   return(
 <nav className="headerFooter">
@@ -31,4 +31,4 @@ function header() {
   );
 }
 
-export default header
+export default Header

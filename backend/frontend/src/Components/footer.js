@@ -1,3 +1,15 @@
+import React from 'react';
+
+function footer () {
+  return (
+    <div className="headerFooter">
+      <h1  style={{color:"white"}}className="heading">Footer</h1>
+    </div>
+  )
+}
+
+export default footer
+
 //contact
   //modal
     // identité (mail de l'expéditeur)
@@ -16,5 +28,3 @@
 // Mention légal
   //modal
     // redirect vers social network (linkedin, facebook)
-
-    

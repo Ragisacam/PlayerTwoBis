@@ -8,7 +8,7 @@ var teamModel = require("../Models/Teams")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('/ScreenHome', { title: 'Express' });
 });
 // ______________ PLATEFORMS ______________ (ok)
 router.post('/plateform', async function(req, res, next) {

@@ -10,14 +10,13 @@ var teamModel = require("../Models/Teams")
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-// ______________ ADD GAME ______________ (ok)
+// ______________ PLATEFORMS ______________ (ok)
 router.post('/plateform', async function(req, res, next) {
-  console.log("req body",req.body);
+  console.log("req body plateform ",req.body);
   
   var newPlateform = new plateformModel ({
     plateform:   req.body.plateform,
     img:         req.body.img,
-    website:     req.body.website,
     service:     req.body.service,
   });
   
@@ -32,10 +31,16 @@ router.post('/plateform', async function(req, res, next) {
   });
 });
 
-// ______________ PLATEFORMS ______________
+router.get('/plateform', async function(req, res, next) {
+  var plateform = await plateformModel.find()
+  console.log(plateform);
+  
+  res.json("get plateform ok")
+});
+
+// ______________ ADD GAME ______________
 router.post('/addgame', async function(req, res, next) {
-  var result = false
-  console.log("req body",req.body);
+  console.log("req body addgame",req.body);
   
   var newGame = new gameModel ({
     plateforme:   req.body.plateforme,
@@ -55,6 +60,60 @@ router.post('/addgame', async function(req, res, next) {
     } else if (game){
       console.log(game);
       res.json({game})
+    }
+  });
+});
+
+// ______________ TEAMS ______________
+router.post('/addteam', async function(req, res, next) {
+  console.log("req body addteam",req.body);
+  
+  var newTeam = new teamModel ({
+    idGame:       req.body.idGame,
+    idWish:       req.body.idWish,
+    name:         req.body.name,
+    avatar:       req.body.avatar,
+    philosophie:  req.body.philosophie,
+    description:  req.body.description,
+    admin:        req.body.admin,
+    sousadmin:    req.body.sousadmin,
+    regular :     req.body.regular,
+    actu:         req.body.actu,
+  });
+  
+  newTeam.save(function(error, team){
+    if (error){
+      console.log("err",error);
+      res.json({error})
+    } else if (team){
+      console.log(team);
+      res.json({team})
+    }
+  });
+});
+
+// ______________ WISHS ______________
+router.post('/addwish', async function(req, res, next) {
+  console.log("req body wish ",req.body);
+  
+  var newWish = new wishModel ({
+    plateforme:     req.body.plateforme,
+    mode:           req.body.mode,
+    age:            req.body.age,
+    disponibility:  req.body.disponibility,
+    sexe:           req.body.sexe,
+    langue:         req.body.langue,
+    team :          req.body.team,
+    idGame:         req.body.idGame
+  });
+  
+  newWish.save(function(error, wish){
+    if (error){
+      console.log("err",error);
+      res.json({error})
+    } else if (wish){
+      console.log(wish);
+      res.json({wish})
     }
   });
 });

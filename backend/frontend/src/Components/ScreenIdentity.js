@@ -4,80 +4,83 @@ import { Col, Button, Form, FormGroup, Label, Input, Container } from 'reactstra
 
 const ScreenIdentity = (props) => {
   return (
-    <Container style={{marginTop:50}}>
-      <Form>
 
-      <FormGroup row className="identity">
-          <Label xs={2}>Pseudo*</Label>
-          <Col xs={4}>
-            <Input required style={{borderRadius:25}} type="text"/>
-          </Col>
-        </FormGroup>
-
-        <FormGroup row className="identity">
-          <Label xs={2}>Mot de passe*</Label>
-          <Col xs={4}>
-            <Input required style={{borderRadius:25}} type="password"/>
-          </Col>
-        </FormGroup>
-
-        <FormGroup row className="identity">
-          <Label xs={2}>Email*</Label>
-          <Col xs={4}>
-            <Input required style={{borderRadius:25}} type="email"/>
-          </Col>
-        </FormGroup>
-
-        <FormGroup row className="identity" style={{marginTop:35}}>
-          <Label xs={2}>Date de naissance</Label>
-          <Col xs={4}>
-            <Input
-              type="date"
-            />
-          </Col>
-        </FormGroup>
-
-        <FormGroup row className="identity">
-          <Label xs={2}>Ville</Label>
-          <Col xs={4}>
-            <Input style={{borderRadius:25}} type="text"/>
-          </Col>
-        </FormGroup>
-
-        <FormGroup row className="identity">
-          <Label xs={2}>Langue</Label>
-          <Col xs={4}>
-            <Input type="select">
-              <option>Français</option>
-              <option>Anglais</option>
-              <option>Allemand</option>
-              <option>Arabe</option>
-              <option>Italien</option>
-              <option>Espagnol</option>
-              <option>Japonais</option>
-              <option>Chinois</option>
-              <option>Coréen</option>
-              <option>Russe</option>
-            </Input>
-          </Col>
-        </FormGroup>
-
-        <FormGroup row className="identity">
-          <Label xs={2}>Sexe</Label>
-          <Col xs={4} >
-            <Input type="select">
-              <option>Non précisé</option>
-              <option>Homme</option>
-              <option>Femme</option>
-            </Input>
-          </Col>
-        </FormGroup>
-        
-      </Form>
-
+    <div className="backgroundColor">
       
+      <Container>
+        <Form>
 
-    </Container>
+        <FormGroup row className="identity">
+            <Label xs={2} style={{color :'white'}}>Pseudo*</Label>
+            <Col xs={4}>
+              <Input required style={{borderRadius:25}} type="text"/>
+            </Col>
+          </FormGroup>
+
+          <FormGroup row className="identity">
+            <Label xs={2} style={{color :'white'}}>Mot de passe*</Label>
+            <Col xs={4}>
+              <Input required style={{borderRadius:25}} type="password"/>
+            </Col>
+          </FormGroup>
+
+          <FormGroup row className="identity">
+            <Label xs={2} style={{color :'white'}}>Email*</Label>
+            <Col xs={4}>
+              <Input required style={{borderRadius:25}} type="email"/>
+            </Col>
+          </FormGroup>
+
+          <FormGroup row className="identity" style={{marginTop:35}}>
+            <Label xs={2} style={{color :'white'}}>Date de naissance</Label>
+            <Col xs={4}>
+              <Input
+                style={{borderRadius:25}}
+                type="date"
+              />
+            </Col>
+          </FormGroup>
+
+          <FormGroup row className="identity">
+            <Label xs={2} style={{color :'white'}}>Ville</Label>
+            <Col xs={4}>
+              <Input style={{borderRadius:25}} type="text"/>
+            </Col>
+          </FormGroup>
+
+          <FormGroup row className="identity">
+            <Label xs={2} style={{color :'white'}}>Langue</Label>
+            <Col xs={4}>
+              <Input type="select">
+                <option>Français</option>
+                <option>Anglais</option>
+                <option>Allemand</option>
+                <option>Arabe</option>
+                <option>Italien</option>
+                <option>Espagnol</option>
+                <option>Japonais</option>
+                <option>Chinois</option>
+                <option>Coréen</option>
+                <option>Russe</option>
+              </Input>
+            </Col>
+          </FormGroup>
+
+          <FormGroup row className="identity">
+            <Label xs={2} style={{color :'white'}}>Sexe</Label>
+            <Col xs={4} >
+              <Input type="select">
+                <option>Non précisé</option>
+                <option>Homme</option>
+                <option>Femme</option>
+              </Input>
+            </Col>
+          </FormGroup>
+          
+        </Form>
+      </Container>
+
+    </div>
   );
 }
 

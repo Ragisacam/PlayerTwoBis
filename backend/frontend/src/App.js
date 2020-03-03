@@ -12,12 +12,13 @@ import ScreenteamAdmin from './Components/ScreenteamAdmin';
 import ScreenteamView from './Components/ScreenteamView';
 import ScreenUser from './Components/ScreenUser';
 import ScreenMatchPage from './Components/ScreenMatchPage';
-
+import Header from './Components/header';
+import Footer from './Components/footer'
 
 function App() {
   return (
     <Router>
-
+      <Header/>
       <Switch>
         <Route component={ScreenHome} path="/" exact/>
         <Route component={ScreenIdentity} path="/screenidentity"  />
@@ -29,7 +30,7 @@ function App() {
         <Route component={ScreenteamView} path="/screenteamview"  />
         <Route component={ScreenUser} path="/screenuser"  />
       </Switch>
-
+      <Footer/>
     </Router>
   );
 }

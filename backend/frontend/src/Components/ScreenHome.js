@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from './header'
 import { 
   Button,
   Col,
@@ -51,8 +52,8 @@ function MyVerticallyCenteredModal(props) {
 
   return (
       <div>
-
-      
+      <Header/>
+<div>
       <Link to="/ScreenMatchPage">
       <Button color="primary" size="lg">Find your player 2</Button>{' '}
 
@@ -136,7 +137,7 @@ function MyVerticallyCenteredModal(props) {
             -->*/}
     </div>
 </div>
-
+</div>
 </div>
 );
 }

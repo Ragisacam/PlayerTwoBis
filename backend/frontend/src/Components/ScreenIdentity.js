@@ -85,7 +85,7 @@ const ScreenIdentity = (props) => {
         </Form>
 
         <Link className="identity">
-         <img src="../../start.png" alt="start"/>
+         <img src={require('../images/button.png')} alt="button start"/>
         </Link>
 
       </Container>

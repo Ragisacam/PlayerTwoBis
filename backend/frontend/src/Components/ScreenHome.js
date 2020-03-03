@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from './header'
+import Header from './Header'
+import footer from './Footer'
 import { 
   Button,
   Col,

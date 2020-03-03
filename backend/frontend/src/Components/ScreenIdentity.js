@@ -1,6 +1,13 @@
 import React from 'react';
 import '../App.css';
 import { Col, Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
+<<<<<<< HEAD
+import Header from "./header"
+import Footer from "./footer"
+import { Link } from 'react-router-dom';
+=======
+import Header from "./Header"
+>>>>>>> 57222a4785e6ddfba80cfe7cf962957c9068882e
 
 const ScreenIdentity = (props) => {
   return (
@@ -8,6 +15,9 @@ const ScreenIdentity = (props) => {
     <div className="backgroundColor">
       
       <Container>
+
+        <Header/>
+
         <Form>
 
         <FormGroup row className="identity">
@@ -78,7 +88,15 @@ const ScreenIdentity = (props) => {
           </FormGroup>
           
         </Form>
+
+        <Link className="identity">
+         <img src="../../start.png"/>
+        </Link>
+
       </Container>
+
+      <Footer/>
+
 
     </div>
   );

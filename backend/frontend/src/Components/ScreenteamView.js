@@ -4,8 +4,6 @@ import {
   Card, Button, CardImg, CardTitle, CardText, CardColumns,
   CardSubtitle, CardBody, Row,
 } from 'reactstrap';
-import Header from './Header'
-import footer from './Footer'
 
 
 function ScreenteamView() {
@@ -13,9 +11,8 @@ function ScreenteamView() {
   return (
 
     <div className="backgroundColor">
-      {Header}
       <Row className="titleTeam">
-        <img style={{height:"70px", marginRight:"30px"}} src={require('../images/helmet-5.jpg')}  alt="Card image cap"/>
+        <img style={{height:"70px", marginRight:"30px"}} src={require('../images/helmet-5.jpg')}  alt="team avatar"/>
         <h1  className="heading">Team's name</h1>
       </Row>
       
@@ -26,13 +23,13 @@ function ScreenteamView() {
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
         <CardBody style={{paddingTop: "10px", paddingBottom: "15px", paddingLeft:"15px"}}>
           <CardTitle className="heading" >Game</CardTitle>
-          <CardSubtitle>Ici on joue à :</CardSubtitle>
+          <CardText>Ici on joue à :</CardText>
           <Row style={{paddingLeft: "15px", paddingTop: "15px", alignItems:"center"}}>
-            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="Card image cap" />
+            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 1" />
           <CardText>Battlefield 5 </CardText>
           </Row>
           <Row style={{paddingLeft: "15px", paddingTop: "15px", alignItems:"center"}}>
-            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="Card image cap" />
+            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 2" />
           <CardText>Battlefield 5 </CardText>
           </Row>
           
@@ -55,34 +52,40 @@ function ScreenteamView() {
       </Card>
 
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-        <CardImg top width="100%" src="/assets/256x186.svg" alt="Card image cap" />
         <CardBody>
-          <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
-          <Button>Button</Button>
+          <CardTitle>Actu</CardTitle>
+          <CardSubtitle>news 1</CardSubtitle>
+          <CardText>- This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
+          <CardSubtitle>news 2</CardSubtitle>
+          <CardText>- This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
         </CardBody>
       </Card>
 
       {/*MEMBRE */}
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+        <CardBody style={{paddingTop: "10px", paddingBottom: "15px", paddingLeft:"15px"}}>
         <CardTitle>Membre</CardTitle>
-        <CardSubtitle>Admin</CardSubtitle>
-          <div>
-          
-          </div>
+        <Row>
+          <CardSubtitle>Admin</CardSubtitle>
+          <CardText> 1</CardText>
+        </Row>
+        
+          {/* <div>
+          <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
+
+          </div> */}
 
         <CardSubtitle>Sous Admin</CardSubtitle>
 
         <CardSubtitle>Regular</CardSubtitle>
 
         <CardText>With supporting text below as a natural lead-in to additional content.>With supporting text below as a natural lead-in to additional content.</CardText>
-        <Button color="secondary">Button</Button>
+
+        </CardBody>
       </Card>
 
     </CardColumns>
 
-    {footer}
     </div>
   );
 };

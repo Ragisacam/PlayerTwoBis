@@ -8,16 +8,16 @@ function Footer() {
 
       <Nav className="headerFooter" style={{ justifyContent:"space-around", alignItems:"center" }} >
         <NavItem>
-          <NavLink href="#"><img src={require('../images/message.png')} alt="message"/></NavLink>
+          <NavLink><img src={require('../images/message.png')} alt="message"/></NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#" style={{color :'white'}}>Politique de confidentialité</NavLink>
+          <NavLink style={{color :'white'}}>Politique de confidentialité</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#" style={{color :'white'}}>Mention Légales</NavLink>
+          <NavLink style={{color :'white'}}>Mention Légales</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#"><img src={require('../images/share.png')} alt="share"/></NavLink>
+          <NavLink><img src={require('../images/share.png')} alt="share"/></NavLink>
         </NavItem>
       </Nav>
 

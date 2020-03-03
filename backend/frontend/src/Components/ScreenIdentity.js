@@ -2,6 +2,8 @@ import React from 'react';
 import '../App.css';
 import { Col, Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 import Header from "./header"
+import Footer from "./footer"
+import { Link } from 'react-router-dom';
 
 const ScreenIdentity = (props) => {
   return (
@@ -82,7 +84,15 @@ const ScreenIdentity = (props) => {
           </FormGroup>
           
         </Form>
+
+        <Link className="identity">
+         <img src="../../start.png"/>
+        </Link>
+
       </Container>
+
+      <Footer/>
+
 
     </div>
   );

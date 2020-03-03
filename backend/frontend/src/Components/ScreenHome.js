@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from './header'
 import { 
   Button,
   Col,
@@ -17,8 +18,8 @@ import {
  function ScreenHome() {
   return (
       <div>
-
-      
+      <Header/>
+<div>
       <Link to="/ScreenMatchPage">
             Find your player 2
             {/* un bouton centré (en forme de triangle/flèche) avec pour cible la page inscription jeu
@@ -86,7 +87,7 @@ import {
             -->*/}
     </div>
 </div>
-
+</div>
 </div>
 );
 }

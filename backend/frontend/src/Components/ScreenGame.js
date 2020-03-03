@@ -43,10 +43,10 @@ function ScreenGame() {
 // Champ de saisie
 
 // Progression bar
-
+/* 
       <div>
         <Progress value="25">25%</Progress>
-      </div>
+      </div> */
   
 
 // Bouton Save (route)

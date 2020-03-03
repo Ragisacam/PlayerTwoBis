@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import {
-  Card, Button, CardImg, CardTitle, CardText, CardColumns,
+  Card, CardImg, CardTitle, CardText, CardColumns,
   CardSubtitle, CardBody, Row,
 } from 'reactstrap';
 
@@ -19,7 +19,7 @@ function ScreenteamView() {
 
       <CardColumns>
 
-      {/*GAME*/}
+      {/*______ GAME ______*/}
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
         <CardBody style={{paddingTop: "10px", paddingBottom: "15px", paddingLeft:"15px"}}>
           <CardTitle className="heading" >Game</CardTitle>
@@ -38,34 +38,32 @@ function ScreenteamView() {
 
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
         <CardBody >
-          <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardTitle>Philosophie</CardTitle>
           <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
-          <Button>Button</Button>
         </CardBody>
       </Card>
 
-      {/*Description */}
+      {/*______ Description ______ */}
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
         <CardTitle className="heading" >Description</CardTitle>
         <CardText style={{marginBottom: "30px"}}>With supporting text below as a natural lead-in to additional content.</CardText>
       </Card>
 
-      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-        <CardBody>
+      {/*______ ACTU ______ */}
+      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", paddingBottom: "25px"}}>
+        
           <CardTitle>Actu</CardTitle>
           <CardSubtitle>news 1</CardSubtitle>
           <CardText>- This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
           <CardSubtitle>news 2</CardSubtitle>
           <CardText>- This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
-        </CardBody>
+        
       </Card>
 
-      {/*MEMBRE */}
+      {/* ______ MEMBRE ______*/}
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-        <CardBody style={{paddingTop: "10px", paddingBottom: "15px", paddingLeft:"15px"}}>
         <CardTitle>Membre</CardTitle>
-        <Row>
+        <Row style={{flexDirection:Row}}>
           <CardSubtitle>Admin</CardSubtitle>
           <CardText> 1</CardText>
         </Row>
@@ -81,7 +79,6 @@ function ScreenteamView() {
 
         <CardText>With supporting text below as a natural lead-in to additional content.>With supporting text below as a natural lead-in to additional content.</CardText>
 
-        </CardBody>
       </Card>
 
     </CardColumns>

@@ -45,5 +45,3 @@ export default Footer;
 // Mention légal
   //modal
     // redirect vers social network (linkedin, facebook)
-
-    

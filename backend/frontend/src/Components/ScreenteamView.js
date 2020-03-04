@@ -18,7 +18,6 @@ function ScreenteamView() {
         <img style={{height:"70px", marginRight:"30px"}} src={require('../images/helmet-5.jpg')}  alt="Card image cap"/>
         <h1  className="heading">Team's name</h1>
       </Row>
-      
 
       <CardColumns>
 

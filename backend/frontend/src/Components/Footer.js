@@ -4,20 +4,20 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 
 function Footer() {
   return (
-    <div style={{backgroundColor:"#0c0c0c", width:"100%"}} >
+    <div>
 
-      <Nav style={{ justifyContent:"space-around", alignItems:"center" }} >
+      <Nav className="headerFooter" style={{ justifyContent:"space-around", alignItems:"center" }} >
         <NavItem>
-          <NavLink href="#"><img src="../../message.png"/></NavLink>
+          <NavLink><img src={require('../images/message.png')} alt="message"/></NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#" style={{color :'white'}}>Politique de confidentialité</NavLink>
+          <NavLink style={{color :'white'}}>Politique de confidentialité</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#" style={{color :'white'}}>Mention Légales</NavLink>
+          <NavLink style={{color :'white'}}>Mention Légales</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#"><img src="../../share.png"/></NavLink>
+          <NavLink><img src={require('../images/share.png')} alt="share"/></NavLink>
         </NavItem>
       </Nav>
 

@@ -1,8 +1,10 @@
 .identity{
   justify-content: center;
+  font-family:  'Comfortaa', cursive;
+  font-style: normal;
+  font-weight: bold;
+  color: #EEEEF0;
 }
-
-
 
 .backgroundColor{
   height: 100%;

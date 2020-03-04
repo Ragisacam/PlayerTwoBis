@@ -18,6 +18,8 @@ function Header() {
           <Row style={{alignItems: "center"}} >
             <Link to="/">
               <img src={logo} style={{height:"100px"}} alt="logo"/>
+              <p>Player</p>
+              <p>Two</p>
             </Link>
             <Col >
             <h1  className="heading">{`Player`}</h1>

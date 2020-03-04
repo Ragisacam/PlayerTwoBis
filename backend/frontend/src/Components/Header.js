@@ -2,10 +2,9 @@ import React from 'react';
 /* import { Link } from 'react-router-dom'; */
 import {Link} from 'react-router-dom'
 import babyYoda from '../images/icons8-baby-yoda-48.png';
-import logo from '../images/logo-player2.png';
-import player2 from '../images/Player Two.png';
+import logo from '../images/logoP2.svg';
 import switchee from '../images/switchee.png';
-import {Container, Row, Col} from 'reactstrap';
+import {Row, Col} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Header() {
@@ -13,13 +12,13 @@ function Header() {
   return(
     <nav className="headerFooter" style={{display:"flex", justifyContent:"space-between"}}>
       <Col >
-          <Row>
+          <Row style={{alignItems:"center"}}>
             <Link to="/" >
-              <img src={logo} style={{height:"3rem"}} alt="logo"/>
+              <img src={logo} style={{height:"50px"}} alt="logo"/>
             </Link>
 
             <Col style={{display:"flex", verticalAlign: "middle"}}>
-            <h1  className="heading">{`Player Two`}</h1>
+            <span  className="heading">{`Player Two`}</span>
             {/* <h1  className="heading">{`Two`}</h1> */}
             </Col>
           </Row>

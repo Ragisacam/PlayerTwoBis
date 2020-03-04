@@ -130,9 +130,9 @@ function Footer() {
   const [modalShowShare, setModalShowShare] = React.useState(false);
 
   return (
-    <div style={{height: "3rem"}}>
+    <div style={{}}>
 
-      <Nav className="headerFooter" style={{ justifyContent:"space-around", alignItems:"center" }} >
+      <Nav className="headerFooter" style={{position: 'absolute', bottom: 0, justifyContent:"space-around", alignItems:"center" }} >
 
         <NavItem>
           <NavLink  style={{padding: "0px",}} onClick={() => setModalShowContact(true)}><img src={require('../images/message.png')} alt="message"/></NavLink>

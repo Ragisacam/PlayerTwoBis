@@ -9,7 +9,7 @@ import {
 function ScreenteamView() {
   
   return (
-
+    // TEAM TITLE
     <div className="backgroundColor">
       <Row className="titleTeam">
         <img style={{height:"70px", marginRight:"30px"}} src={require('../images/helmet-5.jpg')}  alt="team"/>
@@ -18,7 +18,6 @@ function ScreenteamView() {
       
 
       <CardColumns>
-
       {/*______ GAME ______*/}
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
         <CardBody style={{paddingTop: "10px", paddingBottom: "15px", paddingLeft:"15px"}}>
@@ -26,11 +25,11 @@ function ScreenteamView() {
           <CardText>Ici on joue à :</CardText>
           <Row style={{paddingLeft: "15px", paddingTop: "15px", alignItems:"center"}}>
             <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 1" />
-          <CardText>Battlefield 5 </CardText>
+            <CardText>Battlefield 5 </CardText>
           </Row>
           <Row style={{paddingLeft: "15px", paddingTop: "15px", alignItems:"center"}}>
             <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 2" />
-          <CardText>Battlefield 5 </CardText>
+            <CardText>Battlefield 5 </CardText>
           </Row>
           
         </CardBody>

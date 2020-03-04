@@ -18,7 +18,7 @@
   font-weight: bold;
   color: #EEEEF0;
   background: #000000;
-  text-shadow: 0px 4px 4px rgba(231, 10, 10, 0.7);
+  
 }
 
 body {
@@ -29,7 +29,9 @@ body {
   font-family: 'Press Start 2P', cursive;
   color: #F9F5FF;
   margin: 0;
-  padding: 0
+  padding: 0;
+  Font-Size: 25px;
+  text-shadow: 0px 4px 4px rgba(231, 10, 10, 0.7);
 }
 
 .titleTeam{
@@ -50,6 +52,7 @@ body {
 
 .card-title{
   font-family: 'Press Start 2P', cursive;
+  Font-Size: 15px;
   color: #F9F5FF;
   margin : 10px;
   padding: 0;

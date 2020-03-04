@@ -12,28 +12,28 @@ import ScreenteamAdmin from './Components/ScreenteamAdmin';
 import ScreenteamView from './Components/ScreenteamView';
 import ScreenUser from './Components/ScreenUser';
 import ScreenMatchPage from './Components/ScreenMatchPage';
-import Header from './Components/Header'
-import footer from './Components/Footer'
- 
+import Header from "./Components/Header"
+import Footer from "./Components/Footer"
 
 function App() {
   return (
-
+    
     <Router>
-      {Header}
-      <Switch>
-        <Route component={ScreenHome} path="/" exact />
-        <Route component={ScreenIdentity} path="/screenidentity"  />
-        <Route component={ScreenGame} path="/screengame"  />
-        <Route component={ScreenWish} path="/screenwish"  />
-        <Route component={ScreenMatchPage} path="/screenmatchpage"  />
-        <Route component={ScreenOtherUser} path="/screenotheruser"  />
-        <Route component={ScreenteamAdmin} path="/screenteamadmin"  />
-        <Route component={ScreenteamView} path="/screenteamview"  />
-        <Route component={ScreenUser} path="/screenuser"  />
-      </Switch>
-      {footer}
+      <Header/>
+        <Switch>
+          <Route component={ScreenHome} path="/" exact/>
+          <Route component={ScreenIdentity} path="/screenidentity"  />
+          <Route component={ScreenGame} path="/screengame"  />
+          <Route component={ScreenWish} path="/screenwish"  />
+          <Route component={ScreenMatchPage} path="/screenmatchpage"  />
+          <Route component={ScreenOtherUser} path="/screenotheruser"  />
+          <Route component={ScreenteamAdmin} path="/screenteamadmin"  />
+          <Route component={ScreenteamView} path="/screenteamview"  />
+          <Route component={ScreenUser} path="/screenuser"  />
+        </Switch>
+      <Footer/>
     </Router>
+    
   );
 }
 

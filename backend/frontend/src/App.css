@@ -1,8 +1,20 @@
 .identity{
   justify-content: center;
+  font-family:  'Comfortaa', cursive;
+  font-style: normal;
+  font-weight: bold;
+  color: #EEEEF0;
 }
 
+p{
+  margin: 0px;
+  padding: 0px;
+}
 
+.row{
+  margin: 0px;
+  padding: 0px;
+}
 
 .backgroundColor{
   height: 100%;
@@ -18,7 +30,7 @@
   font-weight: bold;
   color: #EEEEF0;
   background: #000000;
-  text-shadow: 0px 4px 4px rgba(231, 10, 10, 0.7);
+  
 }
 
 body {
@@ -29,7 +41,9 @@ body {
   font-family: 'Press Start 2P', cursive;
   color: #F9F5FF;
   margin: 0;
-  padding: 0
+  padding: 0;
+  Font-Size: 25px;
+  text-shadow: 0px 4px 4px rgba(231, 10, 10, 0.7);
 }
 
 .titleTeam{
@@ -45,11 +59,13 @@ body {
   border-radius: 0px 50px;
   font-family: 'Comfortaa', cursive;
   color: #F9F5FF;
-  margin : 10px;
+  padding-bottom: 13px;
+  margin: 0px 10px;
 }
 
 .card-title{
   font-family: 'Press Start 2P', cursive;
+  Font-Size: 15px;
   color: #F9F5FF;
   margin : 10px;
   padding: 0;
@@ -60,15 +76,34 @@ body {
   font-family: 'Press Start 2P', cursive;
   font-size: 10px;
   color: #F9F5FF;
-  margin : 10px;
+  margin-left : 10px;
 }
 
 .card-text{
-  margin : 10px;
+  margin-left : 10px;
   font-size: 13px;
 }
 
-.card-body{
-  padding: 15px 10px;
+.cardbody{
+  padding-bottom: "15px";
+  padding-left:"10px";
+  margin-bottom: "30px"
 }
 
+.user{
+  padding-left: 25px;
+  padding-bottom: 10px;
+  
+}
+
+.usertitle{
+  padding-left: 25px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+}
+
+.titleTeam{
+  padding-top: 10px;
+  align-items: center;
+  margin-bottom: 10px
+}

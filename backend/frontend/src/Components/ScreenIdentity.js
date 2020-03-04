@@ -22,7 +22,7 @@ const ScreenIdentity = (props) => {
 
         <Form style={{paddingTop:30}} >
 
-          <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+          <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", padding:0}}>
 
             <FormGroup row className="identity" style={{paddingTop:30}}>
               <Label xs={2}>Pseudo*</Label>

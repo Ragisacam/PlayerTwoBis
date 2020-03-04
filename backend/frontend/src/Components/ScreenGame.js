@@ -1,29 +1,59 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Progress, Button } from 'reactstrap';
+import { Col, Container, Row, FormGroup, Label, Input, Form, Button, Card } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 
-function ScreenGame() {
+function ScreenGame(props) {
   return (
-    <div>
-      <div className="App">
-        <header className="App-header">
-          <img src={"../src/logo.svg"} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
 
-    
-      <Progress value="25">25%</Progress>
-    
+    <div className="backgroundColor">
+      
+      <Container>
 
-    // Bouton Save (route)
-    <Button color="primary" size="lg">Save</Button>
+        <Row>
+
+            <Col>
+              <Form>
+                <FormGroup row>
+                  <Label className="font" sm={2}>Plateforme*</Label>
+                  <Col sm={10}>
+                    <Input required style={{borderRadius:25}} type="text"/>
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label className="font" sm={2}>Jeux*</Label>
+                  <Col sm={10}>
+                    <Input required style={{borderRadius:25}} type="text"/>
+                  </Col>
+                </FormGroup>
+              </Form>
+            </Col>
+
+            <Col >
+              <Form>
+                <FormGroup row>
+                  <Label className="font" sm={2}>Service</Label>
+                  <Col sm={10}>
+                    <Input style={{borderRadius:25}} type="text"/>
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label className="font" sm={2}>tag</Label>
+                  <Col sm={10}>
+                    <Input style={{borderRadius:25}} type="text"/>
+                  </Col>
+                </FormGroup>
+              </Form>
+            </Col>
+
+        </Row>
+
+      </Container>
+
     </div>
+
       
     );
 }
@@ -51,7 +81,5 @@ function ScreenGame() {
 
 // Bouton Save (route)
 {/* <Button color="primary" size="lg">Save</Button> */}
-
-
 
 export default ScreenGame;

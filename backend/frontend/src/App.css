@@ -6,6 +6,13 @@
   color: #EEEEF0;
 }
 
+.font{
+  font-family:  'Comfortaa', cursive;
+  font-style: normal;
+  font-weight: bold;
+  color: #EEEEF0;
+}
+
 p{
   margin: 0px;
   padding: 0px;

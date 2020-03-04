@@ -130,12 +130,12 @@ function Footer() {
   const [modalShowShare, setModalShowShare] = React.useState(false);
 
   return (
-    <div>
+    <div style={{height: "3rem"}}>
 
       <Nav className="headerFooter" style={{ justifyContent:"space-around", alignItems:"center" }} >
 
         <NavItem>
-          <NavLink onClick={() => setModalShowContact(true)}><img src={require('../images/message.png')} alt="message"/></NavLink>
+          <NavLink  style={{padding: "0px",}} onClick={() => setModalShowContact(true)}><img src={require('../images/message.png')} alt="message"/></NavLink>
         </NavItem>
         <ContactModal
           show={modalShowContact}
@@ -158,10 +158,10 @@ function Footer() {
           onHide={() => setModalShowMention(false)}
         />
 
-        <NavItem>
-          <NavLink onClick={() => setModalShowShare(true)}><img className='footerIcons' src={require('../images/share.png')} alt="share"/></NavLink>
+        <NavItem >
+          <NavLink style={{padding: "0px",}} onClick={() => setModalShowShare(true)}><img className='footerIcons' src={require('../images/share.png')}  style={{height: "34px", width:"34px" }} salt="share"/></NavLink>
         </NavItem>
-      </Nav>
+      </Nav >
       <ShareModal
           show={modalShowShare}
           onHide={() => setModalShowShare(false)}

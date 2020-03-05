@@ -1,5 +1,5 @@
 import React from 'react';
-import {Spinner, CardColumns, Button, Col, Row, Card, CardTitle, CardText,CardSubtitle, CardBody, CardGroup, Container,
+import {Spinner, Button, Col, Row, Card, CardTitle, CardText,CardSubtitle, CardBody, Container,
 Table, CardImg} from 'reactstrap';
 import babyYoda from '../images/icons8-baby-yoda-48.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,13 +8,12 @@ function ScreenUser() {
   
   return (
 <div className="backgroundColor">
-  <Container style={{paddingTop:'3vh'}}>
-  <CardColumns>
-    <Card className="backgroundColor">
-        <CardBody className="card-background">
-        <Container>
-          <Row>
-            <Col xs="auto">
+  <br></br>
+<Row>
+<Col>
+    <Card style={{ backgroundColor: '#197278', borderRadius: "0px 50px", }}>
+          <Row style={{justifyContent: 'center'}}>
+            <Col xs="auto" className="cardbody" >
               <img src={babyYoda} alt="userAvatar" />
             </Col>
             <Col xs="auto">
@@ -27,93 +26,15 @@ function ScreenUser() {
             </Col>
           </Row>
           <br></br>
-          <div>
-              <CardSubtitle>Description</CardSubtitle>
-              <br></br>
+
+            <CardSubtitle>Description</CardSubtitle>
               <CardText>Sic de isto et tutius perducit ad actum ipsum, ut si dico “Ego autem vadam lavari, ut mens mea in statu naturae</CardText>
-          </div>
-          <br></br>
-          <CardSubtitle>Mes Teams:</CardSubtitle>
-          <br></br>
-          <CardText>Les Invincibles</CardText>
-          <CardText>Team Choucroute</CardText>
-          </Container>
-        </CardBody>
+            <CardSubtitle>Mes Teams:</CardSubtitle>
+              <CardText>Les Invincibles</CardText>
+              <CardText>Team Choucroute</CardText>
     </Card>
+    <br></br>
 
-      <Container style={{backgroundColor:"black"}}>
-        <CardTitle>Mes Player Two</CardTitle>
-      <CardGroup>
-      <Card style={{backgroundColor:'black'}}>
-      <CardBody className="card-background">
-        <Row>
-        <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
-          <Col xs="auto">
-          <CardTitle>Pseudo P2</CardTitle>
-          <CardTitle>Identifiant</CardTitle>
-          </Col>
-          <Spinner type="grow" color="danger" />
-        </Row>
-          <Card >
-          <CardText style={{color:'black'}}>Plateforme</CardText>
-          <CardText style={{color:'black'}}>Jeu</CardText>
-          <CardText style={{color:'black'}}>Mode</CardText>
-          <Button size="sm">Trash</Button>
-          </Card>
-        </CardBody>
-      </Card>
-      <Card style={{backgroundColor:'black'}}>
-      <CardBody className="card-background">
-        <Row>
-        <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
-          <Col xs="auto">
-          <CardTitle>Pseudo P2</CardTitle>
-          <CardTitle>Identifiant</CardTitle>
-          </Col>
-          <Spinner type="grow" color="success" />
-        </Row>
-          <Card>
-          <CardText style={{color:'black'}}>Plateforme</CardText>
-          <CardText style={{color:'black'}}>Jeu</CardText>
-          <CardText style={{color:'black'}}>Mode</CardText>
-          <Button size="sm">Trash</Button>
-          </Card>
-          <Card >
-          <CardText style={{color:'black'}}>Plateforme</CardText>
-          <CardText style={{color:'black'}}>Jeu</CardText>
-          <CardText style={{color:'black'}}>Mode</CardText>
-          <Button size="sm">Trash</Button>
-          </Card>
-          <Card >
-          <CardText style={{color:'black'}}>Plateforme</CardText>
-          <CardText style={{color:'black'}}>Jeu</CardText>
-          <CardText style={{color:'black'}}>Mode</CardText>
-          <Button size="sm">Trash</Button>
-          </Card>
-        </CardBody>
-      </Card>
-      <Card style={{backgroundColor:'black'}}>
-      <CardBody className="card-background">
-        <Row>
-        <img width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
-          <Col xs="auto">
-          <CardTitle>Pseudo P2</CardTitle>
-          <CardTitle>Identifiant</CardTitle>
-          </Col>
-          <Spinner type="grow" color="danger" />
-          </Row>
-          <Card >
-          <CardText style={{color:'black'}}>Plateforme</CardText>
-          <CardText style={{color:'black'}}>Jeu</CardText>
-          <CardText style={{color:'black'}}>Mode</CardText>
-          <Button size="sm">Trash</Button>
-          </Card>
-        </CardBody>
-      </Card>
-    </CardGroup>
-    </Container>
-
-{/* La card qui liste mes jeux */}
     <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", }}>
     <CardTitle>Liste de mes jeux</CardTitle>
     <Col className="cardbody">
@@ -148,6 +69,8 @@ function ScreenUser() {
     </Col>
     </Card>
 
+<br></br>
+
     <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", }}>
         <Col className="cardbody">
           <CardTitle>Mon fil d'actualité</CardTitle>
@@ -157,12 +80,99 @@ function ScreenUser() {
           <CardText>- This is a wider card with supporting text below as a natural lead-in</CardText>
           <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
         </Col>
+    </Card>
+
+</Col>
+{/* Je coupe ma page en deux ici */}
+<Col>
+
+      <Container className="card-background" style={{backgroundColor:"black"}}>
+        <CardTitle>Mes Player Two</CardTitle>
+      <Card style={{backgroundColor:'black'}}>
+      <CardBody className="card-background">
+        <Row>
+        <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
+          <Col xs="auto">
+          <CardTitle>Pseudo P2</CardTitle>
+          <CardTitle>Identifiant</CardTitle>
+          </Col>
+          <Col>
+          <Button size="sm">Trash</Button>
+          </Col>
+          <Spinner type="grow" color="danger" />
+        </Row>
+          <Card >
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+
+          </Card>
+        </CardBody>
       </Card>
 
-    </CardColumns>
+      <Card style={{backgroundColor:'black'}}>
+      <CardBody className="card-background">
+        <Row>
+        <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
+          <Col xs="auto">
+          <CardTitle>Pseudo P2</CardTitle>
+          <CardTitle>Identifiant</CardTitle>
+          </Col>
+          <Col>
+          <Button size="sm">Trash</Button>
+          </Col>
+          <Spinner type="grow" color="success" />
+        </Row>
+          <Card>
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+          </Card>
+          <Card >
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+          </Card>
+          <Card >
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+          </Card>
+        </CardBody>
+      </Card>
+
+      <br></br>
+
+      <Card style={{backgroundColor:'black'}}>
+      <CardBody className="card-background">
+        <Row>
+        <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
+          <Col xs="auto">
+          <CardTitle>Pseudo P2</CardTitle>
+          <CardTitle>Identifiant</CardTitle>
+          </Col>
+          <Col>
+          <Button size="sm">Trash</Button>
+          </Col>
+          <Spinner type="grow" color="danger" />
+          </Row>
+          <Card >
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+          </Card>
+        </CardBody>
+      </Card>
     </Container>
 
 
+
+    </Col>
+
+
+
+
+    </Row>
 </div>
 
 

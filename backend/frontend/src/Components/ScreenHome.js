@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {Button, Col, Card, CardColumns, CardImg, CardBody, CardTitle, CardText,
-ListGroup, ButtonToolbar, Modal, Container,} from 'react-bootstrap'  ; 
-
-
+import {Button, Card, CardColumns, FormGroup, ListGroup, Modal,} from 'react-bootstrap'  ; 
 
 function MyVerticallyCenteredModal(props) {
       return (
@@ -43,12 +40,15 @@ function MyVerticallyCenteredModal(props) {
 <div className="backgroundColor">
       
   <div>
-      <Link to="/ScreenMatchPage">
-      <img src={require('../images/button.png')} alt="button start" color="primary" size="lg"/>Find your player 2
-      </Link> 
+        <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
+              <Link>
+                <img src={require('../images/button.png')} alt="button start"/>
+                <div className="textButton">Start</div>
+              </Link>
+        </FormGroup>
   </div>
 
-<CardColumns>
+<CardColumns style={{paddingTop:25}}>
 
  {/*  Modal qui sommes-nous ? */}
   <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>

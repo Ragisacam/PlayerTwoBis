@@ -148,6 +148,9 @@ body {
   margin-bottom: 10px
 }
 
+.custom-column{
+  column-count: 2;
+}
 
 /*______________ TOGGLE ______________*/
   .react-switch{
@@ -162,6 +165,8 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
   user-select: none;
   } 
+
+
 
   .react-switch-bg{
     height: 36px;
@@ -187,5 +192,9 @@ body {
     border: 0px; 
     transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;
   }
+
+
+
+
 
 /* TOGGLE */

@@ -134,7 +134,7 @@ function Footer() {
       <Nav className="headerFooter" style={{position: 'sticky', bottom: 0, justifyContent:"space-around", alignItems:"center" }} >
 
         <NavItem>
-          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowContact(true)}><img src={require('../images/message.png')} alt="message"/></NavLink>
+          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowContact(true)}><img   src={require('../images/letter 1.svg')} alt="message"/></NavLink>
         </NavItem>
         <ContactModal
           show={modalShowContact}
@@ -158,7 +158,7 @@ function Footer() {
         />
 
         <NavItem >
-          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowShare(true)}><img className='footerIcons' src={require('../images/share.png')}  style={{height: "34px", width:"34px" }} alt="share"/></NavLink>
+          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowShare(true)}><img src={require('../images/share 1.svg')}  alt="share"/></NavLink>
         </NavItem>
       </Nav >
       <ShareModal

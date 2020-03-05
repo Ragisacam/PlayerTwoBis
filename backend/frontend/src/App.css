@@ -14,6 +14,20 @@
   color: #EEEEF0;
 }
 
+.nextButton {
+  position: relative;
+  text-align: center;
+  color: #EEEEF0;
+}
+
+.textButton {
+  position: absolute;
+  top: 59%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  color: #EEEEF0;
+}
+
 p{
   margin-bottom: 0px;
   padding: 0px;

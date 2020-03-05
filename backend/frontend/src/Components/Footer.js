@@ -135,7 +135,7 @@ function Footer() {
       <Nav className="headerFooter" style={{position: 'absolute', bottom: 0, justifyContent:"space-around", alignItems:"center" }} >
 
         <NavItem>
-          <NavLink  style={{padding: "0px",}} onClick={() => setModalShowContact(true)}><img src={require('../images/message.png')} alt="message"/></NavLink>
+          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowContact(true)}><img src={require('../images/message.png')} alt="message"/></NavLink>
         </NavItem>
         <ContactModal
           show={modalShowContact}
@@ -143,7 +143,7 @@ function Footer() {
         />
         
         <NavItem>
-          <NavLink onClick={() => setModalShowPolitique(true)} style={{color :'white'}}>Politique de confidentialité</NavLink>
+          <NavLink onClick={() => setModalShowPolitique(true)} style={{color :'#EEEEF0', cursor:"pointer"}}>Politique de confidentialité</NavLink>
         </NavItem>
         <PolitiqueModal
           show={modalShowPolique}
@@ -151,7 +151,7 @@ function Footer() {
         />
 
         <NavItem>
-          <NavLink onClick={() => setModalShowMention(true)} style={{color :'white'}}>Mention Légales</NavLink>
+          <NavLink onClick={() => setModalShowMention(true)} style={{color :'#EEEEF0', cursor:"pointer"}}>Mention Légales</NavLink>
         </NavItem>
         <MentionModal
           show={modalShowMention}
@@ -159,7 +159,7 @@ function Footer() {
         />
 
         <NavItem >
-          <NavLink style={{padding: "0px",}} onClick={() => setModalShowShare(true)}><img className='footerIcons' src={require('../images/share.png')}  style={{height: "34px", width:"34px" }} salt="share"/></NavLink>
+          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowShare(true)}><img className='footerIcons' src={require('../images/share.png')}  style={{height: "34px", width:"34px" }} alt="share"/></NavLink>
         </NavItem>
       </Nav >
       <ShareModal

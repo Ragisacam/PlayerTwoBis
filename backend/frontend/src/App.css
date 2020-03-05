@@ -7,9 +7,10 @@
 }
 
 .font{
+  justify-content: center;
   font-family:  'Comfortaa', cursive;
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
   color: #EEEEF0;
 }
 

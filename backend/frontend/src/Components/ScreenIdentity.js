@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import '../App.css';
 import { Col, Form, FormGroup, Label, Input, Container, Card } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
@@ -20,34 +19,34 @@ const ScreenIdentity = (props) => {
       
       <Container>
 
-        <Form style={{paddingTop:30}} >
+        <Form style={{paddingTop:50}} >
 
-          <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", padding:0}}>
+          <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)",backgroundColor: '#010212', borderRadius: "0px 50px", padding:"0px 20px"}}>
 
             <FormGroup row className="identity" style={{paddingTop:30}}>
-              <Label xs={2}>Pseudo*</Label>
-              <Col xs={4}>
+              <Label md={2}>Pseudo*</Label>
+              <Col md={4}>
                 <Input onChange={(e) => setSignUpPseudo(e.target.value)} required style={{borderRadius:25}} type="text"/>
               </Col>
             </FormGroup>
 
             <FormGroup row className="identity">
-              <Label xs={2}>Mot de passe*</Label>
-              <Col xs={4}>
+              <Label md={2}>Mot de passe*</Label>
+              <Col md={4}>
                 <Input onChange={(e) => setSignUpPassword(e.target.value)} required style={{borderRadius:25}} type="password"/>
               </Col>
             </FormGroup>
 
             <FormGroup row className="identity">
-              <Label xs={2}>Email*</Label>
-              <Col xs={4}>
+              <Label md={2}>Email*</Label>
+              <Col md={4}>
                 <Input onChange={(e) => setSignUpEmail(e.target.value)} required style={{borderRadius:25}} type="email"/>
               </Col>
             </FormGroup>
 
             <FormGroup row className="identity" style={{marginTop:30}}>
-              <Label xs={2}>Date de naissance</Label>
-              <Col xs={4}>
+              <Label md={2}>Date de naissance</Label>
+              <Col md={4}>
                 <Input
                   onChange={(e) => setBirthDate(e.target.value)}
                   style={{borderRadius:25}}
@@ -57,15 +56,15 @@ const ScreenIdentity = (props) => {
             </FormGroup>
 
             <FormGroup row className="identity">
-              <Label xs={2}>Ville</Label>
-              <Col xs={4}>
+              <Label md={2}>Ville</Label>
+              <Col md={4}>
                 <Input onChange={(e) => setCountry(e.target.value)} style={{borderRadius:25}} type="text"/>
               </Col>
             </FormGroup>
 
             <FormGroup row className="identity">
-              <Label xs={2}>Langue</Label>
-              <Col xs={4}>
+              <Label md={2}>Langue</Label>
+              <Col md={4}>
                 <Input onChange={(e) => setLanguage(e.target.value)} type="select">
                   <option>Français</option>
                   <option>Anglais</option>
@@ -82,8 +81,8 @@ const ScreenIdentity = (props) => {
             </FormGroup>
 
             <FormGroup row className="identity" style={{paddingBottom:30, marginBottom:0}}>
-              <Label xs={2}>Sexe</Label>
-              <Col xs={4} >
+              <Label md={2}>Sexe</Label>
+              <Col md={4} >
                 <Input onChange={(e) => setGender(e.target.value)} type="select">
                   <option>Non précisé</option>
                   <option>Homme</option>
@@ -94,7 +93,7 @@ const ScreenIdentity = (props) => {
 
           </Card>
 
-          <FormGroup style={{marginBottom:0, paddingTop:10, paddingBottom:10}} row className="identity">
+          <FormGroup style={{margin:0, paddingTop:55, justifyContent:"center"}} row>
             <Link>
               <img src={require('../images/button.png')} alt="button start"/>
             </Link>

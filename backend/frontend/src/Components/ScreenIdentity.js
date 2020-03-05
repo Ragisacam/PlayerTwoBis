@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Col, Row, Form, FormGroup, Label, Input, Container, Card } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const ScreenboldFont = (props) => {
+const ScreenIdentity = (props) => {
 
   const [signUpPseudo, setSignUpPseudo] = useState('')
   const [signUpPassword, setSignUpPassword] = useState('')
@@ -111,7 +111,7 @@ const ScreenboldFont = (props) => {
   );
 }
 
-export default ScreenboldFont;
+export default ScreenIdentity;
 
 
 //Sign-up

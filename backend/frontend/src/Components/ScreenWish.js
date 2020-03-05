@@ -83,7 +83,7 @@ function ScreenWish() {
                   </Col>
                 </FormGroup>
 
-                <FormGroup row inline className="font" style={{margin:0}}>
+                <FormGroup row inline className="font" style={{marginBottom:0}}>
                   <Label md={2}>Team or not?</Label>
                     <Col md={4}>
                       <FormGroup check inline>

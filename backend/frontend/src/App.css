@@ -30,7 +30,7 @@ div{
 }
 
 .backgroundColor{
-  height: 90vh;
+  min-height: 84vh;
   padding-left: 10px;
   padding-right: 10px;
   background: rgb(2,0,36);
@@ -39,14 +39,20 @@ div{
 
 .headerFooter{
   width: 100%;
-  height: auto;
+  min-height: 8vh;
   font-family:  'Comfortaa', cursive;
   font-style: normal;
   font-weight: bold;
   color: #F9F5FF;
   background: #000000;
-  
+  box-shadow: 10px 10px 10px 10px #414141;
 }
+
+.boxshadow{
+  box-shadow: 0px 4px 4px rgba(231, 10, 10, 0.7);
+  height: 34px;
+  width:34px;
+};
 
 body {
   font-family: 'Comfortaa', cursive;
@@ -80,6 +86,16 @@ body {
   box-shadow: 4px rgba(144, 14, 205, 0.8);
 }
 
+.lastcard{
+  height: auto;
+  background-color: #010212;
+  border-radius: 0px 50px;
+  font-family: 'Comfortaa', cursive;
+  color: #F9F5FF;
+  padding-bottom: 13px;
+  margin-bottom: 0px;
+  box-shadow: 4px rgba(144, 14, 205, 0.8);
+}
 .card-title{
   font-family: 'Press Start 2P', cursive;
   Font-Size: 15px;
@@ -133,3 +149,43 @@ body {
 }
 
 
+/*______________ TOGGLE ______________*/
+  .react-switch{
+  position: relative; 
+  display: inline-block; 
+  text-align: left; 
+  opacity: 1; 
+  direction: ltr; 
+  border-radius: 14px; 
+  transition: opacity 0.25s ease 0s; 
+  touch-action: none; 
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+  user-select: none;
+  } 
+
+  .react-switch-bg{
+    height: 36px;
+    width: 110px;
+    margin: 0px;
+    position: relative;
+    background: rgb(136, 136, 136);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.25s ease 0s;
+  }
+
+  .react-switch-handle{
+    height: 38px; 
+    width: 40px; 
+    background: rgb(255, 255, 255); 
+    display: inline-block; 
+    cursor: pointer; 
+    border-radius: 50%; 
+    position: absolute; 
+    transform: translateX(1px); top: 1px; 
+    outline: 0px; 
+    border: 0px; 
+    transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;
+  }
+
+/* TOGGLE */

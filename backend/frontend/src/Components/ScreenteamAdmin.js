@@ -16,11 +16,19 @@ function ScreenteamAdmin() {
     </div>
 
 
-  <CardColumns>
+  <CardColumns xs="12" sm="6" >
     {/*______ GAME ______*/}
     <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
       <Col  className="cardbody">
-        <CardTitle>Game</CardTitle>
+        <Row>
+          <CardTitle>Game</CardTitle>
+          <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
+            <img style={{height:"17px", width:"17px", marginRight: "10px"}} src={require('../images/Vector.svg')}/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+          </Col>
+        </Row>
+        
+
         <Row style={{paddingLeft: "25px", paddingBottom: "15px", alignItems:"center"}}>
           <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 1" />
           <CardText>Battlefield 5 </CardText>
@@ -28,7 +36,6 @@ function ScreenteamAdmin() {
         <Row style={{paddingLeft: "25px", paddingBottom: "15px", alignItems:"center"}}>
           <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 2" />
           <CardText>Battlefield 5 </CardText>
-          <CardImg style={{height:"20px"}} src={require('../images/adjust 1.svg')}></CardImg>
         </Row>
       </Col>
     </Card>
@@ -81,12 +88,21 @@ function ScreenteamAdmin() {
     {/* ______ MEMBRE ______*/}
     <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
       <Col className="cardbody">
-        <CardTitle>Membre</CardTitle>
+        <Row style={{display:"flex", alignItems:"center"}}>
+          <CardTitle>Membre</CardTitle>
+          <span style={{padding:"0 15px"}}>Total: 1</span>
+        </Row>
+        
+
 
       {/* ADMIN */}
       <Row className="usertitle" style={{display:"flex", justifyContent:"space-between"}}>
+        <span style={{paddingRight:"10px"}}>1</span>
         <CardSubtitle style={{margin:"0px"}}>Admin</CardSubtitle> 
-        <CardText style={{paddingRight:"15px"}}>1</CardText>
+        <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
+            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')}/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+          </Col>
       </Row> 
       
         <Row className="user">
@@ -95,10 +111,14 @@ function ScreenteamAdmin() {
         </Row>
 
       {/* SOUS ADMIN */}
-      <Row className="usertitle">
+      <Row className="usertitle" style={{display:"flex", justifyContent:"space-between"}}>
+      <span style={{paddingRight:"10px"}}>2</span>
         <CardSubtitle style={{margin:"0px"}}>Sous Admin</CardSubtitle> 
-        <CardText>nb: 2</CardText>
-      </Row> 
+        <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
+            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')}/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+          </Col>
+      </Row>  
 
         <Row className="user">
           <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
@@ -110,9 +130,13 @@ function ScreenteamAdmin() {
       </Row>
 
       {/* Member */}
-      <Row className="usertitle row">
-        <CardSubtitle style={{margin:"0px"}} >Sous Admin</CardSubtitle> 
-        <CardText>nb: 3</CardText>
+      <Row className="usertitle" style={{display:"flex", justifyContent:"space-between"}}>
+      <span style={{paddingRight:"10px"}}>3</span>
+        <CardSubtitle style={{margin:"0px"}}>Membre</CardSubtitle>
+        <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
+            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')}/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+          </Col>
       </Row>
 
         <Row className="user">

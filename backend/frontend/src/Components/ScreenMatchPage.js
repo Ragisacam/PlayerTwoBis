@@ -76,7 +76,7 @@
 
 //   //Card
 //   <div>
-//     <Card>
+//     <Card> 
 //       <CardBody>
 //         <CardTitle>Pseudo P2</CardTitle>
 //         <CardSubtitle>Identifiant</CardSubtitle>

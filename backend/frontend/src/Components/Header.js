@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from "react";
+
 /* import { Link } from 'react-router-dom'; */
 import {Link} from 'react-router-dom'
 import babyYoda from '../images/icons8-baby-yoda-48.png';

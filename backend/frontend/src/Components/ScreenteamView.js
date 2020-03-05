@@ -10,15 +10,15 @@ import { Col } from 'react-bootstrap';
 function ScreenteamView() {
   
   return (
-  // TEAM TITLE
-  <div className="backgroundColor">
-    <Row className="titleTeam">
-      <img style={{height:"50px", marginRight:"30px"}} src={require('../images/helmet-5.jpg')}  alt="team"/>
-      <h1  className="heading">Team's name</h1>
-    </Row>
+    // TEAM TITLE
+    <div className="backgroundColor">
+      <Row className="titleTeam">
+        <img style={{height:"70px", marginRight:"30px"}} src={require('../images/helmet-5.jpg')}  alt="team"/>
+        <h1  className="heading">Team's name</h1>
+      </Row>
 
-
-    <CardColumns>
+      <CardColumns>
+                  
       {/*______ GAME ______*/}
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
         <Col  className="cardbody">
@@ -29,9 +29,8 @@ function ScreenteamView() {
             <CardText>Battlefield 5 </CardText>
           </Row>
           <Row style={{paddingLeft: "25px", paddingBottom: "15px", alignItems:"center"}}>
-            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 2" />
-            <CardText>Battlefield 5 </CardText>
-            <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
+            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/helmet-5.jpg')} alt="game image 2" />
+            <CardText>Halo 5 </CardText>
           </Row>
         </Col>
       </Card>
@@ -72,7 +71,7 @@ function ScreenteamView() {
 
       {/* ______ MEMBRE ______*/}
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-        <Col className="cardbody">
+        <Col className="lastcard">
           <CardTitle>Membre</CardTitle>
 
 

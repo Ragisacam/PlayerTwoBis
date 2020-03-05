@@ -29,22 +29,33 @@ function ScreenteamView() {
             <CardText>Battlefield 5 </CardText>
           </Row>
           <Row style={{paddingLeft: "25px", paddingBottom: "15px", alignItems:"center"}}>
-            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 2" />
-            <CardText>Battlefield 5 </CardText>
+            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/helmet-5.jpg')} alt="game image 2" />
+            <CardText>Halo 5 </CardText>
           </Row>
-          
         </Col>
       </Card>
 
-{/*______ ACTU ______ */}
-<Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", paddingBottom: "25px"}}>
+
+      {/*______ Description ______ */}
+      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
       <Col className="cardbody">
+        <CardTitle >Description</CardTitle>
+        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+        <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
+      </Col>
+      </Card>
+
+
+{/*______ ACTU ______ */}
+      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", }}>
+        <Col className="cardbody">
           <CardTitle>Actu</CardTitle>
           <CardSubtitle>news 1</CardSubtitle>
-          <CardText>- This is a wider card with supporting text below as a natural lead-in to additional content.</CardText>
+          <CardText>- This is a wider card with supporting text below as a natural lead-in</CardText>
           <CardSubtitle>news 2</CardSubtitle>
-          <CardText>- This is a wider card with supporting text below as a natural lead-in to additional content. </CardText>
-          </Col>
+          <CardText>- This is a wider card with supporting text below as a natural lead-in</CardText>
+          <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
+        </Col>
       </Card>
 
 
@@ -53,23 +64,16 @@ function ScreenteamView() {
         <Col className="cardbody">
           <CardTitle>Philosophie</CardTitle>
           <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+          <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
         </Col>
       </Card>
-
-      {/*______ Description ______ */}
-      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-      <Col className="cardbody">
-        <CardTitle >Description</CardTitle>
-        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-      </Col>
-      </Card>
-
 
 
       {/* ______ MEMBRE ______*/}
       <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-        <Col className="cardbody">
+        <Col className="lastcard">
           <CardTitle>Membre</CardTitle>
+
 
         {/* ADMIN */}
         <Row className="usertitle">
@@ -81,6 +85,7 @@ function ScreenteamView() {
             <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
             <CardText>Username 1</CardText>
           </Row>
+
 
         {/* SOUS ADMIN */}
         <Row className="usertitle">
@@ -96,6 +101,7 @@ function ScreenteamView() {
             <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
             <CardText>Sous Admin 2</CardText>
           </Row>
+
 
         {/* Member */}
         <Row className="usertitle">
@@ -116,6 +122,8 @@ function ScreenteamView() {
             <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
             <CardText>Member 3</CardText>
           </Row>
+          <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
+
         </Col>
         
       </Card>

@@ -104,7 +104,7 @@ function MyVerticallyCenteredModal(props) {
   <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Notre philosophie</Card.Title>
-      <Card.Text>
+      <Card.Text> 
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
         erat a ante.
       </Card.Text>

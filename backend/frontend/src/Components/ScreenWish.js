@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Row, Col, Card, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 function ScreenWish() {

@@ -158,7 +158,7 @@ function Footer() {
         />
 
         <NavItem >
-          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowShare(true)}><img src={require('../images/share 1.svg')}  alt="share"/></NavLink>
+          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowShare(true)}><img style={{}} src={require('../images/share 1.svg')}  alt="share"/></NavLink>
         </NavItem>
       </Nav >
       <ShareModal

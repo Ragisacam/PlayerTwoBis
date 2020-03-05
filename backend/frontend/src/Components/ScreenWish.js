@@ -16,7 +16,7 @@ function ScreenWish() {
                 <FormGroup row className="font" style={{paddingTop:20}}>
                   <Label md={2}>Mode</Label>
                   <Col md={4}>
-                    <Input type="select">
+                    <Input style={{borderRadius:25}} type="select">
                       <option>Non précisé</option>
                       <option>Noob</option>
                       <option>Casual</option>
@@ -30,7 +30,7 @@ function ScreenWish() {
                 <FormGroup row className="font">
                   <Label md={2}>Age</Label>
                   <Col md={4}>
-                  <Input type="select">
+                  <Input style={{borderRadius:25}} type="select">
                     <option>Non précisé</option>
                     <option>- 18</option>
                     <option>18-25</option>
@@ -45,9 +45,10 @@ function ScreenWish() {
                 <FormGroup row className="font">
                   <Label md={2}>Disponilité</Label>
                   <Col md={4}>
-                    <Input type="select" multiple>
+                    <Input style={{borderRadius:25}} type="select" >
                       <option>Matin</option>
                       <option>Midi</option>
+                      <option>Après-Midi</option>
                       <option>Soir</option>
                     </Input>
                   </Col>
@@ -56,7 +57,7 @@ function ScreenWish() {
                 <FormGroup row className="font">
                   <Label md={2}>Sexe</Label>
                   <Col md={4}>
-                    <Input type="select">
+                    <Input style={{borderRadius:25}} type="select">
                     <option>Non précisé</option>
                     <option>Homme</option>
                     <option>Femme</option>
@@ -67,7 +68,7 @@ function ScreenWish() {
                 <FormGroup row className="font">
                   <Label md={2}>Langue</Label>
                   <Col md={4}>
-                    <Input type="select" multiple>
+                    <Input style={{borderRadius:25}} type="select">
                       <option>Français</option>
                       <option>Anglais</option>
                       <option>Allemand</option>
@@ -87,13 +88,13 @@ function ScreenWish() {
                     <Col md={4}>
                       <FormGroup check inline>
                         <Label check>
-                          <Input type="radio" name="radio2" />{' '}
+                          <Input style={{borderRadius:25}} type="radio" name="radio2" />{' '}
                           OUI                      
                           </Label>
                       </FormGroup>
                       <FormGroup check inline>
                         <Label check>
-                          <Input type="radio" name="radio2" />{' '}
+                          <Input style={{borderRadius:25}} type="radio" name="radio2" />{' '}
                           NON
                         </Label>
                       </FormGroup>
@@ -106,7 +107,7 @@ function ScreenWish() {
         </Row>
 
         <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
-          <Link>
+          <Link to="screenmatchpage">
             <img src={require('../images/button.png')} alt="button start"/>
             <div className="textButton">Start</div>
           </Link>

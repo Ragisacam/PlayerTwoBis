@@ -55,7 +55,7 @@ function MyVerticallyCenteredModal(props) {
       <div>
       
 <div>
-      <Link to="/ScreenMatchPage">
+      <Link to="/screenidentity">
       <Button color="primary" size="lg">Find your player 2</Button>{' '}
 
             {/* un bouton centré (en forme de triangle/flèche) avec pour cible la page inscription jeu

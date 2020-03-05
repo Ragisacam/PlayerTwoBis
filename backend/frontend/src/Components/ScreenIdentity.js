@@ -94,7 +94,7 @@ const ScreenIdentity = (props) => {
           </Card>
 
           <FormGroup style={{margin:0, paddingTop:55, justifyContent:"center"}} row>
-            <Link>
+            <Link to="/screengame">
               <img src={require('../images/button.png')} alt="button start"/>
             </Link>
           </FormGroup>

@@ -1,10 +1,50 @@
-import React from 'react';
-import { Col, Container, Row, FormGroup, Label, Input, Form, Card, CardColumns } from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Row, FormGroup, Label, Input, Form, Card } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 function ScreenGame(props) {
-  return (
 
+  const [plateformList, setPlateformList]= useState([])
+  const [plateformSelect, setPlateformSelect]= useState([])
+  const [serviceList, setserviceList]= useState([])
+  const [plateformIcon, setplateformIcon]= useState('')
+  const [serviceSelect, setServiceSelect] =useState('')
+  
+  // plateform from back
+  useEffect( async () => {
+    const platerformResponse = await fetch("http://localhost:3001/plateform");
+    const response = await platerformResponse.json()
+    console.log('plateform response =',response);
+    setPlateformList(response)
+    }, [])
+    console.log('plateform List =',plateformList);
+
+  //afficher les services par défaut attaché à la plateforme
+    const handlePlateformeSelect = async (clickPlateform) => {
+      setPlateformSelect(clickPlateform)
+      const serviceResponse =await fetch('http://localhost:3001/service', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: `plateformSelect=${clickPlateform}`
+      });
+      const response = await serviceResponse.json()
+      console.log("serviceresponse", response );
+      //récupéré img et service from back selon plateformeSelect
+      setserviceList(response.service)
+      setplateformIcon(response.img)
+    }; 
+    console.log("serviceList", serviceList);
+    console.log("plateformIcon ", plateformIcon);
+
+  //afficher le logo de la plateforme
+    let plateformIconaffiche = "";
+    if(plateformIcon !== ""){
+      plateformIconaffiche = <img src={plateformIcon} style={{padding:'5px', height:"45px"}}/>
+      }
+    console.log('plateformSelect =',plateformSelect);
+
+
+  return (
     <div className="backgroundColor">
       
       <Container>
@@ -18,10 +58,17 @@ function ScreenGame(props) {
                 <FormGroup row>
                   <Label className="font">Plateforme*</Label>
                   <Col>
-                    <Input required style={{borderRadius:25}} type="text"/>
+                  <Input required style={{borderRadius:25}}  onChange={(e) => handlePlateformeSelect(e.target.value) } type="select" placeholder="PC, console,...">
+                    { plateformList.map((plateform, i)=>(
+                      <option key={i}>{plateform.plateform}</option>
+                    ))}
+                    
+                  </Input>
+                    {plateformIconaffiche}
+
                   </Col>
                 </FormGroup>
-                <FormGroup row>
+                <FormGroup style={{paddingTop:"45px", postion: "static"}} row>
                   <Label className="font">Jeux*</Label>
                   <Col>
                     <Input required style={{borderRadius:25}} type="text"/>
@@ -35,11 +82,15 @@ function ScreenGame(props) {
                 <FormGroup row>
                   <Label className="font">Service</Label>
                   <Col>
-                    <Input style={{borderRadius:25}} type="text"/>
+                    <Input style={{borderRadius:25}} onChange={(e) => setServiceSelect(e.target.value)} type="select">
+                    { serviceList.map((service, i)=>(
+                      <option key={i}>{service}</option>
+                    ))}
+                    </Input>
                   </Col>
                 </FormGroup>
-                <FormGroup row>
-                  <Label className="font">tag</Label>
+                <FormGroup style={{paddingTop:"45px"}} row>
+                  <Label className="font" >tag</Label>
                   <Col>
                     <Input style={{borderRadius:25}} type="text"/>
                   </Col>
@@ -52,7 +103,7 @@ function ScreenGame(props) {
         </Row>
 
         <FormGroup style={{margin:0, paddingTop:100, justifyContent:"center"}} row>
-            <Link>
+            <Link to="screenwish">
               <img src={require('../images/button.png')} alt="button start"/>
             </Link>
         </FormGroup>

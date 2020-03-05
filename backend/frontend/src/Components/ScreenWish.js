@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 function ScreenWish() {
   return (
@@ -66,12 +67,17 @@ function ScreenWish() {
                     </Input>
                   </Col>
                 </FormGroup>
-
-                
+              
               </Form>
-
             </Col>
           </Card>
+
+          <FormGroup style={{margin:0, paddingTop:100, justifyContent:"center"}} row>
+            <Link to="/screenmatchpage">
+              <img src={require('../images/button.png')} alt="button start"/>
+            </Link>
+        </FormGroup>
+
         </Row>
       </Container>
 

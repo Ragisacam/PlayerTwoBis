@@ -33,11 +33,19 @@ router.post('/plateform', async function(req, res, next) {
 
 router.get('/plateform', async function(req, res, next) {
   var plateform = await plateformModel.find()
-  console.log(plateform);
-  
-  res.json("get plateform ok")
+  res.json(plateform)
 });
 
+//chercher quel service/image correspond à la plateforme sélectionné en front 
+router.post('/service', async function(req, res, next) {
+  console.log('serviceSelect',req.body.plateformSelect);
+  var findPlateform = await plateformModel.findOne({plateform: req.body.plateformSelect})
+  console.log("findPlateform ",findPlateform);
+  console.log("find service", findPlateform.service);
+  console.log("find img", findPlateform.img);
+  //puis le renvoyé au front
+  res.json(findPlateform)
+});
 // ______________ ADD GAME ______________
 router.post('/addgame', async function(req, res, next) {
   console.log("req body addgame",req.body);

@@ -1,4 +1,4 @@
-.identity{
+.boldFont{
   justify-content: center;
   font-family:  'Comfortaa', cursive;
   font-style: normal;
@@ -12,6 +12,20 @@
   font-style: normal;
   font-weight: normal;
   color: #F9F5FF;
+}
+
+.nextButton {
+  position: relative;
+  text-align: center;
+  color: #EEEEF0;
+}
+
+.textButton {
+  position: absolute;
+  top: 59%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  color: #EEEEF0;
 }
 
 p{
@@ -148,6 +162,9 @@ body {
   margin-bottom: 10px
 }
 
+.custom-column{
+  column-count: 2;
+}
 
 /*______________ TOGGLE ______________*/
   .react-switch{
@@ -162,6 +179,8 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
   user-select: none;
   } 
+
+
 
   .react-switch-bg{
     height: 36px;
@@ -187,5 +206,9 @@ body {
     border: 0px; 
     transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;
   }
+
+
+
+
 
 /* TOGGLE */

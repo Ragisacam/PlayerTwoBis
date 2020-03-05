@@ -1,5 +1,6 @@
 import React from 'react';
-import {Button, Col, Row, Card, CardTitle, CardText,CardSubtitle, CardBody, CardGroup, CardImg} from 'reactstrap';
+import {Spinner, Button, Col, Row, Card, CardTitle, CardText,CardSubtitle, CardBody, Container,
+Table, CardImg} from 'reactstrap';
 import babyYoda from '../images/icons8-baby-yoda-48.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -7,112 +8,176 @@ function ScreenUser() {
   
   return (
 <div className="backgroundColor">
-    <Card className="backgroundColor">
-        <CardBody className="card-background">
-          <Row>
-            <Col>
-              <img width="10%" src={babyYoda} alt="userAvatar" />
+  <br></br>
+<Row>
+<Col>
+    <Card style={{ backgroundColor: '#197278', borderRadius: "0px 50px", }}>
+          <Row style={{justifyContent: 'center'}}>
+            <Col xs="auto" className="cardbody" >
+              <img src={babyYoda} alt="userAvatar" />
             </Col>
-            <Col>
+            <Col xs="auto">
               <CardTitle>Mon profil</CardTitle>
-              <CardSubtitle>Team : <Button>Rejoindre</Button>  <Button>Créer</Button>  </CardSubtitle> {/* ici, il faudra insérer un tableau avec en header Team : Rejoindre : Créer:  */}
+              <br></br>
+              <Row>
+              <CardSubtitle>Team : </CardSubtitle><Button size="sm">Créer</Button><Button size="sm">Rejoindre</Button>
+              {/* il va falloir ajouter des routes sur les boutons */}
+              </Row> 
             </Col>
           </Row>
-          <div>
-              <CardSubtitle>Description</CardSubtitle>
+          <br></br>
+
+            <CardSubtitle>Description</CardSubtitle>
               <CardText>Sic de isto et tutius perducit ad actum ipsum, ut si dico “Ego autem vadam lavari, ut mens mea in statu naturae</CardText>
-          </div> 
-        </CardBody>
+            <CardSubtitle>Mes Teams:</CardSubtitle>
+              <CardText>Les Invincibles</CardText>
+              <CardText>Team Choucroute</CardText>
+    </Card>
+    <br></br>
+
+    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", }}>
+    <CardTitle>Liste de mes jeux</CardTitle>
+    <Col className="cardbody">
+    <Table>
+      <thead>
+        <tr>
+          <th>Plateforme</th>
+          <th>Jeu</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PC</td>
+          <td>World of Tank</td>
+          <td><img src={require("../images/Ellipse 4.png")}></img></td>
+        </tr>
+        <tr>
+
+          <td>XBOX</td>
+          <td>PES6</td>
+          <td><img src={require("../images/Ellipse 4.png")}></img></td>
+        </tr>
+        <tr>
+
+          <td>PS4</td>
+          <td>Battlefied V</td>
+          <td><img src={require("../images/Ellipse 4.png")}></img></td>
+        </tr>
+      </tbody>
+    </Table>
+    </Col>
     </Card>
 
-    <Card className="backgroundColor">
+<br></br>
+
+    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", }}>
+        <Col className="cardbody">
+          <CardTitle>Mon fil d'actualité</CardTitle>
+          <CardSubtitle>news 1</CardSubtitle>
+          <CardText>- This is a wider card with supporting text below as a natural lead-in</CardText>
+          <CardSubtitle>news 2</CardSubtitle>
+          <CardText>- This is a wider card with supporting text below as a natural lead-in</CardText>
+          <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
+        </Col>
+    </Card>
+
+</Col>
+{/* Je coupe ma page en deux ici */}
+<Col>
+
+      <Container className="card-background" style={{backgroundColor:"black"}}>
         <CardTitle>Mes Player Two</CardTitle>
-        <CardGroup>
-      <Card>
-        <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-        <CardBody>
-          <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-          <Button>Button</Button>
-        </CardBody>
-      </Card>
-      <Card>
-        <CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-        <CardBody>
-          <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
-          <Button>Button</Button>
-        </CardBody>
-      </Card>
-      <Card>
-      <CardBody>
+      <Card style={{backgroundColor:'black'}}>
+      <CardBody className="card-background">
         <Row>
         <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
-          <Col>
+          <Col xs="auto">
           <CardTitle>Pseudo P2</CardTitle>
           <CardTitle>Identifiant</CardTitle>
           </Col>
-          <img height="3%" width="3%" src={require("../images/Ellipse 6.png")} alt="Online/offline" />
-          </Row>
-          <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
-          <Button>Supprimer</Button>
+          <Col>
+          <Button size="sm">Trash</Button>
+          </Col>
+          <Spinner type="grow" color="danger" />
+        </Row>
+          <Card >
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+
+          </Card>
         </CardBody>
       </Card>
-    </CardGroup> 
-    </Card>
 
+      <Card style={{backgroundColor:'black'}}>
+      <CardBody className="card-background">
+        <Row>
+        <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
+          <Col xs="auto">
+          <CardTitle>Pseudo P2</CardTitle>
+          <CardTitle>Identifiant</CardTitle>
+          </Col>
+          <Col>
+          <Button size="sm">Trash</Button>
+          </Col>
+          <Spinner type="grow" color="success" />
+        </Row>
+          <Card>
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+          </Card>
+          <Card >
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+          </Card>
+          <Card >
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+          </Card>
+        </CardBody>
+      </Card>
+
+      <br></br>
+
+      <Card style={{backgroundColor:'black'}}>
+      <CardBody className="card-background">
+        <Row>
+        <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
+          <Col xs="auto">
+          <CardTitle>Pseudo P2</CardTitle>
+          <CardTitle>Identifiant</CardTitle>
+          </Col>
+          <Col>
+          <Button size="sm">Trash</Button>
+          </Col>
+          <Spinner type="grow" color="danger" />
+          </Row>
+          <Card >
+          <CardText style={{color:'black'}}>Plateforme</CardText>
+          <CardText style={{color:'black'}}>Jeu</CardText>
+          <CardText style={{color:'black'}}>Mode</CardText>
+          </Card>
+        </CardBody>
+      </Card>
+    </Container>
+
+
+
+    </Col>
+
+
+
+
+    </Row>
 </div>
 
-      
-/* <CardBody>
-Image de l'avatar (chargé par le backend)
-Nom de l'utilisateur (chargé par le backend)
-Team (affiché par le backend uniquement si l'utilisateur est dans une ou plusieurs teams)
-"Description" (format sous-titre ?)
-Champ texte (chargé par le backend)
-</CardBody> */
 
   );
 };
-
-
-{/* question pour Quentin : 4 DIV à la suite ou séparation sur 2 colonnes de la page ? */}
-
-
-
-{/* <DIV>
-
-Title : "Mes Player Two"
-
-Une liste de Player 2 sous forme de Card à l'identique de la match page ((avec en plus un bouton vert si online, rouge si offline, si on a le temps d'intégrer les web sockets)
-
-</DIV> */}
-
-
-{/* <DIV>
-Champ texte : Liste de mes jeux
-
-Tableau sur 3 colonnes avec en header :
-
-plateforme
-jeux
-Image
-
-liste fournie par le backend au chargement de la page
-
-Possibilité de trier par ordre alphabétique sur les champs plateformes et jeux
-
-</DIV> */}
-
-
-{/* <DIV>
-Champ texte : "Mon fil d'actualité"
-Liste de flux d'actualité chargé par le backend
-</DIV> */}
-
 
 
 export default ScreenUser;

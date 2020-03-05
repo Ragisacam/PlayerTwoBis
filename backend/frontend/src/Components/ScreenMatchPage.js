@@ -1,158 +1,155 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import '../App.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import {
-//   Card,CardBody, CardLink,
-//   CardTitle, CardSubtitle
-// } from 'reactstrap';
-// import { ListGroup, ListGroupItem } from 'reactstrap';
+import React from 'react';
+import {
+  Card, CardImg, CardTitle, CardText, CardColumns,
+  CardSubtitle, Row, Container, CardBody
+} from 'reactstrap';
+import { Col } from 'react-bootstrap';
 
 
-// function ScreenMatchPage(props) {
+function ScreenMatchPage() {
+  
+  return (
 
-//   return (
-//   <div>
-//   <div className="App">
-//     <header className="App-header">
-//       <img src={logo} className="App-logo" alt="logo" />
-//       <h1 className="App-title">Welcome to React</h1>
-//     </header>
-//     <p className="App-intro">
-//       To get started, edit <code>src/App.js</code> and save to reload.
-//     </p>
-//   </div>
+    <div className="backgroundColor">
 
+      <Container>
 
-//   // Titre Your Player Two
+          <Row className="titleTeam" style={{paddingTop:25}}>
+            <h1  className="heading">Your Player Two</h1>
+          </Row>
 
-//   // Ajouter tout
-//   <Button color="primary" size="lg">Ajouter tout</Button>
-
-//   // Bouton switch
-//   <FormGroup>
-//     <FormControlLabel
-//       control={<Switch checked={checked} onChange={toggleChecked} />}
-//       label="Normal"
-//     />
-//   </FormGroup>
-
-//   //Card
-//   <div>
-//     <Card>
-//       <CardBody>
-//         <CardTitle>Pseudo P2</CardTitle>
-//         <CardSubtitle>Identifiant</CardSubtitle>
-//       </CardBody>
-//       <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-//       <CardBody>
-//         <CardLink href="#">Card Link</CardLink>
-//         <CardLink href="#">Another Link</CardLink>
-//       </CardBody>
-//     </Card>
-//   </div>
-
-//   // CardBody
-//       <ListGroup>
-//         <ListGroupItem>Plateforme</ListGroupItem>
-//         <ListGroupItem>Jeux</ListGroupItem>
-//         <ListGroupItem>Mode</ListGroupItem>
-//       </ListGroup>
-
-//   // Icon avatar (image)
-//     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+          <CardColumns style={{marginTop:20}}>
 
 
-//   // Bouton Switch
-//   <FormGroup>
-//     <FormControlLabel
-//       control={<Switch checked={checked} onChange={toggleChecked} />}
-//       label="Normal"
-//     />
-//   </FormGroup>
-
-//   //Game's list backend
-
-
-//   //Card
-//   <div>
-//     <Card> 
-//       <CardBody>
-//         <CardTitle>Pseudo P2</CardTitle>
-//         <CardSubtitle>Identifiant</CardSubtitle>
-//       </CardBody>
-//       <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-//       <CardBody>
-//         <CardLink href="#">Card Link</CardLink>
-//         <CardLink href="#">Another Link</CardLink>
-//       </CardBody>
-//     </Card>
-//   </div>
-
-
-//   // CardBody
-//   <ListGroup>
-//     <ListGroupItem>Plateforme</ListGroupItem>
-//     <ListGroupItem>Jeux</ListGroupItem>
-//     <ListGroupItem>Mode</ListGroupItem>
-//   </ListGroup>
-
-//   // Icon avatar (image)
-//   <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+          <Card className="cardbody" style={{ backgroundColor: '#197278', borderRadius: "0px 50px" }}>
+            <CardBody>
+              <CardTitle>Pseudo P2</CardTitle>
+              <CardSubtitle>Identifiant : </CardSubtitle>
+              <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+            </CardBody>
+          </Card>
+                      
+          {/*______ PSEUDO ______*/}
+          <Card className="cardbody" style={{ backgroundColor: '#197278', borderRadius: "0px 50px" }}>
+              <Row style={{paddingLeft: "25px", paddingBottom: "15px", alignItems:"center"}}>
+                <Col>
+                <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 1" />
+                </Col>
+                <Col>
+                <CardTitle>Pseudo P2</CardTitle>
+                <CardText>Identifiant : </CardText>
+                </Col>
+              </Row>
+              <Row style={{paddingLeft: "25px", paddingBottom: "15px", alignItems:"center"}}>
+                <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 1" />
+                <CardText>Battlefield 5 </CardText>
+              </Row>
+              <Row style={{paddingLeft: "25px", paddingBottom: "15px", alignItems:"center"}}>
+                <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/helmet-5.jpg')} alt="game image 2" />
+                <CardText>Halo 5 </CardText>
+              </Row>
+          </Card>
 
 
-//   // Bouton Switch
-//   <FormGroup>
-//     <FormControlLabel
-//       control={<Switch checked={checked} onChange={toggleChecked} />}
-//       label="Normal"
-//     />
-//   </FormGroup>
-//       //Game's list backend
+          {/*______ Description ______ */}
+          <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+          <Col className="cardbody">
+            <CardTitle >Description</CardTitle>
+            <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+            <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
+          </Col>
+          </Card>
 
 
-// //Card
-
-//     <div>
-//       <Card>
-//         <CardBody>
-//           <CardTitle>Pseudo P2</CardTitle>
-//           <CardSubtitle>Identifiant</CardSubtitle>
-//         </CardBody>
-//         <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-//         <CardBody>
-//           <CardLink href="#">Card Link</CardLink>
-//           <CardLink href="#">Another Link</CardLink>
-//         </CardBody>
-//       </Card>
-//     </div>
+    {/*______ ACTU ______ */}
+          <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", }}>
+            <Col className="cardbody">
+              <CardTitle>Actu</CardTitle>
+              <CardSubtitle>news 1</CardSubtitle>
+              <CardText>- This is a wider card with supporting text below as a natural lead-in</CardText>
+              <CardSubtitle>news 2</CardSubtitle>
+              <CardText>- This is a wider card with supporting text below as a natural lead-in</CardText>
+              <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
+            </Col>
+          </Card>
 
 
-  // CardBody
-
-//       <ListGroup>
-//         <ListGroupItem>Plateforme</ListGroupItem>
-//         <ListGroupItem>Jeux</ListGroupItem>
-//         <ListGroupItem>Mode</ListGroupItem>
-//       </ListGroup>
-
-//   // Icon avatar (image)
-//   <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+          {/* Philosophie */}
+          <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+            <Col className="cardbody">
+              <CardTitle>Philosophie</CardTitle>
+              <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+              <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
+            </Col>
+          </Card>
 
 
-//   // Bouton Switch
-//   <FormGroup>
-//   <FormControlLabel
-//     control={<Switch checked={checked} onChange={toggleChecked} />}
-//     label="Normal"
-//   />
-//   </FormGroup>
-//   </div>
-//     )
-//   }
+          {/* ______ MEMBRE ______*/}
+          <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+            <Col className="lastcard">
+              <CardTitle>Membre</CardTitle>
 
 
-//       //Game's list backend
+            {/* ADMIN */}
+            <Row className="usertitle">
+              <CardSubtitle style={{margin:"0px"}}>Admin</CardSubtitle> 
+              <CardText>nb: 1</CardText>
+            </Row> 
+            
+              <Row className="user">
+                <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
+                <CardText>Username 1</CardText>
+              </Row>
 
 
-// export default ScreenMatchPage;
+            {/* SOUS ADMIN */}
+            <Row className="usertitle">
+              <CardSubtitle style={{margin:"0px"}}>Sous Admin</CardSubtitle> 
+              <CardText>nb: 2</CardText>
+            </Row> 
+
+              <Row className="user">
+                <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
+                <CardText>Sous Admin 1</CardText>
+              </Row>
+              <Row className="user">
+                <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
+                <CardText>Sous Admin 2</CardText>
+              </Row>
+
+
+            {/* Member */}
+            <Row className="usertitle">
+              <CardSubtitle style={{margin:"0px"}}>Sous Admin</CardSubtitle> 
+              <CardText>nb: 3</CardText>
+            </Row>
+
+              <Row className="user">
+                <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
+                <CardText>Member 1</CardText>
+              </Row>
+
+              <Row className="user">
+                <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
+                <CardText>Member 2</CardText>
+              </Row>
+              <Row className="user">
+                <CardImg style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
+                <CardText>Member 3</CardText>
+              </Row>
+              <CardImg style={{height:"20px"}} src={require('../images/three_dots.svg')}></CardImg>
+
+            </Col>
+            
+          </Card>
+
+        </CardColumns>
+
+      </Container>
+
+    </div>
+  );
+};
+
+
+export default ScreenMatchPage;

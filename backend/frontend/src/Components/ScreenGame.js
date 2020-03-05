@@ -49,7 +49,7 @@ function ScreenGame(props) {
       
       <Container>
 
-        <Row style={{justifyContent:"center"}}>
+        <Row xs="1" style={{justifyContent:"center"}}>
 
           <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" ,backgroundColor: '#010212', borderRadius: "0px 50px", flexDirection:"row", padding:"50px 100px", marginTop:100}}>
 

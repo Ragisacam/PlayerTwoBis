@@ -73,6 +73,8 @@ function ScreenMatchPage() {
           </Card>
         </CardBody>
 
+
+
         <CardBody className="card-background">
         <Row>
         <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />

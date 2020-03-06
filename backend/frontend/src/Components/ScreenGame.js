@@ -11,20 +11,19 @@ function ScreenGame(props) {
   const [plateformIcon, setplateformIcon]= useState('')
   const [serviceSelect, setServiceSelect] =useState('')
   const [Redirection, setRedirection] = useState(false)
-  const [game, setGame]= useState("")
+  const [name, setname]= useState("")
   const [tag, setTag]= useState("")
+  const UserId = "5e6267b3bc6dff15dcdbce4e"
 
   // plateform from back
   useEffect( () => {
     async function fetchdata (){
       const platerformResponse = await fetch("http://localhost:3001/plateform");
     const response = await platerformResponse.json()
-    console.log('plateform response =',response);
     setPlateformList(response)
     } 
     fetchdata()
     }, [])
-    console.log('plateform List =',plateformList);
 
   //afficher les services par défaut attaché à la plateforme
     const handlePlateformeSelect = async (clickPlateform) => {
@@ -37,14 +36,12 @@ function ScreenGame(props) {
       const response = await serviceResponse.json()
       console.log("serviceresponse", response );
       setServiceSelect(response.service[0])
-      //récupéré img et service from back selon plateformeSelect
-      setserviceList(response.service)
-      setplateformIcon(response.img)
-      props.onStartGameClick()
+        //récupéré img et service from back selon plateformeSelect
+        setserviceList(response.service)
+        setplateformIcon(response.img)
+      props.onStartGameClick() 
     }; 
     console.log("serviceselect", serviceSelect);
-    
-
 
   //afficher le logo de la plateforme
     let plateformIconaffiche = "";
@@ -53,23 +50,21 @@ function ScreenGame(props) {
     if(plateformIcon !== ""){
       plateformIconaffiche = <img src={plateformIcon} style={{padding:'5px', height:"45px"}}/>
       paddingData= "0px"
-      }
-    console.log('plateformSelect =',plateformSelect);
+      } 
 
 
-  
     //click sur le bouton start
     async function OnclickStartGame(){
       console.log('passe ici');
-      
+  
       //envoyé le jeux au back
       const gameResponse =await fetch('/addgame', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `plateform=${plateformSelect}&&game=${game}}&&service=${serviceSelect}&&tag=${tag}`
+        body: `plateform=${plateformSelect}&&name=${name}&&service=${serviceSelect}&&tag=${tag}&&userId=${UserId}`
       });
       const response = await gameResponse.json()
-      console.log("serviceresponse", response);
+      console.log("gameresponse", response);
       //récupérer result from back pour redirect ou non
       if (response.result == true){
         setRedirection(response.result)
@@ -93,7 +88,7 @@ function ScreenGame(props) {
           <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" ,backgroundColor: '#010212', borderRadius: "0px 50px", flexDirection:"row", padding:"50px 100px", marginTop:100}}>
 
             <Col>
-              <Form >
+              <Form > 
                 <FormGroup style={{alignItems: "center"}} row>
                   <Label style={{ margin:"0px" }} className="font">Plateforme*</Label>
                   <Col>
@@ -110,7 +105,7 @@ function ScreenGame(props) {
                 <FormGroup style={{paddingTop: paddingData, alignItems: "center"}} row>
                   <Label style={{ margin:"0px" }} className="font">Jeux*</Label>
                   <Col>
-                    <Input required style={{borderRadius:25}} type="text"/>
+                    <Input onChange={(e) => setname(e.target.value)} required style={{borderRadius:25}} type="text"/>
                   </Col>
                 </FormGroup>
               </Form>
@@ -129,9 +124,9 @@ function ScreenGame(props) {
                   </Col>
                 </FormGroup>
                 <FormGroup style={{paddingTop:"45px", alignItems: "center"}} row>
-                  <Label style={{ margin:"0px" }} className="font" >tag</Label>
+                  <Label style={{ margin:"0px" }} className="font" >Service ID</Label>
                   <Col>
-                    <Input style={{borderRadius:25}} type="text"/>
+                    <Input style={{borderRadius:25}} onChange={(e) => setTag(e.target.value)} type="text"/>
                   </Col>
                 </FormGroup>
               </Form>

@@ -10,10 +10,11 @@ function MyVerticallyCenteredModal(props) {
           aria-labelledby="contained-modal-title-vcenter"
           centered
                   >
-          <Modal.Header closeButton style={{color: 'white', backgroundColor: '#010212'}}>
+          <Modal.Header style={{backgroundColor: '#010212'}}>
             <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
               Qui sommes-nous ?
             </Modal.Title>
+            <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}>X</Button>
           </Modal.Header>
           <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
             <h4>Player Two</h4>
@@ -27,7 +28,6 @@ function MyVerticallyCenteredModal(props) {
             </p>
           </Modal.Body>
           <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
-            <Button onClick={props.onHide} >Fermer</Button>
           </Modal.Footer>
         </Modal>
       );
@@ -72,15 +72,6 @@ function MyVerticallyCenteredModal(props) {
             <ListGroup.Item style={{backgroundColor: '#010212'}}>Porta ac consectetur ac</ListGroup.Item>
             <ListGroup.Item style={{backgroundColor: '#010212'}}>Vestibulum at eros</ListGroup.Item>
         </ListGroup>
-    </Card.Body>
-  </Card>
-
-  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-    <Card.Body>
-      <Card.Title>Actu Player 2</Card.Title>
-      <Card.Text>
-      Envie de nous affronter ? On t'attend !!!
-      </Card.Text>
     </Card.Body>
   </Card>
 
@@ -131,6 +122,16 @@ function MyVerticallyCenteredModal(props) {
       </Card.Text>
     </Card.Body>
   </Card>
+
+  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+    <Card.Body>
+      <Card.Title>Actu Player 2</Card.Title>
+      <Card.Text>
+      Envie de nous affronter ? On t'attend !!!
+      </Card.Text>
+    </Card.Body>
+  </Card>
+
 </CardColumns>
 
 

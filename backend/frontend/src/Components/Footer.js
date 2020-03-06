@@ -5,31 +5,32 @@ import { Modal } from 'react-bootstrap';
 
 function ContactModal(props) {
   return (
+    
     <Modal
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+              >
+      <Modal.Header style={{backgroundColor: '#010212'}}>
+        <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
           Contact
         </Modal.Title>
+        <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0}}onClick={props.onHide}>X</Button>
       </Modal.Header>
-      <Modal.Body>
-        <h4>Contact</h4>
+      <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
+        <h4>Player Two</h4>
         <p>
           Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
           dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
           consectetur ac, vestibulum at eros.
         </p>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+      <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
       </Modal.Footer>
     </Modal>
-    );
-  }
+  );
+}
 
   function PolitiqueModal(props) {
     return (
@@ -38,24 +39,29 @@ function ContactModal(props) {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
+                >
+        <Modal.Header style={{backgroundColor: '#010212'}}>
+          <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
             Politique de confidentialité
           </Modal.Title>
+          <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0}}onClick={props.onHide}>X</Button>
         </Modal.Header>
-        <Modal.Body>
-          <h4>Politique de confidentialité</h4>
+        <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
+          <h4>Player Two</h4>
           <p>
-            Pero pero pero porke
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros.
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros.
           </p>
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+        <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
         </Modal.Footer>
       </Modal>
-      );
-    }
+    );
+  }
 
     function MentionModal(props) {
       return (
@@ -64,24 +70,29 @@ function ContactModal(props) {
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-              Mention Légales
+                  >
+          <Modal.Header style={{backgroundColor: '#010212'}}>
+            <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
+              Mentions Légales
             </Modal.Title>
+            <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0}}onClick={props.onHide}>X</Button>
           </Modal.Header>
-          <Modal.Body>
-            <h4>Mention Légales</h4>
+          <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
+            <h4>Player Two</h4>
             <p>
-              waifu
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+              consectetur ac, vestibulum at eros.
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+              consectetur ac, vestibulum at eros.
             </p>
           </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={props.onHide}>Close</Button>
+          <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
           </Modal.Footer>
         </Modal>
-        );
-      }
+      );
+    }
 
       function ShareModal(props) {
         return (
@@ -90,21 +101,16 @@ function ContactModal(props) {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-vcenter">
+                    >
+            <Modal.Header style={{backgroundColor: '#010212'}}>
+              <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
                 Share
               </Modal.Title>
+              <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0}}onClick={props.onHide}>X</Button>
             </Modal.Header>
-            <Modal.Body>
-              <h4>Share</h4>
+            <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
+              <h4>Player Two</h4>
               <p>
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros.
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros.
                 Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
                 dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
                 consectetur ac, vestibulum at eros.
@@ -113,13 +119,11 @@ function ContactModal(props) {
                 consectetur ac, vestibulum at eros.
               </p>
             </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={props.onHide}>Close</Button>
+            <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
             </Modal.Footer>
           </Modal>
-          );
-        }
-
+        );
+      }
 
 function Footer() {
 
@@ -169,6 +173,8 @@ function Footer() {
     </div>
     );
 }
+
+
 
 export default Footer;
 

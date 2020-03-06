@@ -38,7 +38,6 @@ export default class CustomIconSwitch extends Component {
 
             <Col style={{display:"flex", verticalAlign: "middle"}}>
             <span  className="heading">{`Player Two`}</span>
-            {/* <h1  className="heading">{`Two`}</h1> */}
             </Col>
           </Row>
       </Col>
@@ -79,8 +78,9 @@ export default class CustomIconSwitch extends Component {
 
         
 
-
-          <img src={babyYoda} alt="babyYoda"/>
+          <Link to="/ScreenUser">
+            <img src={babyYoda} alt="babyYoda"/>
+          </Link>
         </div>
     </Col>
       

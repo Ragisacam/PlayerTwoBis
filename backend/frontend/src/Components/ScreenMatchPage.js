@@ -20,7 +20,6 @@ function ScreenMatchPage() {
             </Col>
             <Col>
             <Row>
-            <h1  className="heading">Ajouter tout</h1>
             <Button size="sm">Ajouter tout</Button>
             </Row>
             </Col>
@@ -39,7 +38,7 @@ function ScreenMatchPage() {
           <Col>
           <Button size="sm">Ajouter</Button>
           </Col>
-          <Spinner type="grow" color="danger" />
+          <Spinner type="grow" color="success" />
         </Row>
           <Card >
           <CardText style={{color:'black'}}>Plateforme</CardText>

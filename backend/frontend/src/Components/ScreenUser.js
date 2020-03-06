@@ -1,6 +1,7 @@
 import React from 'react';
 import {Spinner, Button, Col, Row, Card, CardTitle, CardText,CardSubtitle, CardBody, Container,
 Table, CardImg} from 'reactstrap';
+import {Link} from 'react-router-dom'
 import babyYoda from '../images/icons8-baby-yoda-48.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,8 +21,9 @@ function ScreenUser() {
               <CardTitle>Mon profil</CardTitle>
               <br></br>
               <Row>
-              <CardSubtitle>Team : </CardSubtitle><Button size="sm">Créer</Button><Button size="sm">Rejoindre</Button>
-              {/* il va falloir ajouter des routes sur les boutons */}
+              <CardSubtitle>Team : </CardSubtitle>
+              <Link to="/ScreenteamAdmin"><Button size="sm">Créer</Button></Link>
+              <Link to="/ScreenteamView"><Button size="sm">Rejoindre</Button></Link>
               </Row> 
             </Col>
           </Row>
@@ -93,8 +95,7 @@ function ScreenUser() {
         <Row>
         <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
           <Col xs="auto">
-          <CardTitle>Pseudo P2</CardTitle>
-          <CardTitle>Identifiant</CardTitle>
+          <Link to="/ScreenOtherUser"><CardTitle>Pseudo P2</CardTitle></Link>
           </Col>
           <Col>
           <Button size="sm">Trash</Button>
@@ -114,8 +115,7 @@ function ScreenUser() {
         <Row>
         <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
           <Col xs="auto">
-          <CardTitle>Pseudo P2</CardTitle>
-          <CardTitle>Identifiant</CardTitle>
+          <Link to="/ScreenOtherUser"><CardTitle>Pseudo P2</CardTitle></Link>
           </Col>
           <Col>
           <Button size="sm">Trash</Button>
@@ -146,8 +146,7 @@ function ScreenUser() {
         <Row>
         <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
           <Col xs="auto">
-          <CardTitle>Pseudo P2</CardTitle>
-          <CardTitle>Identifiant</CardTitle>
+          <Link to="/ScreenOtherUser"><CardTitle>Pseudo P2</CardTitle></Link>
           </Col>
           <Col>
           <Button size="sm">Trash</Button>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Col, Row, Form, FormGroup, Label, Input, Container, Card } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const ScreenboldFont = (props) => {
+const ScreenIdentity = (props) => {
 
   const [signUpPseudo, setSignUpPseudo] = useState('')
   const [signUpPassword, setSignUpPassword] = useState('')
@@ -66,7 +66,7 @@ const ScreenboldFont = (props) => {
                 <FormGroup row className="boldFont">
                   <Label md={2}>Langue</Label>
                   <Col md={4}>
-                    <Input onChange={(e) => setLanguage(e.target.value)} type="select">
+                    <Input style={{borderRadius:25}} onChange={(e) => setLanguage(e.target.value)} type="select">
                       <option>Français</option>
                       <option>Anglais</option>
                       <option>Allemand</option>
@@ -84,7 +84,7 @@ const ScreenboldFont = (props) => {
                 <FormGroup row className="boldFont" style={{paddingBottom:20, marginBottom:0}}>
                   <Label md={2}>Sexe</Label>
                   <Col md={4} >
-                    <Input onChange={(e) => setGender(e.target.value)} type="select">
+                    <Input style={{borderRadius:25}} onChange={(e) => setGender(e.target.value)} type="select">
                       <option>Non précisé</option>
                       <option>Homme</option>
                       <option>Femme</option>
@@ -98,7 +98,7 @@ const ScreenboldFont = (props) => {
           </Col>
 
             <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
-              <Link>
+              <Link to="screengame">
                 <img src={require('../images/button.png')} alt="button start"/>
                 <div className="textButton">Start</div>
               </Link>
@@ -111,7 +111,7 @@ const ScreenboldFont = (props) => {
   );
 }
 
-export default ScreenboldFont;
+export default ScreenIdentity;
 
 
 //Sign-up

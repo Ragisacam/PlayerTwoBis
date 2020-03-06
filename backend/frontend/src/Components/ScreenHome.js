@@ -41,9 +41,9 @@ function MyVerticallyCenteredModal(props) {
       
   <div>
         <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
-              <Link>
-                <img src={require('../images/button.png')} alt="button start"/>
-                <div className="textButton">Start</div>
+        <Link to="screenidentity">
+                <img style={{height:"180px", width:"230px",}}  src={require('../images/button.png')} alt="button start"/>
+                <div style={{paddingBottom:"20px"}} className="textButton">Find your Player Two</div>
               </Link>
         </FormGroup>
   </div>

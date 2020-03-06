@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { Col, Row, Form, FormGroup, Label, Input, Container, Card } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Col, Row, Form, FormGroup, Label, Input, Container, Card, Button } from 'reactstrap';
+import {Redirect} from 'react-router-dom';
 
 const ScreenIdentity = (props) => {
 
@@ -10,8 +10,40 @@ const ScreenIdentity = (props) => {
 
   const [birthDate, setBirthDate] = useState('')
   const [country, setCountry] = useState('')
-  const [language, setLanguage] = useState('')
   const [gender, setGender] = useState('')
+  const [language, setLanguage] = useState('')
+
+  const [userExists, setUserExists] = useState(false)
+
+  const [listErrorsSignup, setErrorsSignup] = useState([])
+
+
+
+  var handleSubmitSignup = async () => {
+
+    const data = await fetch('/users/adduser', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: `pseudoFromFront=${signUpPseudo}&passwordFromFront=${signUpPassword}&mailFromFront=${signUpEmail}&birthdayFromFront=${birthDate}&cpFromFront=${country}&sexeFromFront=${gender}&langueFromFront=${language}`
+    })
+
+    const body = await data.json()
+
+    if(body.result == true){
+      setUserExists(true)
+    } else {
+      setErrorsSignup(body.error)
+    }
+  }
+
+  if(userExists){
+    return <Redirect to='/screengame'/>
+  }
+
+  var tabErrorsSignup = listErrorsSignup.map((error,i) => {
+    return(<p className="error">{error}</p>)
+  })
+
 
   return (
 
@@ -27,23 +59,25 @@ const ScreenIdentity = (props) => {
                 <FormGroup row className="boldFont" style={{paddingTop:20}}>
                   <Label md={2}>Pseudo*</Label>
                   <Col md={4}>
-                    <Input onChange={(e) => setSignUpPseudo(e.target.value)} required style={{borderRadius:25}} type="text"/>
+                    <Input onChange={(e) => setSignUpPseudo(e.target.value)} style={{borderRadius:25}} type="text"/>
                   </Col>
                 </FormGroup>
 
                 <FormGroup row className="boldFont">
                   <Label md={2}>Mot de passe*</Label>
                   <Col md={4}>
-                    <Input onChange={(e) => setSignUpPassword(e.target.value)} required style={{borderRadius:25}} type="password"/>
+                    <Input onChange={(e) => setSignUpPassword(e.target.value)} style={{borderRadius:25}} type="password"/>
                   </Col>
                 </FormGroup>
 
                 <FormGroup row className="boldFont">
                   <Label md={2}>Email*</Label>
                   <Col md={4}>
-                    <Input onChange={(e) => setSignUpEmail(e.target.value)} required style={{borderRadius:25}} type="email"/>
+                    <Input onChange={(e) => setSignUpEmail(e.target.value)} style={{borderRadius:25}} type="email"/>
                   </Col>
                 </FormGroup>
+
+                {tabErrorsSignup}
 
                 <FormGroup row className="boldFont" style={{marginTop:30}}>
                   <Label md={2}>Date de naissance</Label>
@@ -59,7 +93,18 @@ const ScreenIdentity = (props) => {
                 <FormGroup row className="boldFont">
                   <Label md={2}>Ville</Label>
                   <Col md={4}>
-                    <Input onChange={(e) => setCountry(e.target.value)} style={{borderRadius:25}} type="text"/>
+                    <Input onChange={(e) => setCountry(e.target.value)} style={{borderRadius:25}} type="number"/>
+                  </Col>
+                </FormGroup>
+
+                <FormGroup row className="boldFont" style={{paddingBottom:20, marginBottom:0}}>
+                  <Label md={2}>Sexe</Label>
+                  <Col md={4} >
+                    <Input style={{borderRadius:25}} onChange={(e) => setGender(e.target.value)} type="select">
+                      <option>Non précisé</option>
+                      <option>Homme</option>
+                      <option>Femme</option>
+                    </Input>
                   </Col>
                 </FormGroup>
 
@@ -81,28 +126,17 @@ const ScreenIdentity = (props) => {
                   </Col>
                 </FormGroup>
 
-                <FormGroup row className="boldFont" style={{paddingBottom:20, marginBottom:0}}>
-                  <Label md={2}>Sexe</Label>
-                  <Col md={4} >
-                    <Input style={{borderRadius:25}} onChange={(e) => setGender(e.target.value)} type="select">
-                      <option>Non précisé</option>
-                      <option>Homme</option>
-                      <option>Femme</option>
-                    </Input>
-                  </Col>
-                </FormGroup>
-
               </Card>
 
             </Form>
           </Col>
 
-            <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
-              <Link to="screengame">
-                <img src={require('../images/button.png')} alt="button start"/>
-                <div className="textButton">Start</div>
-              </Link>
-            </FormGroup>
+          <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
+            <Button onClick={() => handleSubmitSignup()} color="transparent" style={{padding:0}}>
+              <img src={require('../images/button.png')} alt="button start"/>
+              <div className="textButton">Start</div>
+            </Button>
+          </FormGroup>
 
         </Row>
       </Container>

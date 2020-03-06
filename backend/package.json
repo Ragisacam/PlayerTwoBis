@@ -16,7 +16,7 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "mongoose": "^5.9.2",
+    "mongoose": "^5.9.3",
     "morgan": "~1.9.1",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
@@ -25,6 +25,7 @@
     "react-router-dom": "^5.1.2",
     "react-switch": "^5.0.1",
     "reactstrap": "^8.4.1",
+    "sync-request": "^6.1.0",
     "redux": "^4.0.5"
   }
 }

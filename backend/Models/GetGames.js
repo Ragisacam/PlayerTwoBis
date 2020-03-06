@@ -14,9 +14,7 @@ async function getGames(gameName) {
   const config = header;
   config.data = `
     search "${gameName}";
-    fields name,collection,genres,slug,cover;
-    where rating >= 80;
-    
+    fields name,genres,cover,rating,url,cover.url,websites.url;
   `;
 
   try {
@@ -27,7 +25,7 @@ async function getGames(gameName) {
   }
 }
 
-getGames("halo");
+getGames("battlefield");
 
 
 // TODO export 

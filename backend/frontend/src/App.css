@@ -28,9 +28,25 @@
   color: #EEEEF0;
 }
 
+.error {
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  color: #EEEEF0;
+}
+
+.hiddenButton {
+  background-color: transparent;
+  border: none;
+  cursor:pointer;
+  outline: none;
+  padding: 0 px;
+}
+
 p{
   margin-bottom: 0px;
   padding: 0px;
+  text-align: justify;
 }
 
 div{
@@ -153,7 +169,7 @@ body {
 }
 
 .card-background{
-  background: #197278;
+  background: #007ACC;
   border-radius: 0px 90px;
 }
 .titleTeam{

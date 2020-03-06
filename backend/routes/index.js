@@ -11,9 +11,9 @@ router.get('/', function(req, res, next) {
   res.render('/ScreenHome', { title: 'Express' });
 });
 // ______________ PLATEFORMS ______________ (ok)
+//ajout de plateform (use postman)
 router.post('/plateform', async function(req, res, next) {
-  console.log("req body plateform ",req.body);
-  
+  // console.log("req body plateform ",req.body);
   var newPlateform = new plateformModel ({
     plateform:   req.body.plateform,
     img:         req.body.img,
@@ -31,6 +31,7 @@ router.post('/plateform', async function(req, res, next) {
   });
 });
 
+//envoi Plateform au front
 router.get('/plateform', async function(req, res, next) {
   var plateform = await plateformModel.find()
   res.json(plateform)
@@ -38,14 +39,12 @@ router.get('/plateform', async function(req, res, next) {
 
 //chercher quel service/image correspond à la plateforme sélectionné en front 
 router.post('/service', async function(req, res, next) {
-  console.log('serviceSelect',req.body.plateformSelect);
   var findPlateform = await plateformModel.findOne({plateform: req.body.plateformSelect})
-  console.log("findPlateform ",findPlateform);
-  console.log("find service", findPlateform.service);
-  console.log("find img", findPlateform.img);
   //puis le renvoyé au front
   res.json(findPlateform)
 });
+
+
 // ______________ ADD GAME ______________
 router.post('/addgame', async function(req, res, next) {
   console.log("req body addgame",req.body);
@@ -118,10 +117,10 @@ router.post('/addwish', async function(req, res, next) {
   newWish.save(function(error, wish){
     if (error){
       console.log("err",error);
-      res.json({error})
+      res.json({error, result: false})
     } else if (wish){
       console.log(wish);
-      res.json({wish})
+      res.json({wish, result: true})
     }
   });
 });

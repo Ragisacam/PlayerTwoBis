@@ -25,10 +25,7 @@
     "react-router-dom": "^5.1.2",
     "react-switch": "^5.0.1",
     "reactstrap": "^8.4.1",
-<<<<<<< HEAD
-    "sync-request": "^6.1.0"
-=======
+    "sync-request": "^6.1.0",
     "redux": "^4.0.5"
->>>>>>> 6f51a4f46b8485d2c99942f5da6665500a51d03d
   }
 }

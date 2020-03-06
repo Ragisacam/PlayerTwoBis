@@ -10,10 +10,11 @@ function MyVerticallyCenteredModal(props) {
           aria-labelledby="contained-modal-title-vcenter"
           centered
                   >
-          <Modal.Header closeButton style={{color: 'white', backgroundColor: '#010212'}}>
+          <Modal.Header style={{backgroundColor: '#010212'}}>
             <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
               Qui sommes-nous ?
             </Modal.Title>
+            <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}>X</Button>
           </Modal.Header>
           <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
             <h4>Player Two</h4>
@@ -27,7 +28,6 @@ function MyVerticallyCenteredModal(props) {
             </p>
           </Modal.Body>
           <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
-            <Button onClick={props.onHide} >Fermer</Button>
           </Modal.Footer>
         </Modal>
       );

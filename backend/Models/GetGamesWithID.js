@@ -10,13 +10,11 @@ const header = {
   }
 }
 
-async function getGames(gameName) {
+async function getGamesWithID(gameID) {
   const config = header;
   config.data = `
-    search "${gameName}";
-    fields name,collection,genres,slug,cover;
-    where rating >= 80;
-    
+    games "${gameID}";
+    fields "cover";
   `;
 
   try {
@@ -27,7 +25,7 @@ async function getGames(gameName) {
   }
 }
 
-getGames("halo");
+getGamesWithID("26183");
 
 
-// TODO export 
+// TODO export

@@ -10,7 +10,7 @@ function ScreenOtherUser() {
 
 <Col>
 <CardBody>
-<Card style={{ backgroundColor: '#197278', borderRadius: "0px 50px", }}>
+<Card style={{ backgroundColor: '#007ACC', borderRadius: "0px 50px", }}>
     <Col className="cardbody">
     <Row style={{justifyContent: 'center'}}>
         <Col xs="auto">

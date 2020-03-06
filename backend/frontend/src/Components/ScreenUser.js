@@ -12,7 +12,7 @@ function ScreenUser() {
   <br></br>
 <Row>
 <Col>
-    <Card style={{ backgroundColor: '#197278', borderRadius: "0px 50px", }}>
+    <Card style={{ backgroundColor: '#007ACC', borderRadius: "0px 50px", }}>
           <Row style={{justifyContent: 'center'}}>
             <Col xs="auto" className="cardbody" >
               <img src={babyYoda} alt="userAvatar" />

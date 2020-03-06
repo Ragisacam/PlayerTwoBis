@@ -105,7 +105,6 @@ function ScreenUser() {
           <CardText style={{color:'black'}}>Plateforme</CardText>
           <CardText style={{color:'black'}}>Jeu</CardText>
           <CardText style={{color:'black'}}>Mode</CardText>
-
           </Card>
         </CardBody>
       </Card>
@@ -143,8 +142,7 @@ function ScreenUser() {
 
       <br></br>
 
-      <Card style={{backgroundColor:'black'}}>
-      <CardBody className="card-background">
+      <CardBody className="card-background" >
         <Row>
         <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
           <Col xs="auto">
@@ -162,7 +160,6 @@ function ScreenUser() {
           <CardText style={{color:'black'}}>Mode</CardText>
           </Card>
         </CardBody>
-      </Card>
     </Container>
 
 

@@ -28,6 +28,21 @@
   color: #EEEEF0;
 }
 
+.error {
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  color: #EEEEF0;
+}
+
+.hiddenButton {
+  background-color: transparent;
+  border: none;
+  cursor:pointer;
+  outline: none;
+  padding: 0 px;
+}
+
 p{
   margin-bottom: 0px;
   padding: 0px;

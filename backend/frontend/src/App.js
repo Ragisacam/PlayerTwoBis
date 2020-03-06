@@ -15,27 +15,33 @@ import ScreenUser from './Components/ScreenUser';
 import ScreenMatchPage from './Components/ScreenMatchPage';
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
+//redux
+import game from './reducer/game'
+import {Provider} from 'react-redux'
+import {createStore, combineReducers} from 'redux'
+const store = createStore(combineReducers({game}))
 
 
 function App() {
   return (
-    
-    <Router>
-      <Header/>
-        <Switch>
-          <Route component={ScreenHome} path="/" exact/>
-          <Route component={ScreenIdentity} path="/screenidentity"  />
-          <Route component={ScreenGame} path="/screengame"  />
-          <Route component={ScreenWish} path="/screenwish"/>
-          <Route component={ScreenMatchPage} path="/screenmatchpage"  />
-          <Route component={ScreenOtherUser} path="/screenotheruser"  />
-          <Route component={ScreenteamAdmin} path="/screenteamadmin"  />
-          <Route component={ScreenteamView} path="/screenteamview"  />
-          <Route component={ScreenUser} path="/screenuser"  />
-        </Switch>
-      <Footer/>
-    </Router>
-    
+    <Provider store={store}>
+      <Router>
+        <Header/>
+          <Switch>
+            <Route component={ScreenHome} path="/" exact/>
+            <Route component={ScreenIdentity} path="/screenidentity"  />
+            <Route component={ScreenGame} path="/screengame"  />
+            <Route component={ScreenWish} path="/screenwish"/>
+            <Route component={ScreenMatchPage} path="/screenmatchpage"  />
+            <Route component={ScreenOtherUser} path="/screenotheruser"  />
+            <Route component={ScreenteamAdmin} path="/screenteamadmin"  />
+            <Route component={ScreenteamView} path="/screenteamview"  />
+            <Route component={ScreenUser} path="/screenuser"  />
+          </Switch>
+        <Footer/>
+      </Router>
+    </Provider>
+
   );
 }
 

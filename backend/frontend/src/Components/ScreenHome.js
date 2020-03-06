@@ -75,15 +75,6 @@ function MyVerticallyCenteredModal(props) {
     </Card.Body>
   </Card>
 
-  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-    <Card.Body>
-      <Card.Title>Actu Player 2</Card.Title>
-      <Card.Text>
-      Envie de nous affronter ? On t'attend !!!
-      </Card.Text>
-    </Card.Body>
-  </Card>
-
 
   <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
@@ -131,6 +122,16 @@ function MyVerticallyCenteredModal(props) {
       </Card.Text>
     </Card.Body>
   </Card>
+
+  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+    <Card.Body>
+      <Card.Title>Actu Player 2</Card.Title>
+      <Card.Text>
+      Envie de nous affronter ? On t'attend !!!
+      </Card.Text>
+    </Card.Body>
+  </Card>
+
 </CardColumns>
 
 

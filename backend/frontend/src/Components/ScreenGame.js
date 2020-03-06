@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row, FormGroup, Label, Input, Form, Card } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Col, Container, Row, FormGroup, Label, Input, Form, Card, Button } from 'reactstrap';
+import { Link, Redirect } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 function ScreenGame(props) {
 
@@ -9,7 +10,10 @@ function ScreenGame(props) {
   const [serviceList, setserviceList]= useState([])
   const [plateformIcon, setplateformIcon]= useState('')
   const [serviceSelect, setServiceSelect] =useState('')
-  
+  const [Redirection, setRedirection] = useState(false)
+  const [game, setGame]= useState("")
+  const [tag, setTag]= useState("")
+
   // plateform from back
   useEffect( () => {
     async function fetchdata (){
@@ -25,19 +29,22 @@ function ScreenGame(props) {
   //afficher les services par défaut attaché à la plateforme
     const handlePlateformeSelect = async (clickPlateform) => {
       setPlateformSelect(clickPlateform)
-      const serviceResponse =await fetch('http://localhost:3001/service', {
+      const serviceResponse =await fetch('/service', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
         body: `plateformSelect=${clickPlateform}`
       });
       const response = await serviceResponse.json()
       console.log("serviceresponse", response );
+      setServiceSelect(response.service[0])
       //récupéré img et service from back selon plateformeSelect
       setserviceList(response.service)
       setplateformIcon(response.img)
+      props.onStartGameClick()
     }; 
-    console.log("serviceList", serviceList);
-    console.log("plateformIcon ", plateformIcon);
+    console.log("serviceselect", serviceSelect);
+    
+
 
   //afficher le logo de la plateforme
     let plateformIconaffiche = "";
@@ -49,6 +56,32 @@ function ScreenGame(props) {
       }
     console.log('plateformSelect =',plateformSelect);
 
+
+  
+    //click sur le bouton start
+    async function OnclickStartGame(){
+      console.log('passe ici');
+      
+      //envoyé le jeux au back
+      const gameResponse =await fetch('/addgame', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: `plateform=${plateformSelect}&&game=${game}}&&service=${serviceSelect}&&tag=${tag}`
+      });
+      const response = await gameResponse.json()
+      console.log("serviceresponse", response);
+      //récupérer result from back pour redirect ou non
+      if (response.result == true){
+        setRedirection(response.result)
+        console.log(Redirection);
+      }
+    };
+  
+    // redirect ou non selon réponse du back
+    if(Redirection){
+      return( 
+      <Redirect to='/screenwish'/>)
+    };
 
   return (
     <div className="backgroundColor">
@@ -109,10 +142,10 @@ function ScreenGame(props) {
         </Row>
 
         <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
-              <Link to="screenwish">
-                <img src={require('../images/button.png')} alt="button start"/>
-                <div className="textButton">Start</div>
-              </Link>
+        <Button color="transparent" onClick={OnclickStartGame} style={{padding: 0}}>
+            <img src={require('../images/button.png')}  alt="button start"/>
+            <div className="textButton">Start</div>
+          </Button>
             </FormGroup>
 
       </Container>
@@ -122,28 +155,17 @@ function ScreenGame(props) {
     );
 }
 
-// card
 
-// Plateforme 
-// Champ de saisie
+function mapDispatchToProps(dispatch) {
+  return {
+    onStartGameClick: function(data) { 
+        dispatch( {type: 'savegame', data} ) 
+    }
+  } 
+}
 
-// Service
-// Champ de saisie
+export default connect(
+    null, 
+    mapDispatchToProps
+)(ScreenGame);
 
-// Jeux - image - API (route)
-// Champ de saisie
-
-// Tag
-// Champ de saisie
-
-// Progression bar
-/* 
-      <div>
-        <Progress value="25">25%</Progress>
-      </div> */
-  
-
-// Bouton Save (route)
-/* <Button color="primary" size="lg">Save</Button> */
-
-export default ScreenGame;

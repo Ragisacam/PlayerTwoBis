@@ -4,7 +4,6 @@ import Switch from "react-switch"
 import {Link} from 'react-router-dom'
 import babyYoda from '../images/icons8-baby-yoda-48.png';
 import logo from '../images/logoP2.svg';
-import switchee from '../images/switchee.png';
 import {Row, Col} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

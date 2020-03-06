@@ -47,29 +47,106 @@ router.post('/service', async function(req, res, next) {
 
 // ______________ ADD GAME ______________
 router.post('/addgame', async function(req, res, next) {
-  console.log("req body addgame",req.body);
+  console.log("reqbody addgame",req.body);
+
+  // var serviceListUserCopy = []
+  var gameListUserCopy = []
+
+  var userLog= await userModel.findById(req.body.userId )
+  console.log("userlog id" ,userLog); 
+  if (userLog){
+    // var serviceListUserCopy = userLog.service;
+    var gameListUserCopy = userLog.idGame
+  }  
+console.log("gameListUserCopy if userLog", gameListUserCopy);
+
+var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: req.body.name})
+  console.log(gameExist);
   
-  var newGame = new gameModel ({
-    plateforme:   req.body.plateforme,
+  //vérifier si champs vide plateform et name sont vide
+  if(req.body.plateform==""||req.body.name==""){
+    res.json("champs vide")
+  
+  //si pas de champs vide, ajouter un jeux dans DBA si n'existe pas
+  } else if (!gameExist) {
+    console.log("existe pas");
+    
+    var newGame = new gameModel ({ 
+    plateforme:   req.body.plateform,
     name:         req.body.name,
     cover:        req.body.cover,
-    background:   req.body.background,
-    description:  req.body.description,
-    website:      req.body.website,
-    rating :      req.body.rating,
-    category:     req.body.category
   });
-  
-  newGame.save(function(error, game){
+  newGame.save(async function(error, game){
     if (error){
       console.log("err",error);
       res.json({error})
+    
+    // si bien ajouter, attacher idgame au User
     } else if (game){
-      console.log(game);
-      res.json({game})
+      console.log("passe par newgame");
+      gameListUserCopy.push(game._id)
+      var addGameToUser = await userModel.updateOne( {_id:req.body.userId}, {
+        idGame: gameListUserCopy
+      })
+      console.log("gameListUserCopy after update", gameListUserCopy);
+      
+      res.json({game, addGameToUser})
     }
   });
+  //si le jeux existe déjà en DBA
+  }else{
+    console.log("passe par gameExist");
+    console.log("gameExist after",gameExist);
+    console.log("req.body.userId after",req.body.userId);
+    console.log("gameListUserCopy after",gameListUserCopy);
+    console.log("gameListUserCopy length",gameListUserCopy.length);
+    var idGameUserExist = false
+
+    //vérifier si jeux existe déjà chez l'User
+    for(let i=0; i<gameListUserCopy.length; i++){
+      if (gameListUserCopy[i].equals(gameExist._id) /*pas de = car des ID*/ ){
+        idGameUserExist = true
+      } 
+    }
+
+    //si non, on attache l'id à l'utilisateur
+    if(idGameUserExist == false){
+      gameListUserCopy.push(gameExist._id)
+        var addGameToUser = await userModel.updateOne( {_id:req.body.userId}, {
+        idGame: gameListUserCopy
+        })
+        console.log("gameListUserCopy after push",gameListUserCopy);
+    }
+    
+  };
+  
 });
+    
+  
+  //vérifier si champs vide service et tag sont vide
+  // if (req.body.service==""|| req.body.tag==""){
+  //   res.json("champs vide")
+  // }else {
+  //   var newServiceTag = new gameModel ({
+  //     service:    req.body.plateform,
+  //     battletag:  req.body.name,
+  //   });
+    
+  //   newServiceTag.save(function(error, ServiceTag){
+  //     if (error){
+  //       console.log("err",error);
+  //       res.json({error})
+  //     } else if (ServiceTag){
+  //       console.log(ServiceTag);
+  //       res.json({ServiceTag})
+  //     }
+  //   });
+  // }
+
+
+
+
+
 
 // ______________ TEAMS ______________
 router.post('/addteam', async function(req, res, next) {

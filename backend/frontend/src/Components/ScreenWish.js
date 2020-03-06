@@ -19,7 +19,7 @@ function ScreenWish() {
     const wishResponse =await fetch('/addwish', {
       method: 'POST',
       headers: {'Content-Type':'application/x-www-form-urlencoded'},
-      body: `mode=${mode}&&age=${age}}&&disponibility=${dispo}&&sexe=${sexe}&&langue=${langue}&&team=${team}`
+      body: `mode=${mode}&&age=${age}&&disponibility=${dispo}&&sexe=${sexe}&&langue=${langue}&&team=${team}`
     });
     const response = await wishResponse.json()
     console.log("serviceresponse", response);

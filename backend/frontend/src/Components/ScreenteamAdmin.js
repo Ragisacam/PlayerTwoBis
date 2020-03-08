@@ -18,7 +18,7 @@ function ScreenteamAdmin() {
 
   <CardColumns xs="12" sm="6" >
     {/*______ GAME ______*/}
-    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
       <Col  className="cardbody">
         <Row>
           <CardTitle>Game</CardTitle>
@@ -42,7 +42,7 @@ function ScreenteamAdmin() {
 
 
     {/*______ Candidature ______ */}
-    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", }}>
+    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
       <Col className="cardbody">
         <CardTitle>Candidature</CardTitle>
         <Row className="user" style={{display:"flex", justifyContent:"space-between"}}>
@@ -66,7 +66,7 @@ function ScreenteamAdmin() {
 
 
     {/* Philosophie */}
-    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
       <Col className="cardbody">
         <CardTitle>Philosophie</CardTitle>
         <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
@@ -76,7 +76,7 @@ function ScreenteamAdmin() {
 
 
     {/*______ Description ______ */}
-    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
     <Col className="cardbody">
       <CardTitle >Description</CardTitle>
       <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
@@ -86,7 +86,7 @@ function ScreenteamAdmin() {
 
 
     {/* ______ MEMBRE ______*/}
-    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+    <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
       <Col className="cardbody">
         <Row style={{display:"flex", alignItems:"center"}}>
           <CardTitle>Membre</CardTitle>

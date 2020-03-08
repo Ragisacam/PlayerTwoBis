@@ -9,12 +9,13 @@ function MyVerticallyCenteredModal(props) {
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
+          style={{borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)",}}
                   >
           <Modal.Header style={{backgroundColor: '#010212'}}>
             <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
               Qui sommes-nous ?
             </Modal.Title>
-            <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}>X</Button>
+            <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}><img src={require('../images/cross_modal.svg')}/></Button>
           </Modal.Header>
           <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
             <h4>Player Two</h4>
@@ -42,8 +43,8 @@ function MyVerticallyCenteredModal(props) {
   <div>
         <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
         <Link to="screenidentity">
-                <img style={{height:"180px", width:"230px",}}  src={require('../images/button.png')} alt="button start"/>
-                <div style={{paddingBottom:"20px"}} className="textButton">Find your Player Two</div>
+                <img style={{height:"180px", width:"800px",}}  src={require('../images/button.svg')} alt="button start"/>
+                <div style={{paddingBottom:"20px",paddingLeft:"20px", fontSize:"15px"}} className="textButton">Find your Player Two</div>
               </Link>
         </FormGroup>
   </div>
@@ -51,7 +52,7 @@ function MyVerticallyCenteredModal(props) {
 <CardColumns style={{paddingTop:25}}>
 
  {/*  Modal qui sommes-nous ? */}
-  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+  <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
       <Link variant="primary" onClick={() => setModalShow(true)}>
       <Card.Title>Qui sommes-nous ?</Card.Title>
       </Link>
@@ -62,7 +63,7 @@ function MyVerticallyCenteredModal(props) {
       />
   </Card>
 
-  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+  <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Jeux prisés sur Player 2</Card.Title>
         <ListGroup >
@@ -76,7 +77,7 @@ function MyVerticallyCenteredModal(props) {
   </Card>
 
 
-  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+  <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Comment ça marche ?</Card.Title>
       <Card.Text>
@@ -86,7 +87,7 @@ function MyVerticallyCenteredModal(props) {
   </Card>
 
 
-  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+  <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Jeux populaires</Card.Title>
       <ListGroup>
@@ -101,7 +102,7 @@ function MyVerticallyCenteredModal(props) {
 
 
 
-  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+  <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Notre philosophie</Card.Title>
       <Card.Text> 
@@ -114,7 +115,7 @@ function MyVerticallyCenteredModal(props) {
 
 {/* Actualités du jeu vidéo */}
 
-  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+  <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Actualité du jeu vidéo</Card.Title>
       <Card.Text>
@@ -123,7 +124,7 @@ function MyVerticallyCenteredModal(props) {
     </Card.Body>
   </Card>
 
-  <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+  <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Actu Player 2</Card.Title>
       <Card.Text>

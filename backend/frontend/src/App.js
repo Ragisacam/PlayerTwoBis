@@ -15,11 +15,13 @@ import ScreenUser from './Components/ScreenUser';
 import ScreenMatchPage from './Components/ScreenMatchPage';
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
+import {CustomIconSwitch} from "./Components/Header"
 //redux
 import game from './reducer/game'
 import {Provider} from 'react-redux'
 import {createStore, combineReducers} from 'redux'
 const store = createStore(combineReducers({game}))
+
 
 
 function App() {

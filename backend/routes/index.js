@@ -49,13 +49,13 @@ router.post('/service', async function(req, res, next) {
 router.post('/addgame', async function(req, res, next) {
   console.log("reqbody addgame",req.body);
 
-  // var serviceListUserCopy = []
+  var serviceListUserCopy = []
   var gameListUserCopy = []
 
   var userLog= await userModel.findById(req.body.userId )
   console.log("userlog id" ,userLog); 
   if (userLog){
-    // var serviceListUserCopy = userLog.service;
+    var serviceListUserCopy = userLog.service;
     var gameListUserCopy = userLog.idGame
   }  
 console.log("gameListUserCopy if userLog", gameListUserCopy);
@@ -63,13 +63,13 @@ console.log("gameListUserCopy if userLog", gameListUserCopy);
 var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: req.body.name})
   console.log(gameExist);
   
+  //____ plateform & game ____
   //vérifier si champs vide plateform et name sont vide
   if(req.body.plateform==""||req.body.name==""){
     res.json("champs vide")
   
-  //si pas de champs vide, ajouter un jeux dans DBA si n'existe pas
+  // //si pas de champs vide, ajouter un jeux dans DBA si n'existe pas
   } else if (!gameExist) {
-    console.log("existe pas");
     
     var newGame = new gameModel ({ 
     plateforme:   req.body.plateform,
@@ -81,100 +81,104 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
       console.log("err",error);
       res.json({error})
     
-    // si bien ajouter, attacher idgame au User
+  //   // si bien ajouter, attacher idgame au User
     } else if (game){
-      console.log("passe par newgame");
       gameListUserCopy.push(game._id)
       var addGameToUser = await userModel.updateOne( {_id:req.body.userId}, {
         idGame: gameListUserCopy
       })
-      console.log("gameListUserCopy after update", gameListUserCopy);
-      
-      res.json({game, addGameToUser})
+      var result = true
+      res.json({game, result})
     }
   });
-  //si le jeux existe déjà en DBA
+  // //si le jeux existe déjà en DBA
   }else{
-    console.log("passe par gameExist");
-    console.log("gameExist after",gameExist);
-    console.log("req.body.userId after",req.body.userId);
-    console.log("gameListUserCopy after",gameListUserCopy);
-    console.log("gameListUserCopy length",gameListUserCopy.length);
     var idGameUserExist = false
 
-    //vérifier si jeux existe déjà chez l'User
+  //   //vérifier si jeux existe déjà chez l'User
     for(let i=0; i<gameListUserCopy.length; i++){
       if (gameListUserCopy[i].equals(gameExist._id) /*pas de = car des ID*/ ){
         idGameUserExist = true
       } 
     }
 
-    //si non, on attache l'id à l'utilisateur
+  //   //si non, on attache l'id à l'utilisateur
     if(idGameUserExist == false){
       gameListUserCopy.push(gameExist._id)
         var addGameToUser = await userModel.updateOne( {_id:req.body.userId}, {
         idGame: gameListUserCopy
         })
-        console.log("gameListUserCopy after push",gameListUserCopy);
+        var result= true
+        res.json(result)
     }
     
   };
+
+  //____ Service & Tag ____
+  console.log("service - tag ",req.body.service," - " ,req.body.tag );
   
+  var serviceUserExist = false
+
+  //vérifier si user à déjà un service ataché
+  console.log("serviceListUserCopy[0].service", serviceListUserCopy[0].service);
+  
+  for(let i=0; i<serviceListUserCopy.length; i++){
+        if (serviceListUserCopy[i].service == req.body.service){
+          serviceUserExist = true
+        }
+      }
+  console.log(serviceUserExist);
+  
+  //vérifier si champs vide
+  if(req.body.service==""||req.body.tag==""){
+    res.json({error: "champs vide"})
+    console.log(serviceListUserCopy);
+
+  //si pas de champs vide, ajouter un service+tag dans DBA si n'existe pas
+  } else if (!serviceUserExist) {
+    serviceListUserCopy.push({service:req.body.service, tag: req.body.tag})
+    var addServiceToUser = await userModel.updateOne( {_id:req.body.userId}, {
+    service: serviceListUserCopy
+    })
+    res.json({result: true})
+  } else if(req.body.service === '...' ){
+    res.json({result: false}, {error: 'sélectionné un service'})
+  } else { 
+    res.json({result: false}, {error: 'déjà un identifiant service'})
+  } 
+
 });
-    
-  
-  //vérifier si champs vide service et tag sont vide
-  // if (req.body.service==""|| req.body.tag==""){
-  //   res.json("champs vide")
-  // }else {
-  //   var newServiceTag = new gameModel ({
-  //     service:    req.body.plateform,
-  //     battletag:  req.body.name,
-  //   });
-    
-  //   newServiceTag.save(function(error, ServiceTag){
-  //     if (error){
-  //       console.log("err",error);
-  //       res.json({error})
-  //     } else if (ServiceTag){
-  //       console.log(ServiceTag);
-  //       res.json({ServiceTag})
-  //     }
-  //   });
-  // }
-
-
-
-
+//problème si utilisateur veut rajouter un jeu et qu'il a déjà mis un service.
+//voir pour modifier auto service et tag quand user connected et pouvoir passer à la page suivante
 
 
 // ______________ TEAMS ______________
-router.post('/addteam', async function(req, res, next) {
-  console.log("req body addteam",req.body);
+// router.post('/addteam', async function(req, res, next) {
+//   console.log("req body addteam",req.body);
   
-  var newTeam = new teamModel ({
-    idGame:       req.body.idGame,
-    idWish:       req.body.idWish,
-    name:         req.body.name,
-    avatar:       req.body.avatar,
-    philosophie:  req.body.philosophie,
-    description:  req.body.description,
-    admin:        req.body.admin,
-    sousadmin:    req.body.sousadmin,
-    regular :     req.body.regular,
-    actu:         req.body.actu,
-  });
+//   var newTeam = new teamModel ({
+//     idGame:       req.body.idGame,
+//     idWish:       req.body.idWish,
+//     name:         req.body.name,
+//     avatar:       req.body.avatar,
+//     philosophie:  req.body.philosophie,
+//     description:  req.body.description,
+//     admin:        req.body.admin,
+//     sousadmin:    req.body.sousadmin,
+//     regular :     req.body.regular,
+//     actu:         req.body.actu,
+//   });
   
-  newTeam.save(function(error, team){
-    if (error){
-      console.log("err",error);
-      res.json({error})
-    } else if (team){
-      console.log(team);
-      res.json({team})
-    }
-  });
-});
+//   newTeam.save(function(error, team){
+//     if (error){
+//       console.log("err",error);
+//       res.json({error})
+//     } else if (team){
+//       console.log(team);
+//       res.json({team})
+//     }
+//   });
+// });
 
 // ______________ WISHS ______________
 router.post('/addwish', async function(req, res, next) {

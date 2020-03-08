@@ -12,7 +12,7 @@ var userSchema = mongoose.Schema({
   birthday:     Date,
   avatar :      String,
   CP:           Number,
-  service:      Object,
+  service:      Array,
   battletag:    String,
   playerTwo :   [{type: mongoose.Schema.Types.ObjectId, ref:"users"}],
   blacklist:    [{type: mongoose.Schema.Types.ObjectId, ref: "users"}],

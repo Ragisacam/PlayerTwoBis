@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, FormGroup, Label, Input, Form, Card, Button } from 'reactstrap';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 function ScreenGame(props) {
@@ -18,11 +18,12 @@ function ScreenGame(props) {
   // plateform from back
   useEffect( () => {
     async function fetchdata (){
-      const platerformResponse = await fetch("http://localhost:3001/plateform");
+      const platerformResponse = await fetch("/plateform");
     const response = await platerformResponse.json()
     setPlateformList(response)
     } 
     fetchdata()
+    setRedirection(false)
     }, [])
 
   //afficher les services par défaut attaché à la plateforme
@@ -48,7 +49,7 @@ function ScreenGame(props) {
     let paddingData= "45px"
     
     if(plateformIcon !== ""){
-      plateformIconaffiche = <img src={plateformIcon} style={{padding:'5px', height:"45px"}}/>
+      plateformIconaffiche = <img src={plateformIcon} style={{padding:'5px', height:"45px"}} alt="platform icon"/>
       paddingData= "0px"
       } 
 
@@ -66,12 +67,14 @@ function ScreenGame(props) {
       const response = await gameResponse.json()
       console.log("gameresponse", response);
       //récupérer result from back pour redirect ou non
-      if (response.result == true){
+      if (response.result === true){
         setRedirection(response.result)
         console.log(Redirection);
       }
     };
   
+
+
     // redirect ou non selon réponse du back
     if(Redirection){
       return( 
@@ -80,9 +83,8 @@ function ScreenGame(props) {
 
   return (
     <div className="backgroundColor">
-      
-      <Container>
 
+      <Container>
         <Row xs="1" style={{justifyContent:"center"}}>
 
           <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" ,backgroundColor: '#010212', borderRadius: "0px 50px", flexDirection:"row", padding:"50px 100px", marginTop:100}}>
@@ -138,7 +140,7 @@ function ScreenGame(props) {
 
         <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
         <Button color="transparent" onClick={OnclickStartGame} style={{padding: 0}}>
-            <img src={require('../images/button.png')}  alt="button start"/>
+        <img style={{height:"100px", width:"100px"}} src={require('../images/button.svg')} alt="button start"/>
             <div className="textButton">Start</div>
           </Button>
             </FormGroup>

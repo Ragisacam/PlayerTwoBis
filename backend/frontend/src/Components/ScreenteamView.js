@@ -20,16 +20,15 @@ function ScreenteamView() {
       <CardColumns>
                   
       {/*______ GAME ______*/}
-      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
         <Col  className="cardbody">
           <CardTitle>Game</CardTitle>
-          <CardText>Ici on joue à :</CardText>
           <Row style={{paddingLeft: "25px", paddingBottom: "15px", alignItems:"center"}}>
-            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 1" />
+            <CardImg style={{height: '50px', width:'50px', borderRadius: "10px", marginRight: "10px"}} top width="100%" src={require('../images/bf5.jpg')} alt="game image 1" />
             <CardText>Battlefield 5 </CardText>
           </Row>
           <Row style={{paddingLeft: "25px", paddingBottom: "15px", alignItems:"center"}}>
-            <CardImg style={{height: '40px', width:'40px', borderRadius: "30px", marginRight: "10px"}} top width="100%" src={require('../images/helmet-5.jpg')} alt="game image 2" />
+            <CardImg style={{height: '50px', width:'50px', borderRadius: "10px", marginRight: "10px"}} top width="100%" src={require('../images/helmet-5.jpg')} alt="game image 2" />
             <CardText>Halo 5 </CardText>
           </Row>
         </Col>
@@ -37,7 +36,7 @@ function ScreenteamView() {
 
 
       {/*______ Description ______ */}
-      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
       <Col className="cardbody">
         <CardTitle >Description</CardTitle>
         <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
@@ -47,7 +46,7 @@ function ScreenteamView() {
 
 
 {/*______ ACTU ______ */}
-      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", }}>
+      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
         <Col className="cardbody">
           <CardTitle>Actu</CardTitle>
           <CardSubtitle>news 1</CardSubtitle>
@@ -60,7 +59,7 @@ function ScreenteamView() {
 
 
       {/* Philosophie */}
-      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
         <Col className="cardbody">
           <CardTitle>Philosophie</CardTitle>
           <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
@@ -70,7 +69,7 @@ function ScreenteamView() {
 
 
       {/* ______ MEMBRE ______*/}
-      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px" }}>
+      <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
         <Col className="lastcard">
           <CardTitle>Membre</CardTitle>
 

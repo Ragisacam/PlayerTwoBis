@@ -10,7 +10,7 @@ function ScreenOtherUser() {
 
 <Col>
 <CardBody>
-<Card style={{ backgroundColor: '#007ACC', borderRadius: "0px 50px", }}>
+<Card style={{ backgroundColor: '#007ACC', borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
     <Col className="cardbody">
     <Row style={{justifyContent: 'center'}}>
         <Col xs="auto">
@@ -38,7 +38,7 @@ function ScreenOtherUser() {
 
 <Col>
 <CardBody>
-<Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", alignItems:"center" }}>
+<Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", alignItems:"center", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
     <CardTitle >Ses jeux</CardTitle>
     <Col className="cardbody">
     <Table>

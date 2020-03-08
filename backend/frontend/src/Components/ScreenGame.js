@@ -3,27 +3,49 @@ import { Col, Container, Row, FormGroup, Label, Input, Form, Card, Button } from
 import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 
+// import game from '../reducer/game';
+
 function ScreenGame(props) {
 
   const [plateformList, setPlateformList]= useState([])
   const [plateformSelect, setPlateformSelect]= useState([])
   const [serviceList, setserviceList]= useState([])
   const [plateformIcon, setplateformIcon]= useState('')
-  const [serviceSelect, setServiceSelect] =useState('')
+  const [serviceSelect, setServiceSelect] =useState('...')
   const [Redirection, setRedirection] = useState(false)
   const [name, setname]= useState("")
   const [tag, setTag]= useState("")
-  const UserId = "5e6267b3bc6dff15dcdbce4e"
-
-  // plateform from back
+  const [userConnected, setUserConnected]  = useState(true) /* changer en false quand on aura stocker user dans le Store redux */
+  const userId = "5e63bec8b48b0d57c82aa92c" /*Zehekiel*/
+  const [searchGame, setSearchGame]= useState("")
+  // ___________ useEffect ___________
   useEffect( () => {
     async function fetchdata (){
-      const platerformResponse = await fetch("/plateform");
+    // plateform from back
+    const platerformResponse = await fetch("/plateform");
     const response = await platerformResponse.json()
     setPlateformList(response)
+
+    //vérifier si User est connecté (store Redux)
+    
+    console.log(userConnected);
+    
+    if(userConnected===true){
+      //si oui récupérer ses info dans DBA
+      const response = await fetch('/users/finduser', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: `userId=${userId}`
+      });const userResponse = await response.json()
+      console.log("userResponse", userResponse.service[0].tag);
+      setUserConnected(true)
+      setServiceSelect(userResponse.service[0].service)
+      setTag(userResponse.service[0].tag)
+    } else {
+      setRedirection(false)
+    }
     } 
     fetchdata()
-    setRedirection(false)
     }, [])
 
   //afficher les services par défaut attaché à la plateforme
@@ -36,13 +58,14 @@ function ScreenGame(props) {
       });
       const response = await serviceResponse.json()
       console.log("serviceresponse", response );
-      setServiceSelect(response.service[0])
+      
         //récupéré img et service from back selon plateformeSelect
         setserviceList(response.service)
         setplateformIcon(response.img)
-      props.onStartGameClick() 
+      // props.onStartGameClick(game) 
+
     }; 
-    console.log("serviceselect", serviceSelect);
+
 
   //afficher le logo de la plateforme
     let plateformIconaffiche = "";
@@ -52,27 +75,54 @@ function ScreenGame(props) {
       plateformIconaffiche = <img src={plateformIcon} style={{padding:'5px', height:"45px"}} alt="platform icon"/>
       paddingData= "0px"
       } 
+    
+   // _____ chercher un jeux dans l'API_____
+  //  const axios = require('axios').default;
 
+  //  const API_KEY = "d03577227c5216baadca7ff98c147128";
+  //  const header = {
+  //    method: 'POST',
+  //    headers: {
+  //      'Accept': 'application/json',
+  //      'user-key': API_KEY,
+  //    }
+  // }
 
-    //click sur le bouton start
-    async function OnclickStartGame(){
-      console.log('passe ici');
+  //  async function getGames(gameName) {
+  //    const config = header;
+  //    config.data = `
+  //      search "${gameName}";
+  //      fields name,genres,cover,rating,url,cover.url,websites.url;
+  //    `;
   
+  //    try {
+  //      const response = await axios("https://api-v3.igdb.com/games", config);
+  //      console.log(response.data);
+  //    } catch (error) {
+  //      console.error(error);
+  //    }
+  //  }
+  //  getGames("searchGame");
+
+    // ___________ ON CLICK START ___________
+    async function OnclickStartGame(){
+      
+      console.log("serviceselect", serviceSelect);
+      console.log("tag", tag);
+
       //envoyé le jeux au back
       const gameResponse =await fetch('/addgame', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `plateform=${plateformSelect}&&name=${name}&&service=${serviceSelect}&&tag=${tag}&&userId=${UserId}`
+        body: `plateform=${plateformSelect}&&name=${name}&&service=${serviceSelect}&&tag=${tag}&&userId=${userId}`
       });
       const response = await gameResponse.json()
       console.log("gameresponse", response);
       //récupérer result from back pour redirect ou non
       if (response.result === true){
         setRedirection(response.result)
-        console.log(Redirection);
       }
     };
-  
 
 
     // redirect ou non selon réponse du back
@@ -81,18 +131,19 @@ function ScreenGame(props) {
       <Redirect to='/screenwish'/>)
     };
 
+  // __________________________________ RETURN __________________________________
   return (
     <div className="backgroundColor">
 
       <Container>
         <Row xs="1" style={{justifyContent:"center"}}>
 
-          <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" ,backgroundColor: '#010212', borderRadius: "0px 50px", flexDirection:"row", padding:"50px 100px", marginTop:100}}>
+          <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" ,backgroundColor: '#010212', borderRadius: "0px 50px", flexDirection:"row", padding:"50px 70px", margin: 50}}>
 
             <Col>
               <Form > 
                 <FormGroup style={{alignItems: "center"}} row>
-                  <Label style={{ margin:"0px" }} className="font">Plateforme*</Label>
+                  <Label style={{ margin:"0px", justifyContent: "start"}} >Plateforme*</Label>
                   <Col>
                   <Input required style={{borderRadius:25}}  onChange={(e) => handlePlateformeSelect(e.target.value) } type="select" placeholder="PC, console,...">
                     { plateformList.map((plateform, i)=>(
@@ -107,7 +158,7 @@ function ScreenGame(props) {
                 <FormGroup style={{paddingTop: paddingData, alignItems: "center"}} row>
                   <Label style={{ margin:"0px" }} className="font">Jeux*</Label>
                   <Col>
-                    <Input onChange={(e) => setname(e.target.value)} required style={{borderRadius:25}} type="text"/>
+                    <Input onChange={(e) => setSearchGame(e.target.value)} required style={{borderRadius:25}} type="text"/>
                   </Col>
                 </FormGroup>
               </Form>
@@ -116,7 +167,7 @@ function ScreenGame(props) {
             <Col style={{marginLeft:"30px"}}>
               <Form>
               <FormGroup style={{alignItems: "center"}} row>
-                  <Label style={{ margin:"0px" }} className="font">Service</Label>
+                  <Label style={{ margin:"0px" }} className="font">Service*</Label>
                   <Col>
                     <Input style={{borderRadius:25}} onChange={(e) => setServiceSelect(e.target.value)} type="select">
                     { serviceList.map((service, i)=>(
@@ -126,7 +177,7 @@ function ScreenGame(props) {
                   </Col>
                 </FormGroup>
                 <FormGroup style={{paddingTop:"45px", alignItems: "center"}} row>
-                  <Label style={{ margin:"0px" }} className="font" >Service ID</Label>
+                  <Label style={{ margin:"0px" }} className="font" >Service ID*</Label>
                   <Col>
                     <Input style={{borderRadius:25}} onChange={(e) => setTag(e.target.value)} type="text"/>
                   </Col>
@@ -138,12 +189,13 @@ function ScreenGame(props) {
 
         </Row>
 
-        <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
-        <Button color="transparent" onClick={OnclickStartGame} style={{padding: 0}}>
-        <img style={{height:"100px", width:"100px"}} src={require('../images/button.svg')} alt="button start"/>
+         {/* START BUTTON */}           
+        <Row className="nextButton boldFont" style={{margin:0, paddingTop:25,}}>
+          <Button color="transparent" onClick={OnclickStartGame} style={{padding: 0}}>
+            <img style={{height:"100px", width:"100px"}} src={require('../images/button.svg')} alt="button start"/>
             <div className="textButton">Start</div>
           </Button>
-            </FormGroup>
+        </Row>
 
       </Container>
 
@@ -153,16 +205,16 @@ function ScreenGame(props) {
 }
 
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onStartGameClick: function(data) { 
-        dispatch( {type: 'savegame', data} ) 
-    }
-  } 
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     onStartGameClick: function(data) { 
+//         dispatch( {type: 'savegame', data} ) 
+//     }
+//   } 
+// }
 
 export default connect(
     null, 
-    mapDispatchToProps
+    // mapDispatchToProps
 )(ScreenGame);
 

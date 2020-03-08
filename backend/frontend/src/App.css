@@ -222,7 +222,7 @@ element.style{
     outline: 0px; 
     border: 0px; 
     transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;
-  } */
+  }
 
   .react-switch-handle-logout{
     background-image: url("./images/power-button.svg") !important;
@@ -238,7 +238,7 @@ element.style{
     border: 0px; 
     transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;
     
-  }
+  } */
 
 
 

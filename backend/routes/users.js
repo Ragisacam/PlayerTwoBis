@@ -74,5 +74,15 @@ router.get('/logout', function(req, res, next) {
   res.json('logout OK');
 });
 
+// _____________________ FIND a User _____________________
+router.post('/finduser', async function(req, res, next) {
+  console.log("req.body",req.body.userId);
+  
+  var userFind= await userModel.findById(req.body.userId )
+  console.log("userFind",userFind);
+  
+  res.json(userFind);
+});
+
 
 module.exports = router;

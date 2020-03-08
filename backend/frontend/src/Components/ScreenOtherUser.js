@@ -52,19 +52,19 @@ function ScreenOtherUser() {
       </thead>
       <tbody>
         <tr>
-        <td><img src={require("../images/Ellipse 4.png")}></img></td>
+        <td><img src={require("../images/Ellipse 4.png")} alt=""></img></td>
           <td>PC</td>
           <td>World of Tank</td>
 
         </tr>
         <tr>
-        <td><img src={require("../images/Ellipse 4.png")}></img></td>
+        <td><img src={require("../images/Ellipse 4.png")} alt=""></img></td>
           <td>XBOX</td>
           <td>PES6</td>
 
         </tr>
         <tr>
-        <td><img src={require("../images/Ellipse 4.png")}></img></td>
+        <td><img src={require("../images/Ellipse 4.png")} alt=""></img></td>
           <td>PS4</td>
           <td>Battlefied V</td>
 

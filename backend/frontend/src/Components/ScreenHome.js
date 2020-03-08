@@ -15,7 +15,7 @@ function MyVerticallyCenteredModal(props) {
             <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
               Qui sommes-nous ?
             </Modal.Title>
-            <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}><img src={require('../images/cross_modal.svg')}/></Button>
+            <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}} onClick={props.onHide}> <img src={require('../images/cross_modal.svg')} alt="modal cross"/></Button>
           </Modal.Header>
           <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
             <h4>Player Two</h4>
@@ -41,9 +41,9 @@ function MyVerticallyCenteredModal(props) {
 <div className="backgroundColor">
       
   <div>
-        <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
+        <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}}>
         <Link to="screenidentity">
-                <img style={{height:"180px", width:"800px",}}  src={require('../images/button.svg')} alt="button start"/>
+                <img style={{height:"180px", width:"200px",}}  src={require('../images/button.svg')} alt="button start"/>
                 <div style={{paddingBottom:"20px",paddingLeft:"20px", fontSize:"15px"}} className="textButton">Find your Player Two</div>
               </Link>
         </FormGroup>
@@ -53,9 +53,8 @@ function MyVerticallyCenteredModal(props) {
 
  {/*  Modal qui sommes-nous ? */}
   <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-      <Link variant="primary" onClick={() => setModalShow(true)}>
-      <Card.Title>Qui sommes-nous ?</Card.Title>
-      </Link>
+      <Card.Title onClick={() => setModalShow(true)}>Qui sommes-nous ?</Card.Title>
+
 
       <MyVerticallyCenteredModal
         show={modalShow}

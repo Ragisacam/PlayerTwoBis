@@ -29,7 +29,7 @@ const ScreenIdentity = (props) => {
 
     const body = await data.json()
 
-    if(body.result == true){
+    if(body.result === true){
       setUserExists(true)
     } else {
       setErrorsSignup(body.error)

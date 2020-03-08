@@ -66,7 +66,7 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
   //____ plateform & game ____
   //vérifier si champs vide plateform et name sont vide
   if(req.body.plateform==""||req.body.name==""){
-    res.json("champs vide")
+    res.json(" plateform OU game vide")
   
   // //si pas de champs vide, ajouter un jeux dans DBA si n'existe pas
   } else if (!gameExist) {
@@ -108,6 +108,7 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
         var addGameToUser = await userModel.updateOne( {_id:req.body.userId}, {
         idGame: gameListUserCopy
         })
+        console.log("addGameToUser ",addGameToUser);
         var result= true
         res.json(result)
     }
@@ -120,19 +121,25 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
   var serviceUserExist = false
 
   //vérifier si user à déjà un service ataché
-  console.log("serviceListUserCopy[0].service", serviceListUserCopy[0].service);
+  console.log("serviceListUserCopy[0].service", serviceListUserCopy);
   
   for(let i=0; i<serviceListUserCopy.length; i++){
         if (serviceListUserCopy[i].service == req.body.service){
           serviceUserExist = true
         }
       }
-  console.log(serviceUserExist);
-  
+      for(let i=0; i<serviceListUserCopy.length; i++){
+        if (serviceListUserCopy[i].tag == req.body.tag){
+          tagUserExist = true
+        }
+      }
+
+  console.log("serviceUserExist ",serviceUserExist);
+  console.log("tagUserExist ", tagUserExist);
   //vérifier si champs vide
-  if(req.body.service==""||req.body.tag==""){
-    res.json({error: "champs vide"})
-    console.log(serviceListUserCopy);
+  if(req.body.service=="..." || req.body.tag==""){
+    console.log("serviceListUserCopy champs vide",serviceListUserCopy);
+    res.json({error: " SERVICE ou TAG vide"})
 
   //si pas de champs vide, ajouter un service+tag dans DBA si n'existe pas
   } else if (!serviceUserExist) {
@@ -140,16 +147,16 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
     var addServiceToUser = await userModel.updateOne( {_id:req.body.userId}, {
     service: serviceListUserCopy
     })
+    console.log("addServiceToUser", addServiceToUser);
     res.json({result: true})
-  } else if(req.body.service === '...' ){
-    res.json({result: false}, {error: 'sélectionné un service'})
-  } else { 
+  } else if (tagUserExist && serviceUserExist){
+    result = true
+    res.json(result)
+  }   else { 
     res.json({result: false}, {error: 'déjà un identifiant service'})
   } 
 
 });
-//problème si utilisateur veut rajouter un jeu et qu'il a déjà mis un service.
-//voir pour modifier auto service et tag quand user connected et pouvoir passer à la page suivante
 
 
 // ______________ TEAMS ______________

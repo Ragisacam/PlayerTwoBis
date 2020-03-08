@@ -51,19 +51,19 @@ function ScreenUser() {
 
       <tbody>
         <tr>
-          <td><img src={require("../images/Ellipse 4.png")}></img></td>
+          <td><img src={require("../images/Ellipse 4.png")} alt=""></img></td>
           <td>PC</td>
           <td>World of Tank</td>
         </tr>
 
         <tr>
-          <td><img src={require("../images/Ellipse 4.png")}></img></td>
+          <td><img src={require("../images/Ellipse 4.png")} alt=""></img></td>
           <td>XBOX</td>
           <td>PES6</td>
         </tr>
 
         <tr>
-          <td><img src={require("../images/Ellipse 4.png")}></img></td>
+          <td><img src={require("../images/Ellipse 4.png")} alt=""></img></td>
           <td>PS4</td>
           <td>Battlefied V</td>
         </tr>
@@ -103,7 +103,7 @@ function ScreenUser() {
             <Link to="/ScreenOtherUser"><CardTitle>Pseudo P2</CardTitle></Link>
           </Col>
           <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <img style={{height: "40px" ,backgroundColor:"transparente"}} src={require("../images/waste.svg")} />
+            <img style={{height: "40px" ,backgroundColor:"transparente"}} src={require("../images/waste.svg")} alt="" />
           </Col>
         </Row>
         
@@ -143,7 +143,7 @@ function ScreenUser() {
             <Link to="/ScreenOtherUser"><CardTitle>Pseudo P2</CardTitle></Link>
           </Col>
           <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <img style={{height: "40px" ,backgroundColor:"transparente"}} src={require("../images/waste.svg")} />
+            <img style={{height: "40px" ,backgroundColor:"transparente"}} src={require("../images/waste.svg")} alt=""/>
           </Col>
         </Row>
         <Table>
@@ -192,7 +192,7 @@ function ScreenUser() {
             <Link to="/ScreenOtherUser"><CardTitle>Pseudo P2</CardTitle></Link>
           </Col>
           <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <img style={{height: "40px" ,backgroundColor:"transparente"}} src={require("../images/waste.svg")} />
+            <img style={{height: "40px" ,backgroundColor:"transparente"}} src={require("../images/waste.svg")} alt="" />
           </Col>
         </Row>
           <Table>

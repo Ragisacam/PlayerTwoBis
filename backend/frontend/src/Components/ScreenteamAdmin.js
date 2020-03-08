@@ -23,8 +23,8 @@ function ScreenteamAdmin() {
         <Row>
           <CardTitle>Game</CardTitle>
           <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <img style={{height:"17px", width:"17px", marginRight: "10px"}} src={require('../images/Vector.svg')}/>
-            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+            <img style={{height:"17px", width:"17px", marginRight: "10px"}} src={require('../images/Vector.svg')} alt="vector"/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')} alt="add"/>
           </Col>
         </Row>
         
@@ -46,19 +46,19 @@ function ScreenteamAdmin() {
       <Col className="cardbody">
         <CardTitle>Candidature</CardTitle>
         <Row className="user" style={{display:"flex", justifyContent:"space-between"}}>
-          <img style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
+          <img style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="" />
           <text>Candidat 1</text>
           <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')}/>
-            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')} alt=""/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')} alt=""/>
           </Col>
         </Row>
         <Row className="user" style={{display:"flex", justifyContent:"space-between"}}>
-          <img style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="Card image cap" />
+          <img style={{height: '20px', width:'20px', marginRight: "10px"}} top width="100%" src={require('../images/user-solid.svg')} alt="" />
           <text>Candidat 2</text>
           <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')}/>
-            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')} alt="vector 2"/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}alt="add 2"/>
           </Col>
         </Row>
       </Col>
@@ -100,8 +100,8 @@ function ScreenteamAdmin() {
         <span style={{paddingRight:"10px"}}>1</span>
         <CardSubtitle style={{margin:"0px"}}>Admin</CardSubtitle> 
         <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')}/>
-            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')} alt="vector "/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')} alt="add 3"/>
           </Col>
       </Row> 
       
@@ -115,8 +115,8 @@ function ScreenteamAdmin() {
       <span style={{paddingRight:"10px"}}>2</span>
         <CardSubtitle style={{margin:"0px"}}>Sous Admin</CardSubtitle> 
         <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')}/>
-            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')} alt="vector 4"/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')} alt="add4"/>
           </Col>
       </Row>  
 
@@ -134,8 +134,8 @@ function ScreenteamAdmin() {
       <span style={{paddingRight:"10px"}}>3</span>
         <CardSubtitle style={{margin:"0px"}}>Membre</CardSubtitle>
         <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')}/>
-            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')}/>
+            <img style={{height:"17px", width:"17px"}} src={require('../images/Vector.svg')} alt=""/>
+            <img style={{height:"20px", width:"20px", marginRight: "10px"}} src={require('../images/add 1.svg')} alt=""/>
           </Col>
       </Row>
 

@@ -41,31 +41,33 @@ function ScreenOtherUser() {
 <Card style={{ backgroundColor: '#010212', borderRadius: "0px 50px", alignItems:"center", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" }}>
     <CardTitle >Ses jeux</CardTitle>
     <Col className="cardbody">
-    <Table>
+    <Table style={{color:'white'}}>
       <thead>
         <tr>
+        <th>Image</th>
           <th>Plateforme</th>
           <th>Jeu</th>
-          <th>Image</th>
+
         </tr>
       </thead>
       <tbody>
         <tr>
+        <td><img src={require("../images/Ellipse 4.png")}></img></td>
           <td>PC</td>
           <td>World of Tank</td>
-          <td><img src={require("../images/Ellipse 4.png")}></img></td>
+
         </tr>
         <tr>
-
+        <td><img src={require("../images/Ellipse 4.png")}></img></td>
           <td>XBOX</td>
           <td>PES6</td>
-          <td><img src={require("../images/Ellipse 4.png")}></img></td>
+
         </tr>
         <tr>
-
+        <td><img src={require("../images/Ellipse 4.png")}></img></td>
           <td>PS4</td>
           <td>Battlefied V</td>
-          <td><img src={require("../images/Ellipse 4.png")}></img></td>
+
         </tr>
       </tbody>
     </Table>
@@ -82,15 +84,3 @@ function ScreenOtherUser() {
 
 export default ScreenOtherUser;
 
-
-/*
-card user
-récuperer db avatar pseudo description
-fetch
-*/
-
-/*
-card ses jeux
-récupérer db liste des jeux du user
-fetch
-*/

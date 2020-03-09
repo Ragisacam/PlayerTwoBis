@@ -146,7 +146,7 @@ function ScreenGame(props) {
       console.log("serviceselect", serviceSelect);
       console.log("tag", tag);
 
-      //envoyé le jeux au back
+      //envoyer le jeux au back
       const gameResponse =await fetch('/addgame', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},

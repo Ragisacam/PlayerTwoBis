@@ -20,19 +20,19 @@ function ScreenUser() {
             <Col xs="auto">
               <CardTitle>Mon profil</CardTitle>
               <br></br>
-              <Row style={{alignItems: "center"}}>
+{/*               <Row style={{alignItems: "center"}}>
               <CardSubtitle >Team : </CardSubtitle>
               <Link to="/ScreenteamAdmin"><Button style={{marginLeft:"15px"}} size="sm">Créer</Button></Link>
               <Link to="/ScreenteamView"><Button style={{marginLeft:"15px"}} size="sm">Rejoindre</Button></Link>
-              </Row> 
+              </Row>  */}
             </Col>
           </Row>
 
             <CardSubtitle>Description</CardSubtitle>
               <CardText>Sic de isto et tutius perducit ad actum ipsum, ut si dico “Ego autem vadam lavari, ut mens mea in statu naturae</CardText>
-            <CardSubtitle>Mes Teams:</CardSubtitle>
+{/*             <CardSubtitle>Mes Teams:</CardSubtitle>
               <CardText>Les Invincibles</CardText>
-              <CardText>Team Choucroute</CardText>
+              <CardText>Team Choucroute</CardText> */}
     </Card>
     <br></br>
 
@@ -51,19 +51,19 @@ function ScreenUser() {
 
       <tbody>
         <tr>
-          <td><img src={require("../images/Ellipse 4.png")} alt=""></img></td>
+          <td><img src={require("../images/world-of-tank.jpg")} alt=""></img></td>
           <td>PC</td>
           <td>World of Tank</td>
         </tr>
 
         <tr>
-          <td><img src={require("../images/Ellipse 4.png")} alt=""></img></td>
+          <td><img src={require("../images/fortnite.jpg")} alt=""></img></td>
           <td>XBOX</td>
-          <td>PES6</td>
+          <td>Fortnite</td>
         </tr>
 
         <tr>
-          <td><img src={require("../images/Ellipse 4.png")} alt=""></img></td>
+          <td><img src={require("../images/battlefield.jpg")} alt=""></img></td>
           <td>PS4</td>
           <td>Battlefied V</td>
         </tr>
@@ -93,14 +93,14 @@ function ScreenUser() {
 <Col>
       {/* Mes Player Two */}
   <Container className="card-background" style={{boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor:"#010212", marginTop:"-10px", paddingBottom: "20px", marginBottom: "20px"}}>
-    <Card style={{ borderRadius:"0 50", backgroundColor:"transparent"}}>
+    <Card style={{ borderRadius:"0 50", backgroundColor:"transparent", marginTop: "10px"}}>
     <CardTitle style={{ alignSelf: 'center', }} >Mes Player Two</CardTitle>
 
       <CardBody className="card-background" style={{ borderRadius:"0 50", backgroundColor:"transparente"}}>
-        <Row style={{display:"flex", alignItems: "center", marginBottom: "10px", alignContent:"space-between"}}>
-          <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
+        <Row style={{paddingInline: "20px", display:"flex", alignItems: "center", marginBottom: "10px", alignContent:"space-between"}}>
+          <img height="3%" width="10%" src={require("../images/alien.svg")} alt="avateur P2" />
           <Col xs="auto">
-            <Link to="/ScreenOtherUser"><CardTitle>Pseudo P2</CardTitle></Link>
+            <Link to="/ScreenOtherUser"><CardTitle>Jean-Michel Maximum</CardTitle></Link>
           </Col>
           <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
             <img style={{height: "40px" ,backgroundColor:"transparente"}} src={require("../images/waste.svg")} alt="" />
@@ -135,12 +135,12 @@ function ScreenUser() {
         </Table>
       </CardBody>
     </Card>
-      <Card style={{backgroundColor:'#010212'}}>
+      <Card style={{backgroundColor:'#010212', marginTop: "10px"}}>
       <CardBody className="card-background">
-      <Row style={{display:"flex", alignItems: "center", marginBottom: "10px", alignContent:"space-between"}}>
-          <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
+      <Row style={{paddingInline: "20px", display:"flex", alignItems: "center", marginBottom: "10px", alignContent:"space-between"}}>
+          <img height="3%" width="10%" src={require("../images/rageguy.png")} alt="avateur P2" />
           <Col xs="auto">
-            <Link to="/ScreenOtherUser"><CardTitle>Pseudo P2</CardTitle></Link>
+            <Link to="/ScreenOtherUser"><CardTitle>Rageguy</CardTitle></Link>
           </Col>
           <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
             <img style={{height: "40px" ,backgroundColor:"transparente"}} src={require("../images/waste.svg")} alt=""/>
@@ -185,11 +185,11 @@ function ScreenUser() {
         </CardBody>
       </Card>
 
-      <CardBody className="card-background" >
-      <Row style={{display:"flex", alignItems: "center", marginBottom: "10px", alignContent:"space-between"}}>
-          <img height="3%" width="10%" src={require("../images/Ellipse 4.png")} alt="avateur P2" />
+      <CardBody className="card-background" style={{marginTop: "10px"}}>
+      <Row style={{paddingInline: "20px", display:"flex", alignItems: "center", marginBottom: "10px", alignContent:"space-between"}}>>
+          <img height="3%" width="10%" src={require("../images/yoshi.png")} alt="avateur P2" />
           <Col xs="auto">
-            <Link to="/ScreenOtherUser"><CardTitle>Pseudo P2</CardTitle></Link>
+            <Link to="/ScreenOtherUser"><CardTitle>Bananarama</CardTitle></Link>
           </Col>
           <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
             <img style={{height: "40px" ,backgroundColor:"transparente"}} src={require("../images/waste.svg")} alt="" />

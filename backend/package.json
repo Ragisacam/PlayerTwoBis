@@ -28,11 +28,7 @@
     "react-switch": "^5.0.1",
     "reactstrap": "^8.4.1",
     "redux": "^4.0.5",
-<<<<<<< HEAD
     "sync-request": "^6.1.0",
     "uid2": "0.0.3"
-=======
-    "sync-request": "^6.1.0"
->>>>>>> dac49f9cdc8af3ad0a48e68bb13c40edc5dea16d
   }
 }

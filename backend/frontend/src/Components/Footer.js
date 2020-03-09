@@ -14,17 +14,13 @@ function ContactModal(props) {
               >
       <Modal.Header style={{backgroundColor: '#010212'}}>
         <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
-          Contact
+          Contactez-nous
         </Modal.Title>
         <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0}}onClick={props.onHide}>X</Button>
       </Modal.Header>
       <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
         <h4>Player Two</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <p>playertwo@gmail.com</p>
       </Modal.Body>
       <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
       </Modal.Footer>
@@ -262,13 +258,22 @@ L'éditeur du site se réserve le droit de vérifier par tout moyen que l'utilis
           <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
             <h4>Player Two</h4>
             <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-              consectetur ac, vestibulum at eros.
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-              consectetur ac, vestibulum at eros.
+            Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l’économie numérique, il est précisé aux utilisateurs du site PlayerTwo.fr l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi.
             </p>
+            <h5>Edition du site</h5>
+            <p>Le site PlayerTwo.fr est édité par la société LegalPlace, société par actions simplifiée au capital de 10.051,50 euros, dont le siège social est situé 7 rue Marcel Dassault, 92100 Boulogne-Billancourt, immatriculée au registre du commerce et des sociétés sous le numéro d’identification unique 814 428 785 RCS Nanterre.</p>
+            <h5>Responsable de publication</h5>
+            <p>Quentin GUERIN</p>
+            <h5>Hébergeur</h5>
+            <p>Le site PlayerTwo.fr est hébergé par la société Amazon Web Services LLC</p>
+            <p>Adresse: P.O. Box 81226, Seattle, WA 98108-1226</p>
+            <p>Le stockage des données personnelles des Utilisateurs est exclusivement réalisé sur les centre de données (“clusters”) localisés dans des Etats membres de l’Union Européenne de la société Amazon Web Services LLC</p>
+            <h5>Nous contacter</h5>
+            <p>Par email : playertwo.fr</p>
+            <h5>CNIL</h5>
+            <p>La société PlayerTwo conservera dans ses systèmes informatiques et dans des conditions raisonnables de sécurité une preuve de la transaction comprenant le bon de commande et la facture.</p>
+            <p>La société PlayerTwo a fait l’objet d’une déclaration à la CNIL sous le numéro 1986932.</p>
+            <p>Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l’Utilisateur dispose d’un droit d’accès, de modification et de suppression des informations collectées par PlayerTwo. Pour exercer ce droit, il reviendra à l’Utilisateur d’envoyer un message à l’adresse suivante : playertwo@gmail.com</p>
           </Modal.Body>
           <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
           </Modal.Footer>
@@ -291,15 +296,18 @@ L'éditeur du site se réserve le droit de vérifier par tout moyen que l'utilis
               <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0}}onClick={props.onHide}>X</Button>
             </Modal.Header>
             <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
-              <h4>Player Two</h4>
-              <p>
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros.
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros.
-              </p>
+
+            <p><img src={require('../images/facebook.png')} alt="Facebook"/></p>
+            <br></br>
+
+            <p><img src={require('../images/instagram-sketched.png')} alt="Instagram"/></p>
+
+            <br></br>
+
+            <p><img src={require('../images/linkedin.png')} alt="LinkedIn"/></p>
+
+            <br></br>
+
             </Modal.Body>
             <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
             </Modal.Footer>

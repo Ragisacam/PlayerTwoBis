@@ -159,6 +159,20 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
 });
 
 
+//route /screenuser pour afficher le profil de l'utilisateur
+//rouger.get('/screenUser', function(req,res,next){
+//aller chercher l'avatar de l'utilisateur (pas stocké en base de donnée pour le moment), son 'pseudo', la liste de 'playerTwo',
+//sa liste de jeux 'idGame'
+//aller chercher la liste des ID des jeux de l'utilisateur et les stocker dans un tableau
+
+//pour la liste de PlayerTwo, chercher l'avatar, le pseudo, leur liste 'idGame'
+
+// res.json('screenUser')
+// })
+
+
+
+
 // ______________ TEAMS ______________
 // router.post('/addteam', async function(req, res, next) {
 //   console.log("req body addteam",req.body);
@@ -213,5 +227,42 @@ router.post('/addwish', async function(req, res, next) {
   });
 });
 
+//API IGBD
+router.post('/searchgame', async function(req, res, next) {
+console.log(req.body.searchGame);
+
+
+  const axios = require('axios').default;
+
+  const API_KEY = "d03577227c5216baadca7ff98c147128";
+
+  const header = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'user-key': API_KEY,
+    }
+  }
+
+  async function getGames(gameName) {
+    const config = header;
+    config.data = `
+      search "${req.body.searchGame}";
+      fields name,genres,cover,rating,url,cover.url,websites.url;
+    `;
+
+    try {
+      const response = await axios("https://api-v3.igdb.com/games", config);
+      console.log('response.data ',response.data);
+      var searchGameList = await response.data
+      console.log("searchGameList", searchGameList);
+      res.json(searchGameList)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getGames(req.body.searchGame)
+  
+});
 
 module.exports = router;

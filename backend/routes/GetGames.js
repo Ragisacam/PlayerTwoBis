@@ -1,4 +1,4 @@
-const axios = require('axios').default;
+  const axios = require('axios').default;
 
 const API_KEY = "d03577227c5216baadca7ff98c147128";
 
@@ -25,7 +25,4 @@ async function getGames(gameName) {
   }
 }
 
-getGames("battlefield");
-
-
-export default getGames
+res.json(getGames(gameName))

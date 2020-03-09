@@ -6,10 +6,31 @@ import logo from '../images/logoP2.svg';
 import logout from '../images/logout.svg';
 import {Row, Col, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button, Card, CardColumns, FormGroup, ListGroup, Modal,} from 'react-bootstrap'  ; 
-import {Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {Button,Modal,} from 'react-bootstrap'  ; 
 
+
+
+export default function CustomIconSwitch () {
+
+  
+  const [checked,setChecked] = useState(false)
+  const [modalShow, setModalShow] = useState(false)
+  const [userConnected, setUserConnected] = useState(false)
+
+
+
+  var handleChange = (checkedhandle, modalShowhandle) =>{
+    setChecked(checkedhandle)
+    setModalShow(modalShowhandle)
+    console.log("modalShow",modalShow);
+    console.log("checked",checked);
+  };
+
+  // if (userConnected == true){
+  //   setChecked(true)
+  // }else {
+  //   setChecked(true)};
+}
 
   // MODAL 
   const MyVerticallyCenteredModal= (props) => {
@@ -61,7 +82,7 @@ import {connect} from 'react-redux';
           <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
             Connexion
           </Modal.Title>
-          <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}><img src={require('../images/cross_modal.svg')}/></Button>
+          <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}} onClick={props.onHide}><img src={require('../images/cross_modal.svg')} alt=""/></Button>
         </Modal.Header>
         <Modal.Body style={{color: 'white', backgroundColor: '#010212', alignContent:"center"}}>
           <Input onChange={(e) => setSignInEmailPseudo(e.target.value)} type="text" required placeHolder="email" style={{width: 600}}/>

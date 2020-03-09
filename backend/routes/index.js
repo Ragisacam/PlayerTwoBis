@@ -213,5 +213,42 @@ router.post('/addwish', async function(req, res, next) {
   });
 });
 
+//API IGBD
+router.post('/searchgame', async function(req, res, next) {
+console.log(req.body.searchGame);
+
+
+  const axios = require('axios').default;
+
+  const API_KEY = "d03577227c5216baadca7ff98c147128";
+
+  const header = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'user-key': API_KEY,
+    }
+  }
+
+  async function getGames(gameName) {
+    const config = header;
+    config.data = `
+      search "${req.body.searchGame}";
+      fields name,genres,cover,rating,url,cover.url,websites.url;
+    `;
+
+    try {
+      const response = await axios("https://api-v3.igdb.com/games", config);
+      console.log('response.data ',response.data);
+      var searchGameList = await response.data
+      console.log("searchGameList", searchGameList);
+      res.json(searchGameList)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getGames(req.body.searchGame)
+  
+});
 
 module.exports = router;

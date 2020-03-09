@@ -17,7 +17,7 @@
 .nextButton {
   position: relative;
   text-align: center;
-  color: #EEEEF0;
+  color: #F9F5FF;
 }
 
 .textButton {
@@ -25,14 +25,14 @@
   top: 59%;
   left: 48.5%;
   transform: translate(-50%, -50%);
-  color: #EEEEF0;
+  color: #F9F5FF;
 }
 
 .error {
   text-align: center;
   top: 40%;
   left: 50%;
-  color: #EEEEF0;
+  color: #F9F5FF;
 }
 
 .hiddenButton {
@@ -183,13 +183,13 @@ body {
 }
 
 th{
-  color: #F9F5FF;
+  color: #F9F5FF !important;
   font-size: 12px;
 }
 
 
 td{
-  color: #F9F5FF;
+  color: #F9F5FF !important;
   font-size: 10px;
 }
 /*______________ TOGGLE ______________*/

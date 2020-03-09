@@ -25,7 +25,7 @@ async function getGames(gameName) {
   }
 }
 
-getGames("battlefield");
+getGames("counterstrike");
 
 
-export default getGames
+/* export default getGames */

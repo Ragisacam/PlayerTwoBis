@@ -14,7 +14,7 @@ function ContactModal(props) {
               >
       <Modal.Header style={{backgroundColor: '#010212'}}>
         <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
-          Contact
+          Contactez-nous
         </Modal.Title>
         <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0}}onClick={props.onHide}>X</Button>
       </Modal.Header>

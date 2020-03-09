@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var userModel = require("../Models/Users")
+
+var uid2 = require("uid2");
+var SHA256 = require("crypto-js/sha256");
+var encBase64 = require("crypto-js/enc-base64");
+
+var userModel = require("../Models/Users");
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -13,61 +18,116 @@ router.post('/adduser', async function(req, res, next) {
   var error = []
   var result = false
   var saveUser = null
+  var token = null
 
-  const data = await userModel.findOne({
+  const pseudoExists = await userModel.findOne({
+    pseudo: req.body.pseudoFromFront
+  })
+
+  if(pseudoExists != null){
+    error.push('Pseudo déjà présent')
+  }
+
+  const emailExists = await userModel.findOne({
     mail: req.body.mailFromFront
   })
 
-  if(data != null){
-    error.push('email déjà présent')
+  if(emailExists != null){
+    error.push('Email déjà présent')
   }
 
   if(req.body.pseudoFromFront == ''
   || req.body.mailFromFront == ''
   || req.body.passwordFromFront == ''
   ){
-    error.push('champs vides')
+    error.push('Champs vides')
   }
 
-  //REVOIR COURS CLEFS ETRANGERES ET SSDOC (playerTwo blacklist idGame idWish)
-  //18min
   if(error.length == 0){
+
+    var salt = uid2(32)
     var newUser = new userModel({
       pseudo:       req.body.pseudoFromFront,
-      password :    req.body.passwordFromFront,
+      password :    SHA256(req.body.passwordFromFront+salt).toString(encBase64),
       mail:         req.body.mailFromFront,
       birthday:     req.body.birthdayFromFront,
       CP:           req.body.cpFromFront,
       sexe:         req.body.sexeFromFront,
-      langue:       req.body.langueFromFront
-
-      // salt:         req.body.saltFromFront,
-      // token :       req.body.tokenFromFront,
-      // description:  req.body.descriptionFromFront,
-      // avatar :      req.body.avatarFromFront,
-      // service:      req.body.serviceFromFront,
-      // battletag:    req.body.battletagFromFront,
-      // playerTwo :   [{type: mongoose.Schema.Types.ObjectId, ref:"users"}],
-      // blacklist:    [{type: mongoose.Schema.Types.ObjectId, ref: "users"}],
-      // idGame :      [{type: mongoose.Schema.Types.ObjectId, ref: "games"}],
-      // idWish:       {type: mongoose.Schema.Types.ObjectId, ref: "wishs"},
+      langue:       req.body.langueFromFront,
+      salt :        salt,
+      token:        uid2(32)
     })
 
     const saveUser = await newUser.save()
 
     if(saveUser){
       result = true
+      token = saveUser.token
     }
   }
   
-  res.json({result, saveUser, error});
+  res.json({result, saveUser, error, token});
 });
 
 
 // _____________________ SIGN IN (connexion) _____________________
-router.get('/connection', function(req, res, next) {
-  res.json('sign UP OK');
+router.post('/connection', async function(req, res, next) {
+
+  var error = []
+  var result = false
+  var pseudoExists = null
+  var emailExists = null
+  var token = null
+
+  if(req.body.pseudoFromFront == ''
+  || req.body.mailFromFront == ''
+  || req.body.passwordFromFront == ''
+  ){
+    error.push('Champs vides')
+  }
+
+
+
+  if(error.length == 0){
+      const pseudoExists = await userModel.findOne({
+      pseudo:      req.body.pseudoFromFront,
+    })
+      const emailExists = await userModel.findOne({
+      mail:        req.body.mailFromFront,
+    })
+
+
+
+    if(pseudoExists){
+      const passwordEncryptFromPseudo = SHA256(req.body.passwordFromFront + pseudoExists.salt).toString(encBase64)
+      if(passwordEncryptFromPseudo == pseudoExists.password){
+        result = true
+        token = pseudoExists.token
+      } else {
+        result = false
+        error.push('Mot de passe incorrect')
+      }
+    } else if(emailExists){
+      const passwordEncryptFromEmail = SHA256(req.body.passwordFromFront + emailExists.salt).toString(encBase64)
+      if(passwordEncryptFromEmail == emailExists.password){
+        result = true
+        token = emailExists.token
+      } else {
+        result = false
+        error.push('Mot de passe incorrect')
+      }
+    } else {
+      error.push("Email ou pseudo invalide")
+    }
+  }
+  
+  res.json({result, pseudoExists, emailExists, error, token});
 });
+
+
+
+
+
 
 // _____________________ LOG OUT (déconnexion) _____________________
 router.get('/logout', function(req, res, next) {

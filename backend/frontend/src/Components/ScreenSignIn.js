@@ -78,7 +78,7 @@ const ScreenSignIn = (props) => {
           {/* ENLEVER BORDURE (OUTLINE?) APRES LE CLIC SUR LE BOUTON */}
           <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
             <Button onClick={() => handleSubmitSignIn()} color="transparent" style={{padding:0}}>
-              <img src={require('../images/button.png')} alt="button start"/>
+              <img src={require('../images/button.svg')} alt="button start"/>
               <div className="textButton">Start</div>
             </Button>
           </FormGroup>

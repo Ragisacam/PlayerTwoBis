@@ -91,8 +91,8 @@ export default function CustomIconSwitch () {
       
         <label htmlFor="icon-switch" style={{paddingLeft:15}}>
           <Switch 
-          width="100"
-          height="50"
+          width={100}
+          height={50}
             checked= {checked}
             onChange={()=> handleChange(true,true) }
 
@@ -105,8 +105,9 @@ export default function CustomIconSwitch () {
                   height: "100%",
                   fontSize: 12,
                   color: "#F9F5FF",
-                  paddingRight: 9,
-                  paddingTop: 11
+                  paddingRight: 5,
+                  paddingTop: 11,
+                  paddingBottom: 19,
                 }}
               >
                 Log In

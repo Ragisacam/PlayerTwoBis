@@ -7,10 +7,77 @@ import logout from '../images/logout.svg';
 import {Row, Col, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Card, CardColumns, FormGroup, ListGroup, Modal,} from 'react-bootstrap'  ; 
+import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
+  // MODAL 
+  const MyVerticallyCenteredModal= (props) => {
 
-export default function CustomIconSwitch () {
+    const [signInEmailPseudo, setSignInEmailPseudo] = useState('')
+    const [signInPassword, setSignInPassword] = useState('')
+  
+    const [userExists, setUserExists] = useState(false)
+  
+    const [listErrorsSignIn, setErrorsSignIn] = useState([])
+  
+  
+  
+    var handleSubmitSignIn = async () => {
+  
+      const data = await fetch('/users/connection', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: `pseudoFromFront=${signInEmailPseudo}&mailFromFront=${signInEmailPseudo}&passwordFromFront=${signInPassword}`
+      })
+  
+      const body = await data.json()
+  
+      if(body.result === true){
+        setUserExists(true)
+        props.addToken(body.token)
+      } else {
+        setErrorsSignIn(body.error)
+      }
+    }
+  
+    if(userExists){
+      return <Redirect to='/screengame'/>
+    }
+  
+    var tabErrorsSignIn = listErrorsSignIn.map((error,i) => {
+      return(<p className="error">{error}</p>)
+    })
+
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        style={{borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)",}}
+                >
+        <Modal.Header style={{backgroundColor: '#010212'}}>
+          <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
+            Connexion
+          </Modal.Title>
+          <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}><img src={require('../images/cross_modal.svg')}/></Button>
+        </Modal.Header>
+        <Modal.Body style={{color: 'white', backgroundColor: '#010212', alignContent:"center"}}>
+          <Input onChange={(e) => setSignInEmailPseudo(e.target.value)} type="text" required placeHolder="email" style={{width: 600}}/>
+          <Input onChange={(e) => setSignInPassword(e.target.value)} type="text" required placeHolder="password" style={{width: 600}}/>
+          
+          {tabErrorsSignIn}
+
+        </Modal.Body>
+        <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
+          <Button onClick={() => handleSubmitSignIn()} style={{marginLeft:"15px"}} size="sm">Connection</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+
+function CustomIconSwitch (props) {
 
   
   const [checked,setChecked] = useState(false)
@@ -32,33 +99,6 @@ export default function CustomIconSwitch () {
   //   setChecked(true)};
 
 
-  // MODAL 
-  const MyVerticallyCenteredModal= (props) => {
-
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        style={{borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)",}}
-                >
-        <Modal.Header style={{backgroundColor: '#010212'}}>
-          <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
-            Connexion
-          </Modal.Title>
-          <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}><img src={require('../images/cross_modal.svg')}/></Button>
-        </Modal.Header>
-        <Modal.Body style={{color: 'white', backgroundColor: '#010212', alignContent:"center"}}>
-          <Input type="text" required placeHolder="email" style={{width: 600}}/>
-          <Input type="text" required placeHolder="password" style={{width: 600}}/>
-        </Modal.Body>
-        <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
-          <Button style={{marginLeft:"15px"}} size="sm">Connection</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
 
 
 
@@ -83,6 +123,7 @@ export default function CustomIconSwitch () {
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+        addToken = {props.addToken}
       />
       
 
@@ -91,8 +132,8 @@ export default function CustomIconSwitch () {
       
         <label htmlFor="icon-switch" style={{paddingLeft:15}}>
           <Switch 
-          width="100"
-          height="50"
+          width={100}
+          height={50}
             checked= {checked}
             onChange={()=> handleChange(true,true) }
 
@@ -105,8 +146,9 @@ export default function CustomIconSwitch () {
                   height: "100%",
                   fontSize: 12,
                   color: "#F9F5FF",
-                  paddingRight: 9,
-                  paddingTop: 11
+                  paddingRight: 5,
+                  paddingTop: 11,
+                  paddingBottom: 19,
                 }}
               >
                 Log In
@@ -131,3 +173,17 @@ export default function CustomIconSwitch () {
   );
 
 }
+
+function mapDispatchToProps(dispatch){
+  return {
+    addToken: function(token){
+      dispatch({type: 'addToken', token: token})
+    }
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CustomIconSwitch)
+

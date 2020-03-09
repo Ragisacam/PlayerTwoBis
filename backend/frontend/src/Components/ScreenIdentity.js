@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Col, Row, Form, FormGroup, Label, Input, Container, Card, Button } from 'reactstrap';
 import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 const ScreenIdentity = (props) => {
 
@@ -31,6 +32,7 @@ const ScreenIdentity = (props) => {
 
     if(body.result === true){
       setUserExists(true)
+      props.addToken(body.token)
     } else {
       setErrorsSignup(body.error)
     }
@@ -130,7 +132,7 @@ const ScreenIdentity = (props) => {
 
             </Form>
           </Col>
-
+          {/* ENLEVER BORDURE (OUTLINE?) APRES LE CLIC SUR LE BOUTON */}
           <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
             <Button onClick={() => handleSubmitSignup()} color="transparent" style={{padding:0}}>
               <img style={{height:"100px", width:"100px"}} src={require('../images/button.svg')} alt="button start"/>
@@ -145,17 +147,15 @@ const ScreenIdentity = (props) => {
   );
 }
 
-export default ScreenIdentity;
+function mapDispatchToProps(dispatch){
+  return {
+    addToken: function(token){
+      dispatch({type: 'addToken', token: token})
+    }
+  }
+}
 
-
-//Sign-up
-
-//fetch/sign-up
-//Vérification des Inputs ("champs vides")
-//Vérification si l'utilisateur existe déja ("utilisateur déjà présent")
-
-
-//Si l'utilisateur est crée -> Redirect vers ScreenGame
-
-
-//Redux, exporter le token
+export default connect(
+  null,
+  mapDispatchToProps
+)(ScreenIdentity)

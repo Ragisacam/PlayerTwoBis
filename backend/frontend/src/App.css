@@ -23,7 +23,7 @@
 .textButton {
   position: absolute;
   top: 59%;
-  left: 49%;
+  left: 48.5%;
   transform: translate(-50%, -50%);
   color: #EEEEF0;
 }
@@ -61,8 +61,8 @@ div{
 
 .backgroundColor{
   min-height: 84vh;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 15px;
+
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 40%, rgba(84,5,119,1) 70%, rgba(2,0,36,1) 100%);
 }
@@ -93,7 +93,7 @@ body {
   color: #F9F5FF;
   /* margin: 0;
   padding: 0; */
-  Font-Size: 25px;
+  Font-Size: 20px;
   text-shadow: 0px 4px 4px rgba(231, 10, 10, 0.7);
 }
 
@@ -169,8 +169,8 @@ body {
 }
 
 .card-background{
-  background: #007ACC;
-  border-radius: 0px 90px;
+  background: #060122;
+  border-radius: 0px 50px;
 }
 .titleTeam{
   padding-top: 10px;
@@ -182,47 +182,63 @@ body {
   column-count: 2;
 }
 
+th{
+  color: #F9F5FF;
+  font-size: 12px;
+}
+
+
+td{
+  color: #F9F5FF;
+  font-size: 10px;
+}
 /*______________ TOGGLE ______________*/
-  .react-switch{
-  position: relative; 
-  display: inline-block; 
-  text-align: left; 
-  opacity: 1; 
-  direction: ltr; 
-  border-radius: 14px; 
-  transition: opacity 0.25s ease 0s; 
-  touch-action: none; 
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
-  user-select: none;
-  } 
-
-
+element.style{
+  display: none
+}
 
   .react-switch-bg{
-    height: 36px;
-    width: 110px;
+    height: 40px !important;
+    width: 90px !important;
     margin: 0px;
     position: relative;
-    background: rgb(136, 136, 136);
+    background: rgba(231, 10, 10, 0.7);
     border-radius: 14px;
     cursor: pointer;
     transition: background 0.25s ease 0s;
+    box-shadow: 0px 4px 4px rgba(231, 10, 10, 0.7);
   }
 
-  .react-switch-handle{
-    height: 38px; 
-    width: 40px; 
+  /* .react-switch-handle{
+    background-image: url("./images/power-button.svg") !important;
+    height:38px !important; 
+    width: 38px !important; 
     background: rgb(255, 255, 255); 
     display: inline-block; 
     cursor: pointer; 
     border-radius: 50%; 
     position: absolute; 
-    transform: translateX(1px); top: 1px; 
+    transform: translateX(50px) ; top: 1px  ; 
     outline: 0px; 
     border: 0px; 
     transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;
   }
 
+  .react-switch-handle-logout{
+    background-image: url("./images/power-button.svg") !important;
+    height:38px !important; 
+    width: 38px !important; 
+    background: rgb(255, 255, 255); 
+    display: inline-block; 
+    cursor: pointer; 
+    border-radius: 50%; 
+    position: absolute; 
+    transform: translateX(1px) ; top: 1px !important ; 
+    outline: 0px; 
+    border: 0px; 
+    transition: background-color 0.25s ease 0s, transform 0.25s ease 0s, box-shadow 0.15s ease 0s;
+    
+  } */
 
 
 

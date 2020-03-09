@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { Container, Row, Col, Card, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { Link, Redirect } from 'react-router-dom';
+import { Container, Row, Col, Card, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 
 function ScreenWish() {
   const [mode, setMode] = useState("")
@@ -24,7 +24,7 @@ function ScreenWish() {
     const response = await wishResponse.json()
     console.log("serviceresponse", response);
     //récupérer result from back pour redirect ou non
-    if (response.result == true){
+    if (response.result === true){
       setRedirection(response.result)
       console.log(Redirection);
     }
@@ -143,7 +143,7 @@ function ScreenWish() {
 
         <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
           <Button color="transparent" onClick={OnclickStartWish} style={{padding: 0}}>
-            <img src={require('../images/button.png')}  alt="button start"/>
+            <img style={{height:"100px", width:"100px"}} src={require('../images/button.svg')} alt="button start"/>
             <div className="textButton">Start</div>
           </Button>
         </FormGroup>

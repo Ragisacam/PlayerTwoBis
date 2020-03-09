@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Card, CardImg, CardTitle, CardText, CardColumns, Button, Spinner,
-  CardSubtitle, Row, Container, CardBody
+  Card,  CardTitle, CardText, CardColumns, Button, 
+  Row, Container, CardBody
 } from 'reactstrap';
 import { Col } from 'react-bootstrap';
 
@@ -20,8 +20,6 @@ function ScreenMatchPage() {
             </Col>
             <Col>
             <Row>
-            <Button size="sm">Ajouter tout</Button>
-            <h1  className="heading">Ajouter tout </h1>
             <Button style={{marginLeft:600}} size="sm">Ajouter tout</Button>
             </Row>
             </Col>
@@ -40,7 +38,7 @@ function ScreenMatchPage() {
           <Col>
           <Button size="sm">Ajouter</Button>
           </Col>
-          <Spinner type="grow" color="success" />
+
         </Row>
           <Card >
           <CardText style={{color:'black'}}>Plateforme</CardText>
@@ -65,7 +63,7 @@ function ScreenMatchPage() {
           <Col>
           <Button size="sm">Ajouter</Button>
           </Col>
-          <Spinner type="grow" color="danger" />
+
         </Row>
           <Card >
           <CardText style={{color:'black'}}>Plateforme</CardText>
@@ -91,7 +89,7 @@ function ScreenMatchPage() {
           <Col>
           <Button size="sm">Ajouter</Button>
           </Col>
-          <Spinner type="grow" color="success" />
+
         </Row>
           <Card >
           <CardText style={{color:'black'}}>Plateforme</CardText>

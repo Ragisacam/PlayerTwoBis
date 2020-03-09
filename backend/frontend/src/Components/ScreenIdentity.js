@@ -93,7 +93,7 @@ const ScreenIdentity = (props) => {
                 </FormGroup>
 
                 <FormGroup row className="boldFont">
-                  <Label md={2}>Ville</Label>
+                  <Label md={2}>Code Postal</Label>
                   <Col md={4}>
                     <Input onChange={(e) => setCountry(e.target.value)} style={{borderRadius:25}} type="number"/>
                   </Col>
@@ -135,7 +135,7 @@ const ScreenIdentity = (props) => {
           {/* ENLEVER BORDURE (OUTLINE?) APRES LE CLIC SUR LE BOUTON */}
           <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}} row>
             <Button onClick={() => handleSubmitSignup()} color="transparent" style={{padding:0}}>
-              <img src={require('../images/button.png')} alt="button start"/>
+              <img style={{height:"100px", width:"100px"}} src={require('../images/button.svg')} alt="button start"/>
               <div className="textButton">Start</div>
             </Button>
           </FormGroup>

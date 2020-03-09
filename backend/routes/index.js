@@ -159,6 +159,20 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
 });
 
 
+//route /screenuser pour afficher le profil de l'utilisateur
+//rouger.get('/screenUser', function(req,res,next){
+//aller chercher l'avatar de l'utilisateur (pas stocké en base de donnée pour le moment), son 'pseudo', la liste de 'playerTwo',
+//sa liste de jeux 'idGame'
+//aller chercher la liste des ID des jeux de l'utilisateur et les stocker dans un tableau
+
+//pour la liste de PlayerTwo, chercher l'avatar, le pseudo, leur liste 'idGame'
+
+// res.json('screenUser')
+// })
+
+
+
+
 // ______________ TEAMS ______________
 // router.post('/addteam', async function(req, res, next) {
 //   console.log("req body addteam",req.body);

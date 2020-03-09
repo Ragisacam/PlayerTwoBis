@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Col, Row, Form, FormGroup, Label, Input, Container, Card, Button } from 'reactstrap';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -18,7 +18,18 @@ const ScreenIdentity = (props) => {
 
   const [listErrorsSignup, setErrorsSignup] = useState([])
 
+  const [token, setToken] = useState('')
 
+  useEffect(() => {
+    const findToken = () => {
+      setToken(props.token)
+    }
+    findToken()
+  }, []);
+ 
+  if(token){
+    return <Redirect to='/screengame'/>
+  }  
 
   var handleSubmitSignup = async () => {
 
@@ -147,6 +158,10 @@ const ScreenIdentity = (props) => {
   );
 }
 
+function mapStateToProps(state){
+  return {token: state.token}
+}
+
 function mapDispatchToProps(dispatch){
   return {
     addToken: function(token){
@@ -156,6 +171,6 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ScreenIdentity)

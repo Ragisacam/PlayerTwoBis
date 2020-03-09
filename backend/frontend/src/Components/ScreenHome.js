@@ -13,20 +13,26 @@ function MyVerticallyCenteredModal(props) {
                   >
           <Modal.Header style={{backgroundColor: '#010212'}}>
             <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
-              Qui sommes-nous ?
+            Qui sommes-nous ?
             </Modal.Title>
             <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}} onClick={props.onHide}> <img src={require('../images/cross_modal.svg')} alt="modal cross"/></Button>
           </Modal.Header>
           <Modal.Body style={{color: 'white', backgroundColor: '#010212'}}>
+
             <h4>Player Two</h4>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-              consectetur ac, vestibulum at eros.
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-              consectetur ac, vestibulum at eros.
-            </p>
+            <p>En 2020, nous avons créé Player Two à destination des Gamers. Nous pensions qu’il fallait répondre à une vraie demande venant de tous ces Gamers et Gameuses qui cherchent leur Player Two.</p>
+            <p>Ensuite, il a été nécessaire d’apporter une réponse personnalisée à toutes les demandes que nous recevions. Nous avons donc mis en place notre système de matching afin de trouver le joueur qui vous correspond.</p>
+            <h5>Notre objectif ?</h5>
+            <p>Vous permettre de trouver le joueur qui correspond à vos attentes.</p>
+            <h5>Nos points forts ?</h5>
+            <li>Notre réactivité : réponse sous 24h</li>
+            <li>Entreprise à taille humaine</li>
+            <li>La qualité de notre système de Matching</li>
+            <p></p>
+            <h5>Notre rêve ?</h5>
+            <p>Que chaque joueur de France ait le « réflexe Player Two » pour jouer, rencontrer, chatter… bref, faire vivre son expérience de jeu.</p>
+            <p>Finalement, chaque entreprise est comme une boule de neige. Depuis 2020 Playertwo.fr a tracé une jolie route. Et ce n’est pas fini…</p>
+
           </Modal.Body>
           <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
           </Modal.Footer>
@@ -80,7 +86,7 @@ function MyVerticallyCenteredModal(props) {
     <Card.Body>
       <Card.Title>Comment ça marche ?</Card.Title>
       <Card.Text>
-      C'est simple : tu cliques sur le gros bouton "Find your Player 2", tu ajoutes une plateforme, tu recherches un jeu et tu trouves ton Player 2 !
+      <h6>C'est simple : Tu cliques sur le gros bouton "Find your Player 2", tu ajoutes une plateforme, tu cherches un jeu et tu trouves ton Player 2 !</h6>
       </Card.Text>
     </Card.Body>
   </Card>
@@ -105,8 +111,9 @@ function MyVerticallyCenteredModal(props) {
     <Card.Body>
       <Card.Title>Notre philosophie</Card.Title>
       <Card.Text> 
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-        erat a ante.
+
+      <h5>Rassembler les Gamers afin de ne plus jouer seul !</h5>
+
       </Card.Text>
     </Card.Body>
   </Card>

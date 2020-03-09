@@ -30,10 +30,45 @@ export default function CustomIconSwitch () {
   //   setChecked(true)
   // }else {
   //   setChecked(true)};
-
+}
 
   // MODAL 
   const MyVerticallyCenteredModal= (props) => {
+
+    const [signInEmailPseudo, setSignInEmailPseudo] = useState('')
+    const [signInPassword, setSignInPassword] = useState('')
+  
+    const [userExists, setUserExists] = useState(false)
+  
+    const [listErrorsSignIn, setErrorsSignIn] = useState([])
+  
+  
+  
+    var handleSubmitSignIn = async () => {
+  
+      const data = await fetch('/users/connection', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: `pseudoFromFront=${signInEmailPseudo}&mailFromFront=${signInEmailPseudo}&passwordFromFront=${signInPassword}`
+      })
+  
+      const body = await data.json()
+  
+      if(body.result === true){
+        setUserExists(true)
+        props.addToken(body.token)
+      } else {
+        setErrorsSignIn(body.error)
+      }
+    }
+  
+    if(userExists){
+      return <Redirect to='/screengame'/>
+    }
+  
+    var tabErrorsSignIn = listErrorsSignIn.map((error,i) => {
+      return(<p className="error">{error}</p>)
+    })
 
     return (
       <Modal
@@ -50,15 +85,41 @@ export default function CustomIconSwitch () {
           <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}} onClick={props.onHide}><img src={require('../images/cross_modal.svg')} alt=""/></Button>
         </Modal.Header>
         <Modal.Body style={{color: 'white', backgroundColor: '#010212', alignContent:"center"}}>
-          <Input type="text" required placeHolder="email" style={{width: 600}}/>
-          <Input type="text" required placeHolder="password" style={{width: 600}}/>
+          <Input onChange={(e) => setSignInEmailPseudo(e.target.value)} type="text" required placeHolder="email" style={{width: 600}}/>
+          <Input onChange={(e) => setSignInPassword(e.target.value)} type="text" required placeHolder="password" style={{width: 600}}/>
+          
+          {tabErrorsSignIn}
+
         </Modal.Body>
         <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
-          <Button style={{marginLeft:"15px"}} size="sm">Connection</Button>
+          <Button onClick={() => handleSubmitSignIn()} style={{marginLeft:"15px"}} size="sm">Connection</Button>
         </Modal.Footer>
       </Modal>
     );
   }
+
+function CustomIconSwitch (props) {
+
+  
+  const [checked,setChecked] = useState(false)
+  const [modalShow, setModalShow] = useState(false)
+  const [userConnected, setUserConnected] = useState(false)
+
+
+
+  var handleChange = (checkedhandle, modalShowhandle) =>{
+    setChecked(checkedhandle)
+    setModalShow(modalShowhandle)
+    console.log("modalShow",modalShow);
+    console.log("checked",checked);
+  };
+
+  // if (userConnected == true){
+  //   setChecked(true)
+  // }else {
+  //   setChecked(true)};
+
+
 
 
 
@@ -83,6 +144,7 @@ export default function CustomIconSwitch () {
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+        addToken = {props.addToken}
       />
       
 
@@ -132,3 +194,17 @@ export default function CustomIconSwitch () {
   );
 
 }
+
+function mapDispatchToProps(dispatch){
+  return {
+    addToken: function(token){
+      dispatch({type: 'addToken', token: token})
+    }
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CustomIconSwitch)
+

@@ -7,30 +7,10 @@ import logout from '../images/logout.svg';
 import {Row, Col, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button,Modal,} from 'react-bootstrap'  ; 
+import { Redirect } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
-
-export default function CustomIconSwitch () {
-
-  
-  const [checked,setChecked] = useState(false)
-  const [modalShow, setModalShow] = useState(false)
-  const [userConnected, setUserConnected] = useState(false)
-
-
-
-  var handleChange = (checkedhandle, modalShowhandle) =>{
-    setChecked(checkedhandle)
-    setModalShow(modalShowhandle)
-    console.log("modalShow",modalShow);
-    console.log("checked",checked);
-  };
-
-  // if (userConnected == true){
-  //   setChecked(true)
-  // }else {
-  //   setChecked(true)};
-}
 
   // MODAL 
   const MyVerticallyCenteredModal= (props) => {

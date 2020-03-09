@@ -28,7 +28,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Header/>
+          <Header/>
           <Switch>
             <Route component={ScreenHome} path="/" exact/>
             <Route component={ScreenIdentity} path="/screenidentity"  />
@@ -42,6 +42,7 @@ function App() {
             <Route component={ScreenUser} path="/screenuser"  />
           </Switch>
         <Footer/>
+        
       </Router>
     </Provider>
 

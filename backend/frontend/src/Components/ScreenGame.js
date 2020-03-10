@@ -45,7 +45,7 @@ function ScreenGame(props) {
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
         body: `userId=${userId}`
       });const userResponse = await response.json()
-      console.log("userResponse", userResponse.service[0].tag);
+      /* console.log("userResponse", userResponse.service[0].tag); */
       setUserConnected(true)
       setServiceSelect(userResponse.service[0].service)
       setTag(userResponse.service[0].tag)

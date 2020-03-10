@@ -14,7 +14,9 @@ function ScreenUser() {
   const [Redirection, setRedirection] = useState(false)
   const [pseudo, setPseudo] = useState("")
   const [idGame, setIdGame] = useState([])
-  const [gamesList, setGamesList] = useState([])
+  const [userGamesList, setUserGamesList] = useState([])
+  const [description, setDescription] = useState([])
+  const [playerTwo, setPlayerTwo] = useState([])
 //la fonction d'appel MongoDB pour les UserData
   useEffect( () => {
     async function fetchdata (){
@@ -25,7 +27,7 @@ function ScreenUser() {
 
     //vérifier si User est connecté (store Redux)
     
-    console.log(userConnected);
+   /*  console.log(userConnected); */
     
     if(userConnected===true){
       //si oui récupérer ses info dans DBA
@@ -35,14 +37,17 @@ function ScreenUser() {
         body: `userId=${userId}`
       });
       const userResponse = await response.json()
-      console.log("userResponse", userResponse.userFind.service[0].tag);
+/*       console.log("userResponse", userResponse.userFind.service[0].tag); */
       setPseudo(userResponse.userFind.pseudo)
       setIdGame(userResponse.userFind.idGame)
+      setDescription(userResponse.userFind.description)
       setUserConnected(true)
       setServiceSelect(userResponse.userFind.service[0].service)
       setTag(userResponse.userFind.service[0].tag)
-      setGamesList(userResponse.gamesList)
-      console.log(userResponse.gamesList)
+      setUserGamesList(userResponse.userFind.idGame)
+      setPlayerTwo(userResponse.playerTwo)
+      var testeuh = playerTwo; //testeuh ne fait rien
+console.log("hareuh",testeuh)
     } else {
       setRedirection(false)
     }
@@ -64,8 +69,8 @@ function ScreenUser() {
             </Col>
             <Col xs="auto">
               <CardTitle>{pseudo}</CardTitle>
-              <br></br>
-{/*               <Row style={{alignItems: "center"}}>
+
+{/*           <Row style={{alignItems: "center"}}>
               <CardSubtitle >Team : </CardSubtitle>
               <Link to="/ScreenteamAdmin"><Button style={{marginLeft:"15px"}} size="sm">Créer</Button></Link>
               <Link to="/ScreenteamView"><Button style={{marginLeft:"15px"}} size="sm">Rejoindre</Button></Link>
@@ -73,9 +78,9 @@ function ScreenUser() {
             </Col>
           </Row>
 
-            <CardSubtitle>Description</CardSubtitle>
-              <CardText>Sic de isto et tutius perducit ad actum ipsum, ut si dico “Ego autem vadam lavari, ut mens mea in statu naturae</CardText>
-{/*             <CardSubtitle>Mes Teams:</CardSubtitle>
+            <CardSubtitle style={{padding:'10px'}}>Description</CardSubtitle>
+              <CardText style={{padding:'10px'}}>{description}</CardText>
+{/*           <CardSubtitle>Mes Teams:</CardSubtitle>
               <CardText>Les Invincibles</CardText>
               <CardText>Team Choucroute</CardText> */}
     </Card>
@@ -94,11 +99,11 @@ function ScreenUser() {
         </tr>
       </thead>
       <tbody>
-      {idGame.map(()=>(
-        <tr>
-          <td><img src={require("../images/world-of-tank.jpg")} alt=""></img></td>
-          <td>PC</td>
-          <td>World of Tank</td>
+      {userGamesList.map((idGame,i)=>(
+        <tr key={i}>
+          <td><img src={idGame.cover} alt="game cover"></img></td>
+          <td className="align-middle">{idGame.plateforme}</td>
+          <td className="align-middle">{idGame.name}</td>
         </tr>
         ))}
       </tbody>
@@ -125,10 +130,11 @@ function ScreenUser() {
 {/* Je coupe ma page en deux ici */}
 
 <Col>
-      {/* Mes Player Two */}
+
   <Container className="card-background" style={{boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor:"#010212", marginTop:"-10px", paddingBottom: "20px", marginBottom: "20px"}}>
     <Card style={{ borderRadius:"0 50", backgroundColor:"transparent", marginTop: "10px"}}>
     <CardTitle style={{ alignSelf: 'center', }} >Mes Player Two</CardTitle>
+
 
       <CardBody className="card-background" style={{ borderRadius:"0 50", backgroundColor:"transparente"}}>
         <Row style={{paddingInline: "20px", display:"flex", alignItems: "center", marginBottom: "10px", alignContent:"space-between"}}>

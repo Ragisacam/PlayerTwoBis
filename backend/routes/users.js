@@ -137,25 +137,12 @@ router.get('/logout', function(req, res, next) {
 
 // _____________________ FIND a User _____________________
 router.post('/finduser', async function(req, res, next) {
-/*   console.log("req.body", req.body.userId); */
-  var userGamesList = []
-  var gamesList = []
-  var userFind = await userModel.findById(req.body.userId)
-/*   console.log("userFind", userFind); */
-  var gamesList = await gamesModel.find()
-/*   console.log("gamesList", gamesList); */
-  
-  for(let i=0; i < userGamesList.length; i++){
-    
-    var userGamesList = await gamesModel.findById(userFind.idGames) //ne fonctionne pas
-    console.log(userGamesList)
-  }  
-  
-  res.json({userFind, userGamesList});
+  var userFind = await userModel.findById(req.body.userId).populate("idGame").exec()
+  var playerTwo = await userModel.find({_id: userFind.playerTwo})
+/*   console.log("---------------------------------", playerTwo) */
+  res.json({userFind, playerTwo});
 });
 
-
-
-
+//je veux un tableau qui va lister chaque joueur par son id + sa liste de jeux
 
 module.exports = router;

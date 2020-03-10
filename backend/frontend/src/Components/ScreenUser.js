@@ -15,6 +15,8 @@ function ScreenUser() {
   const [pseudo, setPseudo] = useState("")
   const [idGame, setIdGame] = useState([])
   const [gamesList, setGamesList] = useState([])
+  const [userGamesList, setUserGamesList] = useState([])
+  const [description, setDescription] = useState([])
 //la fonction d'appel MongoDB pour les UserData
   useEffect( () => {
     async function fetchdata (){
@@ -25,7 +27,7 @@ function ScreenUser() {
 
     //vérifier si User est connecté (store Redux)
     
-    console.log(userConnected);
+   /*  console.log(userConnected); */
     
     if(userConnected===true){
       //si oui récupérer ses info dans DBA
@@ -35,14 +37,19 @@ function ScreenUser() {
         body: `userId=${userId}`
       });
       const userResponse = await response.json()
-      console.log("userResponse", userResponse.userFind.service[0].tag);
+/*       console.log("userResponse", userResponse.userFind.service[0].tag); */
       setPseudo(userResponse.userFind.pseudo)
       setIdGame(userResponse.userFind.idGame)
+      setDescription(userResponse.userFind.description)
       setUserConnected(true)
       setServiceSelect(userResponse.userFind.service[0].service)
       setTag(userResponse.userFind.service[0].tag)
       setGamesList(userResponse.gamesList)
-      console.log(userResponse.gamesList)
+      /* console.log(userResponse.userGamesList) */
+      setUserGamesList(userResponse.userFind.idGame)
+      
+      /* console.log(setUserGamesList) */
+      /* console.log(userResponse.gamesList) */
     } else {
       setRedirection(false)
     }
@@ -74,7 +81,7 @@ function ScreenUser() {
           </Row>
 
             <CardSubtitle>Description</CardSubtitle>
-              <CardText>Sic de isto et tutius perducit ad actum ipsum, ut si dico “Ego autem vadam lavari, ut mens mea in statu naturae</CardText>
+              <CardText>{description}</CardText>
 {/*             <CardSubtitle>Mes Teams:</CardSubtitle>
               <CardText>Les Invincibles</CardText>
               <CardText>Team Choucroute</CardText> */}
@@ -94,11 +101,11 @@ function ScreenUser() {
         </tr>
       </thead>
       <tbody>
-      {idGame.map(()=>(
-        <tr>
-          <td><img src={require("../images/world-of-tank.jpg")} alt=""></img></td>
-          <td>PC</td>
-          <td>World of Tank</td>
+      {userGamesList.map((idGame,i)=>(
+        <tr key={i}>
+          <td><img src={idGame.cover} alt="game cover"></img></td>
+          <td>{idGame.plateforme}</td>
+          <td>{idGame.name}</td>
         </tr>
         ))}
       </tbody>

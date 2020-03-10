@@ -6,6 +6,7 @@ var SHA256 = require("crypto-js/sha256");
 var encBase64 = require("crypto-js/enc-base64");
 
 var userModel = require("../Models/Users");
+var gamesModel = require("../Models/Games");
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -136,13 +137,25 @@ router.get('/logout', function(req, res, next) {
 
 // _____________________ FIND a User _____________________
 router.post('/finduser', async function(req, res, next) {
-  console.log("req.body",req.body.userId);
+/*   console.log("req.body", req.body.userId); */
+  var userGamesList = []
+  var gamesList = []
+  var userFind = await userModel.findById(req.body.userId)
+/*   console.log("userFind", userFind); */
+  var gamesList = await gamesModel.find()
+/*   console.log("gamesList", gamesList); */
   
-  var userFind= await userModel.findById(req.body.userId )
-  console.log("userFind",userFind);
+  for(let i=0; i < userGamesList.length; i++){
+    
+    var userGamesList = await gamesModel.findById(userFind.idGames) //ne fonctionne pas
+    console.log(userGamesList)
+  }  
   
-  res.json(userFind);
+  res.json({userFind, userGamesList});
 });
+
+
+
 
 
 module.exports = router;

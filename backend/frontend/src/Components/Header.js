@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Switch from "react-switch"
 import {Link} from 'react-router-dom'
 import babyYoda from '../images/icons8-baby-yoda-48.png';
@@ -6,12 +6,12 @@ import logo from '../images/logoP2.svg';
 import logout from '../images/logout.svg';
 import {Row, Col, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button, Card, CardColumns, FormGroup, ListGroup, Modal,} from 'react-bootstrap'  ; 
+import {Button, Modal,} from 'react-bootstrap'  ; 
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 
-  // MODAL 
+  //-----------MODAL SIGN IN-----------//
   const MyVerticallyCenteredModal= (props) => {
 
     const [signInEmailPseudo, setSignInEmailPseudo] = useState('')
@@ -61,11 +61,11 @@ import {connect} from 'react-redux';
           <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
             Connexion
           </Modal.Title>
-          <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}><img src={require('../images/cross_modal.svg')}/></Button>
+          <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}><img src={require('../images/cross_modal.svg')} alt=""/></Button>
         </Modal.Header>
         <Modal.Body style={{color: 'white', backgroundColor: '#010212', alignContent:"center"}}>
-          <Input onChange={(e) => setSignInEmailPseudo(e.target.value)} type="text" required placeHolder="email" style={{width: 600}}/>
-          <Input onChange={(e) => setSignInPassword(e.target.value)} type="text" required placeHolder="password" style={{width: 600}}/>
+          <Input onChange={(e) => setSignInEmailPseudo(e.target.value)} type="text" required placeholder="email" style={{width: 600}}/>
+          <Input onChange={(e) => setSignInPassword(e.target.value)} type="text" required placeholder="password" style={{width: 600}}/>
           
           {tabErrorsSignIn}
 
@@ -76,36 +76,55 @@ import {connect} from 'react-redux';
       </Modal>
     );
   }
+    //-----------FIN MODAL-----------//
 
+
+    //-----------COMPOSANT PRESENTATION-----------//
 function CustomIconSwitch (props) {
 
-  
-  const [checked,setChecked] = useState(false)
+  const [checked, setChecked] = useState(false)
   const [modalShow, setModalShow] = useState(false)
   const [userConnected, setUserConnected] = useState(false)
 
+  const [token, setToken] = useState(null)
+
+  useEffect(() => {
+    const findToken = () => {
+      setToken(props.token)
+
+      if(token !== null){
+        setUserConnected(true)
+        console.log("TOKEN 999", token)
+
+        setChecked(true)
+        console.log("CHECKEDDDDD", checked)
+      }
+    }    
+    findToken()
+  }, [props.token]);
 
 
-  var handleChange = (checkedhandle, modalShowhandle) =>{
-    setChecked(checkedhandle)
-    setModalShow(modalShowhandle)
-    console.log("modalShow",modalShow);
-    console.log("checked",checked);
+  console.log('TOKEN HEADER EXISTE AU STORE',token)
+
+  console.log('userConnected ou pas',userConnected)
+
+
+  var handleChange = () => {
+    if(token === null){
+      setChecked(true)
+      setModalShow(true)
+      console.log("modalShow",modalShow);
+      console.log("checked",checked);
+    } else {
+      setChecked(false)
+      setModalShow(false)
+      setToken(null)
+      return <Redirect to='/'/>
+    }
+
   };
 
-  // if (userConnected == true){
-  //   setChecked(true)
-  // }else {
-  //   setChecked(true)};
-
-
-
-
-
   return(
-    
-
-    
 
     <nav className="headerFooter" style={{display:"flex", justifyContent:"space-between"}}>
       <Col >
@@ -135,8 +154,7 @@ function CustomIconSwitch (props) {
           width={100}
           height={50}
             checked= {checked}
-            onChange={()=> handleChange(true,true) }
-
+            onChange={()=> handleChange()}
             uncheckedIcon={
               <div 
                 style={{
@@ -166,12 +184,16 @@ function CustomIconSwitch (props) {
             <img src={babyYoda} alt="babyYoda"/>
           </Link>
     </Col>
-      
-      
   </nav>
-
   );
 
+}
+    //-----------FIN COMPOSANT PRESENTATION-----------//
+
+
+
+function mapStateToProps(state){
+  return {token: state.token}
 }
 
 function mapDispatchToProps(dispatch){
@@ -183,7 +205,7 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(CustomIconSwitch)
 

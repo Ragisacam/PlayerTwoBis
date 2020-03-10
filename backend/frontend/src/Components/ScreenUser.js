@@ -1,12 +1,57 @@
-import React from 'react';
-import {Button, Col, Row, Card, CardTitle, CardText,CardSubtitle, CardBody, Container,
+import React,{useEffect, useState} from 'react';
+import {Col, Row, Card, CardTitle, CardText,CardSubtitle, CardBody, Container,
 Table, CardImg} from 'reactstrap';
 import {Link} from 'react-router-dom'
 import babyYoda from '../images/icons8-baby-yoda-48.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ScreenUser() {
-  
+  const userId = "5e63bec8b48b0d57c82aa92c" /*Zehekiel*/
+  const [userConnected, setUserConnected]  = useState(true) /* changer en false quand on aura stocker user dans le Store redux */
+  const [plateformList, setPlateformList] = useState([])
+  const [serviceSelect, setServiceSelect] = useState('...')
+  const [tag, setTag]= useState("")
+  const [Redirection, setRedirection] = useState(false)
+  const [pseudo, setPseudo] = useState("")
+  const [idGame, setIdGame] = useState([])
+  const [gamesList, setGamesList] = useState([])
+//la fonction d'appel MongoDB pour les UserData
+  useEffect( () => {
+    async function fetchdata (){
+    // plateform from back
+    const platerformResponse = await fetch("/plateform");
+    const response = await platerformResponse.json()
+    setPlateformList(response)
+
+    //vérifier si User est connecté (store Redux)
+    
+    console.log(userConnected);
+    
+    if(userConnected===true){
+      //si oui récupérer ses info dans DBA
+      const response = await fetch('/users/finduser', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: `userId=${userId}`
+      });
+      const userResponse = await response.json()
+      console.log("userResponse", userResponse.userFind.service[0].tag);
+      setPseudo(userResponse.userFind.pseudo)
+      setIdGame(userResponse.userFind.idGame)
+      setUserConnected(true)
+      setServiceSelect(userResponse.userFind.service[0].service)
+      setTag(userResponse.userFind.service[0].tag)
+      setGamesList(userResponse.gamesList)
+      console.log(userResponse.gamesList)
+    } else {
+      setRedirection(false)
+    }
+    } 
+    fetchdata()
+    }, [])
+
+
+
   return (
 <div className="backgroundColor">
 <Row >
@@ -18,7 +63,7 @@ function ScreenUser() {
               <img src={babyYoda} alt="userAvatar" />
             </Col>
             <Col xs="auto">
-              <CardTitle>Mon profil</CardTitle>
+              <CardTitle>{pseudo}</CardTitle>
               <br></br>
 {/*               <Row style={{alignItems: "center"}}>
               <CardSubtitle >Team : </CardSubtitle>
@@ -48,25 +93,14 @@ function ScreenUser() {
           <th>Jeu</th>
         </tr>
       </thead>
-
       <tbody>
+      {idGame.map(()=>(
         <tr>
           <td><img src={require("../images/world-of-tank.jpg")} alt=""></img></td>
           <td>PC</td>
           <td>World of Tank</td>
         </tr>
-
-        <tr>
-          <td><img src={require("../images/fortnite.jpg")} alt=""></img></td>
-          <td>XBOX</td>
-          <td>Fortnite</td>
-        </tr>
-
-        <tr>
-          <td><img src={require("../images/battlefield.jpg")} alt=""></img></td>
-          <td>PS4</td>
-          <td>Battlefied V</td>
-        </tr>
+        ))}
       </tbody>
     </Table>
     </Col>

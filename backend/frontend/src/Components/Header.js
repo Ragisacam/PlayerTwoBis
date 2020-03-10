@@ -179,7 +179,6 @@ function CustomIconSwitch (props) {
             id="icon-switch"
           />
         </label>
-
           <Link to="/ScreenUser">
             <img src={babyYoda} alt="babyYoda"/>
           </Link>

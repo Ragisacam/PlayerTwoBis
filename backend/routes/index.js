@@ -14,13 +14,13 @@ router.get('/', function(req, res, next) {
 //ajout de plateform (use postman)
 router.post('/plateform', async function(req, res, next) {
   // console.log("req body plateform ",req.body);
-  var newPlateform = new plateformModel ({
+  var newPlateform = await new plateformModel ({
     plateform:   req.body.plateform,
     img:         req.body.img,
     service:     req.body.service,
   });
   
-  newPlateform.save(function(error, plateform){
+  await newPlateform.save(function(error, plateform){
     if (error){
       console.log("err",error);
       res.json({error})
@@ -71,12 +71,12 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
   // //si pas de champs vide, ajouter un jeux dans DBA si n'existe pas
   } else if (!gameExist) {
     
-    var newGame = new gameModel ({ 
+    var newGame = await new gameModel ({ 
     plateforme:   req.body.plateform,
     name:         req.body.name,
     cover:        req.body.cover,
   });
-  newGame.save(async function(error, game){
+  await newGame.save(async function(error, game){
     if (error){
       console.log("err",error);
       res.json({error})
@@ -88,7 +88,7 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
         idGame: gameListUserCopy
       })
       var result = true
-      res.json({game, result})
+      res.json({game}, {result})
     }
   });
   // //si le jeux existe déjà en DBA
@@ -119,7 +119,7 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
   console.log("service - tag ",req.body.service," - " ,req.body.tag );
   
   var serviceUserExist = false
-
+  var tagUserExist = false
   //vérifier si user à déjà un service ataché
   console.log("serviceListUserCopy[0].service", serviceListUserCopy);
   
@@ -153,7 +153,7 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
     result = true
     res.json(result)
   }   else { 
-    res.json({result: false}, {error: 'déjà un identifiant service'})
+    res.json({result: false, error: 'déjà un identifiant service'})
   } 
 
 });
@@ -202,30 +202,30 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
 // });
 
 // ______________ WISHS ______________
-router.post('/addwish', async function(req, res, next) {
-  console.log("req body wish ",req.body);
+// router.post('/addwish', async function(req, res, next) {
+//   console.log("req body wish ",req.body);
   
-  var newWish = new wishModel ({
-    plateforme:     req.body.plateforme,
-    mode:           req.body.mode,
-    age:            req.body.age,
-    disponibility:  req.body.disponibility,
-    sexe:           req.body.sexe,
-    langue:         req.body.langue,
-    team :          req.body.team,
-    idGame:         req.body.idGame
-  });
+//   var newWish = await new wishModel ({
+//     plateforme:     req.body.plateforme,
+//     mode:           req.body.mode,
+//     age:            req.body.age,
+//     disponibility:  req.body.disponibility,
+//     sexe:           req.body.sexe,
+//     langue:         req.body.langue,
+//     team :          req.body.team,
+//     idGame:         req.body.idGame
+//   });
   
-  newWish.save(function(error, wish){
-    if (error){
-      console.log("err",error);
-      res.json({error, result: false})
-    } else if (wish){
-      console.log(wish);
-      res.json({wish, result: true})
-    }
-  });
-});
+//   await newWish.save(function(error, wish){
+//     if (error){
+//       console.log("err",error);
+//       res.json({error, result: false})
+//     } else if (wish){
+//       console.log(wish);
+//       res.json({wish, result: true})
+//     }
+//   });
+// });
 
 //API IGBD
 router.post('/searchgame', async function(req, res, next) {

@@ -19,6 +19,7 @@ function ScreenGame(props) {
   const [userConnected, setUserConnected]  = useState(true) /* changer en false quand on aura stocker user dans le Store redux */
   const userId = "5e63bec8b48b0d57c82aa92c" /*Zehekiel*/
   const [searchGame, setSearchGame]= useState("")
+  const [addGame, setAddGame]= useState("")
   const [gameListSelected, setGameListSelected] = useState([])
   const [searchGameList, setSearchGameList] = useState([])
   const [display, setDisplay]= useState('none')
@@ -91,32 +92,41 @@ function ScreenGame(props) {
     });
     var searchGameresponse = await response.json()
     console.log("searchGameresponse",searchGameresponse);
+
+    //vérifier si chaque jeux from APi a un Cover
     for(var i = 0; i<searchGameresponse.length; i++){
-      if (!searchGameresponse.cover){
-        console.log("passe par if (!searchGameresponse.cover)");
-        
-        searchGameresponse.push({cover:{url:'../images/joystick.svg'}})} 
+      //sinon lui en rajouter un par défaut
+      if (searchGameresponse[i].cover === undefined){
+        var object = {... searchGameresponse[i], cover:{'url':''}}
+        searchGameresponse[i] = object
+      } 
     }
     
     if (searchGameresponse) {
       console.log("passe par if searchGameresponse");
       setSearchGameList(searchGameresponse)
-      
       setModalShow(true)
       searchGameresponse = false
     }
   }
 
-    //CLIC sur un jeux de la liste proposé par l'API
+    // ___________ CLIC ADD sur un jeux de la liste proposé par l'API
     const handleGameSelect = (gameselect) => {
       console.log("gameselect ",gameselect);
-      
-      setGameListSelected(gameselect)
-      // props.mapDispatchToProps(gameListSelected)
+      setAddGame(gameselect)
+      setGameListSelected(addGame)
+      setModalShow(false)
+      // mapDispatchToProps(gameListSelected)
+    }
+    console.log("gameListSelected ",gameListSelected);
+
+    var iconGameSelected
+    if (addGame !== '') {
+      console.log("gameListSelected cover ",addGame.cover.url);
+      iconGameSelected = <img src={`${addGame.cover.url}`} style={{ height: '50px', width:'50px', borderRadius: "10px", marginRight: "10px"}} alt=""/>
     }
 
 
-console.log("gameListSelected", gameListSelected);
 
 
   //afficher le logo de la plateforme
@@ -140,7 +150,7 @@ console.log("gameListSelected", gameListSelected);
       const gameResponse =await fetch('/addgame', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `plateform=${plateformSelect}&&name=${gameName}&&service=${serviceSelect}&&tag=${tag}&&userId=${userId}`
+        body: `plateform=${plateformSelect}&&name=${addGame}&&service=${serviceSelect}&&tag=${tag}&&userId=${userId}`
       });
       const response = await gameResponse.json()
       console.log("gameresponse", response);
@@ -182,7 +192,7 @@ const MyVerticallyCenteredModal= (props) => {
             <img src={`${game.cover.url}`} style={{paddingLeft:15, height: '50px', width:'50px', borderRadius: "10px", marginRight: "10px"}} alt=""/>
             <p style={{paddingLeft:15, paddingTop:15, fontSize:17, fontFamily: 'Comfortaa', }}>{game.name} </p>
             <Col style={{display:"flex", flexDirection:"row-reverse", alignItems:"center"}}>
-            <Button onClick={handleGameSelect(game)} outline style={{fontSize:16, fontFamily: 'Comfortaa'}}>Add</Button>
+            <Button onClick={()=>handleGameSelect(game)} outline style={{fontSize:16, fontFamily: 'Comfortaa'}}>Add</Button>
             </Col> 
           </Row>
         ))}
@@ -208,6 +218,7 @@ const MyVerticallyCenteredModal= (props) => {
           <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)" ,backgroundColor: '#010212', borderRadius: "0px 50px", flexDirection:"row", padding:"50px 70px", margin: 50}}>
 
             <Col>
+              {/* PLATEFORME */}
               <Form > 
                 <FormGroup style={{alignItems: "center"}} row>
                   <Label style={{ margin:"0px", justifyContent: "start"}} >Plateforme*</Label>
@@ -222,17 +233,23 @@ const MyVerticallyCenteredModal= (props) => {
 
                   </Col>
                 </FormGroup>
+
+                {/* JEUX */}
                 <FormGroup style={{paddingTop: paddingData, alignItems: "center"}} row>
                   <Label style={{ margin:"0px" }} className="font">Jeux*</Label>
                   <img onClick={(e) => handleClickSearchGame(e.target.value)} style={{height:25,display: display, paddingLeft:25}} src={require("../images/search.svg")} alt=""/>
                   <Col>
-                    <Input onChange={(e) => handleSearchGame(e.target.value)} onKey={13} required style={{borderRadius:25}} type="search">
+                    <Input onChange={(e) => handleSearchGame(e.target.value)}  required style={{borderRadius:25}} type="search">
                     </Input>
                   </Col>
+                  
                 </FormGroup>
+                
               </Form>
+              {iconGameSelected}
             </Col>
-
+            
+            {/* SERVICE */}
             <Col style={{marginLeft:"30px"}}>
               <Form>
               <FormGroup style={{alignItems: "center"}} row>

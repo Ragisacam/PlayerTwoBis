@@ -6,20 +6,11 @@ import logo from '../images/logoP2.svg';
 import logout from '../images/logout.svg';
 import {Row, Col, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-<<<<<<< HEAD
-import {Button,Modal,} from 'react-bootstrap'  ; 
-import { Redirect } from 'react-router-dom';
-import {connect} from 'react-redux';
-
-
-
-=======
 import {Button, Card, CardColumns, FormGroup, ListGroup, Modal,} from 'react-bootstrap'  ; 
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 
->>>>>>> e338b74cf3ce512b19a9aac35ca33d47aa147952
   // MODAL 
   const MyVerticallyCenteredModal= (props) => {
 

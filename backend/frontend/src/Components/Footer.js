@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../App.css';
 import { Nav, NavItem, NavLink, Button } from 'reactstrap';
 import { Modal } from 'react-bootstrap'; 
+import { Collapse, CardBody, Card } from 'reactstrap';
 
 function ContactModal(props) {
   return (
@@ -315,17 +316,28 @@ L'éditeur du site se réserve le droit de vérifier par tout moyen que l'utilis
         );
       }
 
-function Footer() {
+function Footer(props) {
 
   const [modalShowContact, setModalShowContact] = React.useState(false);
   const [modalShowPolique, setModalShowPolitique] = React.useState(false);
   const [modalShowMention, setModalShowMention] = React.useState(false);
   const [modalShowShare, setModalShowShare] = React.useState(false);
 
+  
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const toggle = () => setIsOpen(!isOpen);
+
   return (
     <div style={{}}>
 
+<div>
+
+    </div>
+
       <Nav className="headerFooter" style={{position: 'sticky', bottom: 0, justifyContent:"space-around", alignItems:"center" }} >
+        
+      <Button onClick={toggle} style={{ marginBottom: '1rem', color: 'white', backgroundColor: '#18198A' }}>^</Button>
 
         <NavItem>
           <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowContact(true)}><img   src={require('../images/letter 1.svg')} alt="message"/></NavLink>
@@ -363,7 +375,6 @@ function Footer() {
     </div>
     );
 }
-
 
 
 export default Footer;

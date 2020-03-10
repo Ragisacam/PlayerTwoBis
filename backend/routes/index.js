@@ -5,11 +5,51 @@ var gameModel = require("../Models/Games")
 var wishModel = require("../Models/Wishs")
 var plateformModel = require("../Models/Plateforms")
 var teamModel = require("../Models/Teams")
+const request = require('sync-request')
+var cheerio = require('cheerio');
+
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('/ScreenHome', { title: 'Express' });
+// router.get('/', function(req, res, next) {
+//   res.render('/ScreenHome', { title: 'Express' });
+// });
+
+
+
+/*       SCRAPING        */
+router.get('/', async function(req, res, next) {
+
+  var result = request('GET' , 'https://www.gamekult.com/actualite.html')
+
+  var articles = []
+
+  if(result.statusCode < 300){
+    const $ = cheerio.load(result.body)
+    $('.ed__news-h__mdb').each(function(){
+
+      let title = $(this).find('.gk__helpers__fat-title-m').text()
+      title = title.substring(17, title.length -13)
+
+      let image = $(this).find('img').attr('src')
+      
+      if(image !== undefined){
+        image = image.slice(2)
+      }
+    
+      let link = $(this).find('a').attr('href')
+      link = `https://www.gamekult.com${link}`
+
+      articles.push({title, image, link})
+    })
+  }
+  res.json({articles});
 });
+
+
+
+
+
 // ______________ PLATEFORMS ______________ (ok)
 //ajout de plateform (use postman)
 router.post('/plateform', async function(req, res, next) {

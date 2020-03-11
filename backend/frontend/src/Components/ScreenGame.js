@@ -245,7 +245,7 @@ const MyVerticallyCenteredModal= (props) => {
                   <Label style={{ margin:"0px" }} className="font">Jeux*</Label>
                   <img onClick={(e) => handleClickSearchGame(e.target.value)} style={{height:25,display: display, paddingLeft:25}} src={require("../images/search.svg")} alt=""/>
                   <Col>
-                    <Input onChange={(e) => handleSearchGame(e.target.value)}  required style={{borderRadius:25}} type="search">
+                    <Input onChange={(e) => handleSearchGame(e.target.value)}  required style={{borderRadius:25}} onKeyPress={13} type="search">
                     </Input>
                   </Col>
                   

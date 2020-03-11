@@ -68,14 +68,13 @@ div{
 }
 
 .headerFooter{
-  width: 100%;
   min-height: 8vh;
   font-family:  'Comfortaa', cursive;
   font-style: normal;
   font-weight: bold;
   color: #F9F5FF;
   background: #000000;
-  box-shadow: 10px 10px 10px 10px #414141;
+  /* box-shadow: 0px 0px 10px 10px #414141; */
 }
 
 .boxshadow{
@@ -250,4 +249,18 @@ element.style{
 
 .modal-header{
   border-top-right-radius: 50px !important;
+}
+
+.false{
+  transform: rotate(0deg);
+  width: 50px !important;
+  height: 38px !important;
+  position: relative;
+  bottom: -5px ; left: 1150%;
+}
+
+.true{
+  transform: rotate(180deg);
+  width: 50px !important;
+  height: 50px !important;
 }

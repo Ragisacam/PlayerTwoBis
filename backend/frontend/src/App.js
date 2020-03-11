@@ -19,9 +19,10 @@ import Footer from "./Components/Footer"
 //redux
 import token from './reducer/token'
 import game from './reducer/game'
+import user from './reducer/user'
 import {Provider} from 'react-redux'
 import {createStore, combineReducers} from 'redux'
-const store = createStore(combineReducers({game, token}))
+const store = createStore(combineReducers({game, token, user}))
 
 
 function App() {

@@ -4,9 +4,9 @@ Table, CardImg} from 'reactstrap';
 import {Link} from 'react-router-dom'
 import babyYoda from '../images/icons8-baby-yoda-48.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { connect } from 'react-redux';
 
-function ScreenUser() {
-  const userId = "5e63bec8b48b0d57c82aa92c" /*Zehekiel*/
+function ScreenUser(props) {
   const [userConnected, setUserConnected]  = useState(true) /* changer en false quand on aura stocker user dans le Store redux */
   const [plateformList, setPlateformList] = useState([])
   const [serviceSelect, setServiceSelect] = useState('...')
@@ -17,8 +17,11 @@ function ScreenUser() {
   const [userGamesList, setUserGamesList] = useState([])
   const [description, setDescription] = useState([])
   const [playerTwo, setPlayerTwo] = useState([])
+
 //la fonction d'appel MongoDB pour les UserData
-  useEffect( () => {
+  useEffect(() => {
+    props.getUserId()
+
     async function fetchdata (){
     // plateform from back
     const platerformResponse = await fetch("/plateform");
@@ -29,31 +32,35 @@ function ScreenUser() {
     
    /*  console.log(userConnected); */
     
-    if(userConnected===true){
+   console.log('useEffect', props, props.userId)
+
+    if(props.userId){
       //si oui récupérer ses info dans DBA
       const response = await fetch('/users/finduser', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `userId=${userId}`
+        body: `userId=${props.userId}` // /*Zehekiel*/
       });
       const userResponse = await response.json()
-/*       console.log("userResponse", userResponse.userFind.service[0].tag); */
+      console.log('userResponse', userResponse)
       setPseudo(userResponse.userFind.pseudo)
       setIdGame(userResponse.userFind.idGame)
       setDescription(userResponse.userFind.description)
       setUserConnected(true)
-      setServiceSelect(userResponse.userFind.service[0].service)
-      setTag(userResponse.userFind.service[0].tag)
+      const firstService = userResponse.userFind.service.length ? userResponse.userFind.service[0] : {}
+      setServiceSelect(firstService.service)
+      setTag(firstService.tag)
       setUserGamesList(userResponse.userFind.idGame)
-      setPlayerTwo(userResponse.playerTwo)
-      var testeuh = playerTwo; //testeuh ne fait rien
-console.log("hareuh",testeuh)
+      // setPlayerTwo(userResponse.playerTwo)
+      // var testeuh = playerTwo; //testeuh ne fait rien
+      console.log("hareuh",playerTwo)
     } else {
       setRedirection(false)
     }
     } 
     fetchdata()
-    }, [])
+    }, [props.userId])
+
 
 
 
@@ -111,6 +118,7 @@ console.log("hareuh",testeuh)
     </Col>
     </Card>
 
+        {playerTwo.length}
 <br></br>
 
     {/* Mon fil d'actualité */}
@@ -263,5 +271,19 @@ console.log("hareuh",testeuh)
   );
 };
 
+function mapStateToProps(state){
+  return {userId: state.user, state}
+}
 
-export default ScreenUser;
+function mapDispatchToProps(dispatch){
+  return {
+    getUserId: () => {
+      dispatch({type: 'getUserId'})
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ScreenUser)

@@ -30,10 +30,11 @@ import {connect} from 'react-redux';
       })
   
       const body = await data.json()
-  
+
       if(body.result === true){
         setUserExists(true)
         props.addToken(body.token)
+        props.addUserId(body.userId)
       } else {
         setErrorsSignIn(body.error)
       }
@@ -84,13 +85,21 @@ function CustomIconSwitch (props) {
   const [modalShow, setModalShow] = useState(false)
   const [userConnected, setUserConnected] = useState(false)
 
-  const [token, setToken] = useState(null)
+  const [token, setToken] = useState()
+
+  useEffect(() => {
+    props.getToken()
+  }, [])
 
   useEffect(() => {
     const findToken = () => {
-      setToken(props.token)
+      console.log('props.token', props.token)
 
-      if(token !== null){
+      if (props.token) {
+        setToken(props.token)
+
+        console.log('props.token 2', props.token)
+
         setUserConnected(true)
         console.log("TOKEN 999", token)
 
@@ -98,6 +107,7 @@ function CustomIconSwitch (props) {
         console.log("CHECKEDDDDD", checked)
       }
     }    
+
     findToken()
   }, [props.token]);
 
@@ -121,9 +131,12 @@ function CustomIconSwitch (props) {
       console.log("modalShow",modalShow);
       console.log("checked",checked);
     } else {
+      setToken(null)
       setChecked(false)
       setModalShow(false)
       setToken(null)
+      props.removeToken()
+      props.removeUserId()
       return <Redirect to='/'/>
     }
 
@@ -147,7 +160,8 @@ function CustomIconSwitch (props) {
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => clickCloseModal(false, false)}
-        addToken = {props.addToken}
+        addToken={props.addToken}
+        addUserId={props.addUserId}
       />
       
 
@@ -202,7 +216,19 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
   return {
     addToken: function(token){
-      dispatch({type: 'addToken', token: token})
+      dispatch({type: 'addToken', token})
+    },
+    addUserId: function(user) {
+      dispatch({type: 'addUserId', user})
+    },
+    getToken: () => {
+      dispatch({ type: 'getToken' })
+    },
+    removeToken: () => {
+      dispatch({ type: 'removeToken' })
+    },
+    removeUserId: () => {
+      dispatch({ type: 'removeUserId' })
     }
   }
 }

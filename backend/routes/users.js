@@ -79,6 +79,7 @@ router.post('/connection', async function(req, res, next) {
   var pseudoExists = null
   var emailExists = null
   var token = null
+  var userId = null
 
   if(req.body.pseudoFromFront == ''
   || req.body.mailFromFront == ''
@@ -104,6 +105,7 @@ router.post('/connection', async function(req, res, next) {
       if(passwordEncryptFromPseudo == pseudoExists.password){
         result = true
         token = pseudoExists.token
+        userId = pseudoExists._id
       } else {
         result = false
         error.push('Mot de passe incorrect')
@@ -113,6 +115,7 @@ router.post('/connection', async function(req, res, next) {
       if(passwordEncryptFromEmail == emailExists.password){
         result = true
         token = emailExists.token
+        userId = emailExists.id
       } else {
         result = false
         error.push('Mot de passe incorrect')
@@ -122,7 +125,7 @@ router.post('/connection', async function(req, res, next) {
     }
   }
   
-  res.json({result, pseudoExists, emailExists, error, token});
+  res.json({result, pseudoExists, emailExists, error, token, userId});
 });
 
 
@@ -138,9 +141,9 @@ router.get('/logout', function(req, res, next) {
 // _____________________ FIND a User _____________________
 router.post('/finduser', async function(req, res, next) {
   var userFind = await userModel.findById(req.body.userId).populate("idGame").exec()
-  var playerTwo = await userModel.find({_id: userFind.playerTwo})
+  // var playerTwo = await userModel.find({_id: userFind.playerTwo})
 /*   console.log("---------------------------------", playerTwo) */
-  res.json({userFind, playerTwo});
+  res.json({userFind})
 });
 
 //je veux un tableau qui va lister chaque joueur par son id + sa liste de jeux

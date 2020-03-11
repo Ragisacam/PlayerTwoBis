@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, FormGroup, Label, Input, Form, Card, Button, } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
-import {Modal,} from 'react-bootstrap'  ; 
-
-
+import {Modal,} from 'react-bootstrap';
 
 function ScreenGame(props) {
 
@@ -14,18 +12,19 @@ function ScreenGame(props) {
   const [plateformIcon, setplateformIcon]= useState('')
   const [serviceSelect, setServiceSelect] =useState('...')
   const [Redirection, setRedirection] = useState(false)
-  // const [gameName, setGameName]= useState("")
+  const [gameName, setGameName]= useState("")
   const [tag, setTag]= useState("")
   const [userConnected, setUserConnected]  = useState(true) /* changer en false quand on aura stocker user dans le Store redux */
-  const userId = "5e63bec8b48b0d57c82aa92c" /*Zehekiel*/
   const [searchGame, setSearchGame]= useState("")
   const [addGame, setAddGame]= useState("")
   const [gameListSelected, setGameListSelected] = useState([])
   const [searchGameList, setSearchGameList] = useState([])
   const [display, setDisplay]= useState('none')
   const [modalShow, setModalShow] = useState(false)
-
-
+//premier useEffect
+  useEffect(()=>{
+    props.getUserId()
+  }, [])
   // ___________ useEffect ___________
   useEffect( () => {
     async function fetchdata (){
@@ -43,8 +42,11 @@ function ScreenGame(props) {
       const response = await fetch('/users/finduser', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `userId=${userId}`
-      });const userResponse = await response.json()
+        body: `userId=${props.userId}`
+      });
+
+      // console.log(userResponse)
+      const userResponse = await response.json()
       /* console.log("userResponse", userResponse.service[0].tag); */
       setUserConnected(true)
       
@@ -54,7 +56,7 @@ function ScreenGame(props) {
     }
     } 
     fetchdata()
-    }, [])
+    }, [props.userId])
 
   //afficher les services par défaut attaché à la plateforme
     const handlePlateformeSelect = async (clickPlateform) => {
@@ -64,6 +66,7 @@ function ScreenGame(props) {
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
         body: `plateformSelect=${clickPlateform}`
       });
+
       const response = await serviceResponse.json()
       console.log("serviceresponse", response );
       console.log("serviceresponse service", response.service[0] )
@@ -72,12 +75,15 @@ function ScreenGame(props) {
       const usersresponse = await fetch('/users/finduser', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `userId=${userId}`
-      });const userResponse = await usersresponse.json()
-      setTag(userResponse.service[0].tag)
+        body: `userId=${props.userId}`
+      });
+      
+      const userResponse = await usersresponse.json()
+      // const firstService = userResponse.service.length ? userResponse.service[0] : {}
+      // setTag(firstService.tag)
         //récupéré img et service from back selon plateformeSelect
-        setserviceList(response.service)
-        setplateformIcon(response.img)
+      setserviceList(response.service)
+      setplateformIcon(response.img)
 
     }; 
 
@@ -154,7 +160,7 @@ function ScreenGame(props) {
       const gameResponse =await fetch('/addgame', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `plateform=${plateformSelect}&&name=${addGame.name}&&cover=${addGame.cover.url}&&service=${serviceSelect}&&tag=${tag}&&userId=${userId}`
+        body: `plateform=${plateformSelect}&&name=${addGame.name}&&cover=${addGame.cover.url}&&service=${serviceSelect}&&tag=${tag}&&userId=${props.userId}`
       });
       const response = await gameResponse.json()
       console.log("gameresponse", response);
@@ -297,17 +303,24 @@ const MyVerticallyCenteredModal= (props) => {
     );
 }
 
+function mapStateToProps(state){
+  return {userId: state.user}
+}
 
 function mapDispatchToProps(dispatch) {
   return {
     onStartGameClick: function(data) { 
-        dispatch( {type: 'savegame', data} ) 
+        dispatch({type: 'savegame', data}) 
+    },
+    getUserId: function() {
+      dispatch({ type : 'getUserId'})
     }
   } 
 }
 
 export default connect(
-    null, 
+    mapStateToProps,
     mapDispatchToProps
+    
 )(ScreenGame);
 

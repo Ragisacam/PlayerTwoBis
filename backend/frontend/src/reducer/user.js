@@ -1,13 +1,17 @@
+const USER_ID_KEY = 'userId'
 
-export default function (userId = "",action){
+export default function (user = "", action){
 // _______________ action ADD _______________
-    if(action.type === 'saveToken'){
-                                                console.log(token);
-                                                console.log(action.token);
-        var newToken = action.token
-                                                console.log(newToken);
-        return newToken
+    if (action.type === 'addUserId') {
+        localStorage.setItem(USER_ID_KEY, action.user)
+        return action.user
+    } else if (action.type === 'removeUserId') {
+        localStorage.removeItem(USER_ID_KEY)
+        return user
+    } else if (action.type === 'getUserId') {
+        const id = localStorage.getItem(USER_ID_KEY)
+        return id
     } else {
-        return token
+        return user
     }
 }

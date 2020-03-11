@@ -13,7 +13,7 @@ import ScreenteamAdmin from './Components/ScreenteamAdmin';
 import ScreenteamView from './Components/ScreenteamView';
 import ScreenUser from './Components/ScreenUser';
 import ScreenMatchPage from './Components/ScreenMatchPage';
-import ScreenSignIn from './Components/ScreenSignIn';
+// import ScreenSignIn from './Components/ScreenSignIn';
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
 //redux
@@ -32,7 +32,7 @@ function App() {
           <Switch>
             <Route component={ScreenHome} path="/" exact/>
             <Route component={ScreenIdentity} path="/screenidentity"  />
-            <Route component={ScreenSignIn} path="/screensignin"/>
+            {/* <Route component={ScreenSignIn} path="/screensignin"/> */}
             <Route component={ScreenGame} path="/screengame"  />
             <Route component={ScreenWish} path="/screenwish"/>
             <Route component={ScreenMatchPage} path="/screenmatchpage"  />

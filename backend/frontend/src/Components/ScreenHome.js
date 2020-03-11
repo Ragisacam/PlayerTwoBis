@@ -12,7 +12,7 @@ function MyVerticallyCenteredModal(props) {
           style={{borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)",}}
                   >
           <Modal.Header style={{backgroundColor: '#010212'}}>
-            <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
+            <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212', justifyContent: 'center' }}>
             Qui sommes-nous ?
             </Modal.Title>
             <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}} onClick={props.onHide}> <img src={require('../images/cross_modal.svg')} alt="modal cross"/></Button>
@@ -71,12 +71,13 @@ function MyVerticallyCenteredModal(props) {
   <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Jeux prisés sur Player 2</Card.Title>
+      <br></br>
         <ListGroup >
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Morbi leo risus</ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Porta ac consectetur ac</ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Vestibulum at eros</ListGroup.Item>
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>Team Fortress 2 <img height="3%" width="10%" align= "right" src={require("../images/Teamfortress2.jpg")} alt="Team Fortress 2"></img> </ListGroup.Item> 
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>Counter-Strike: Global Offensive <img height="3%" width="10%" align= "right" src={require("../images/csgo.jpg")} alt="Counter-Strike: Global Offensive"></img> </ListGroup.Item> 
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>PLAYERUNKNOWN'S BATTLEGROUNDS <img height="3%" width="10%" align= "right" src={require("../images/PUBG.jpg")} alt="PLAYERUNKNOWN'S BATTLEGROUNDS"></img> </ListGroup.Item> 
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>Unturned <img height="3%" width="10%" align= "right" src={require("../images/Unturned.jpg")} alt="Unturned"></img> </ListGroup.Item> 
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>Garry's Mod <img height="3%" width="10%" align= "right" src={require("../images/Garrys.png")} alt="Garry's Mod"></img> </ListGroup.Item> 
         </ListGroup>
     </Card.Body>
   </Card>
@@ -95,12 +96,14 @@ function MyVerticallyCenteredModal(props) {
   <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Jeux populaires</Card.Title>
+      <br></br>
       <ListGroup>
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Morbi leo risus</ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Porta ac consectetur ac</ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: '#010212'}}>Vestibulum at eros</ListGroup.Item>
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>Pokémon Épée / Bouclier <img height="3%" width="10%" align= "right" src={require("../images/Pokémon.png")} alt="Pokémon Épée / Bouclier"></img> </ListGroup.Item> 
+            <br></br>
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>Call of Duty Modern Warfare <img height="3%" width="10%" align= "right" src={require("../images/Call.png")} alt="Call of Duty Modern Warfare"></img> </ListGroup.Item> 
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>Crash Team Racing Nitro-Fueled <img height="3%" width="10%" align= "right" src={require("../images/CTR.jpg")} alt="Crash Team Racing Nitro-Fueled"></img> </ListGroup.Item> 
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>Borderlands 3 : Le Casse du Beau Jackpot <img height="3%" width="10%" align= "right" src={require("../images/Borderlands.jpg")} alt="Borderlands 3 : Le Casse du Beau Jackpot"></img> </ListGroup.Item> 
+            <ListGroup.Item style={{backgroundColor: '#010212'}}>Black Mesa <img height="3%" width="10%" align= "right" src={require("../images/black.jpg")} alt="Black Mesa"></img> </ListGroup.Item> 
       </ListGroup>
     </Card.Body>
   </Card>
@@ -122,8 +125,11 @@ function MyVerticallyCenteredModal(props) {
   <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Actualité du jeu vidéo</Card.Title>
+      <br></br>
       <Card.Text>
-        Liste d'actualités générée par le backend.
+        <h6> Pour sa sortie sur les plateformes modernes, DOOM 64 s'est offert un chapitre inédit </h6>
+        <p> Non content d'être offert pour toute précommande de DOOM Eternal, le portage de DOOM 64 attendu le 20 mars sur PS4, Xbox One, Switch et PC sera doté d'un chapitre inédit développé pour l'occasion par Nightdive Studios, apprend-on de la bouche des développeurs sur le site USgamer.</p>
+        <p> N'étant jamais sorti ailleurs que sur Nintendo 64 depuis 1997, DOOM 64 aurait pu se contenter d'un portage sec et faire quand même office de vraie curiosité pour de nombreux joueurs n'ayant jamais connu cet épisode conçu par Midway comme une suite aux événements de DOOM 2. Mais Nightdive Studios, déjà habitué à plonger dans le catalogue Nintendo 64 avec ses restaurations de Turok et Turok 2, a offert au jeu un contenu inédit plutôt inattendu. Il faut dire qu'il y a une authentique passion pour DOOM 64 chez Nightdive, dont le moteur maison KEX est né d'un portage PC très officieux réalisé par Samuel Villareal, aujourd'hui responsable du moteur chez Nightdive.</p>
       </Card.Text>
     </Card.Body>
   </Card>
@@ -132,7 +138,7 @@ function MyVerticallyCenteredModal(props) {
     <Card.Body>
       <Card.Title>Actu Player 2</Card.Title>
       <Card.Text>
-      Envie de nous affronter ? On t'attend !!!
+      <h5>Envie de nous affronter ? On t'attend !!!</h5>
       </Card.Text>
     </Card.Body>
   </Card>

@@ -6,6 +6,7 @@ var SHA256 = require("crypto-js/sha256");
 var encBase64 = require("crypto-js/enc-base64");
 
 var userModel = require("../Models/Users");
+var gamesModel = require("../Models/Games");
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -136,9 +137,12 @@ router.get('/logout', function(req, res, next) {
 
 // _____________________ FIND a User _____________________
 router.post('/finduser', async function(req, res, next) {
-  var userFind= await userModel.findById(req.body.userId )
-  res.json(userFind);
+  var userFind = await userModel.findById(req.body.userId).populate("idGame").exec()
+  var playerTwo = await userModel.find({_id: userFind.playerTwo})
+/*   console.log("---------------------------------", playerTwo) */
+  res.json({userFind, playerTwo});
 });
 
+//je veux un tableau qui va lister chaque joueur par son id + sa liste de jeux
 
 module.exports = router;

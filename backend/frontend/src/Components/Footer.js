@@ -274,7 +274,7 @@ L'éditeur du site se réserve le droit de vérifier par tout moyen que l'utilis
             <h5>CNIL</h5>
             <p>La société PlayerTwo conservera dans ses systèmes informatiques et dans des conditions raisonnables de sécurité une preuve de la transaction comprenant le bon de commande et la facture.</p>
             <p>La société PlayerTwo a fait l’objet d’une déclaration à la CNIL sous le numéro 1986932.</p>
-            <p>Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l’Utilisateur dispose d’un droit d’accès, de modification et de suppression des informations collectées par PlayerTwo. Pour exercer ce droit, il reviendra à l’Utilisateur d’envoyer un message à l’adresse suivante : playertwo@gmail.com</p>
+            <p>Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l’utilisateur dispose d’un droit d’accès, de modification et de suppression des informations collectées par PlayerTwo. Pour exercer ce droit, il reviendra à l’Utilisateur d’envoyer un message à l’adresse suivante : playertwo@gmail.com</p>
           </Modal.Body>
           <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
           </Modal.Footer>

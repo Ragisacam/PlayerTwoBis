@@ -9,10 +9,10 @@ function MyVerticallyCenteredModal(props) {
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
-          style={{borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)",}}
+          style={{borderRadius: "0px 50px", boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", borderadius: '50px'}}
                   >
-          <Modal.Header style={{backgroundColor: '#010212'}}>
-            <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212', justifyContent: 'center' }}>
+          <Modal.Header style={{backgroundColor: '#010212', borderadius: '50px'}}>
+            <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212', borderadius: '0px 50px'}}> 
             Qui sommes-nous ?
             </Modal.Title>
             <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}} onClick={props.onHide}> <img src={require('../images/cross_modal.svg')} alt="modal cross"/></Button>
@@ -59,7 +59,9 @@ function MyVerticallyCenteredModal(props) {
 
  {/*  Modal qui sommes-nous ? */}
   <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
-      <Card.Title onClick={() => setModalShow(true)}>Qui sommes-nous ?</Card.Title>
+  <Card.Body>
+      <Card.Title onClick={() => setModalShow(true)}><Link>Qui sommes-nous ?</Link></Card.Title>
+      </Card.Body>
 
 
       <MyVerticallyCenteredModal

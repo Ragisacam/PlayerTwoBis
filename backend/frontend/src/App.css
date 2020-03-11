@@ -131,6 +131,7 @@ body {
   Font-Size: 15px;
   color: #F9F5FF;
   margin : 10px;
+  margin-left: 10px;
   padding: 0;
   align-content: center;
   text-shadow: 0px 4px 4px rgba(187, 10, 231, 0.7);
@@ -238,7 +239,7 @@ element.style{
     background-color: transparent !important;
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.2);
-    border-radius: 0px 50px !important;
+    border-radius: 100px 50px !important;
     outline: 0;
     box-shadow: 0px 4px 4px rgba(231, 10, 10, 0.7);
 }

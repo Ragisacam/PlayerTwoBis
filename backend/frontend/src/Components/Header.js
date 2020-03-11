@@ -62,14 +62,14 @@ import {connect} from 'react-redux';
           <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}><img src={require('../images/cross_modal.svg')} alt=""/></Button>
         </Modal.Header>
         <Modal.Body style={{color: 'white', backgroundColor: '#010212', alignContent:"center"}}>
-          <Input onChange={(e) => setSignInEmailPseudo(e.target.value)} type="text" required placeholder="email" style={{width: 600}}/>
-          <Input onChange={(e) => setSignInPassword(e.target.value)} type="text" required placeholder="password" style={{width: 600}}/>
+          <Input onChange={(e) => setSignInEmailPseudo(e.target.value)} type="text" required placeholder="Email" style={{width: 600}}/>
+          <Input onChange={(e) => setSignInPassword(e.target.value)} type="text" required placeholder="Password" style={{width: 600}}/>
           
           {tabErrorsSignIn}
 
         </Modal.Body>
         <Modal.Footer style={{color: 'white', backgroundColor: '#010212'}}>
-          <Button onClick={() => handleSubmitSignIn()} style={{marginLeft:"15px"}} size="sm">Connection</Button>
+          <Button onClick={() => handleSubmitSignIn()} style={{ marginBottom: '1rem', color: 'white', backgroundColor: '#18198A' }} size="sm">Connexion</Button>
         </Modal.Footer>
       </Modal>
     );
@@ -82,7 +82,7 @@ function CustomIconSwitch (props) {
 
   const [checked, setChecked] = useState(false)
   const [modalShow, setModalShow] = useState(false)
-  // const [userConnected, setUserConnected] = useState(false)
+  const [userConnected, setUserConnected] = useState(false)
 
   const [token, setToken] = useState(null)
 
@@ -195,10 +195,6 @@ function CustomIconSwitch (props) {
     //-----------FIN COMPOSANT PRESENTATION-----------//
 
 
-
-function mapStateToProps(state){
-  return {token: state.token}
-}
 
 function mapStateToProps(state){
   return {token: state.token}

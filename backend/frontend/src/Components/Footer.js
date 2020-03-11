@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import '../App.css';
-import { Nav, NavItem, NavLink, Button } from 'reactstrap';
+import { Nav, NavItem, NavLink, Button, Collapse, Col, Row } from 'reactstrap';
 import { Modal } from 'react-bootstrap'; 
-import { Collapse, CardBody, Card } from 'reactstrap';
 
 function ContactModal(props) {
   return (
@@ -322,57 +321,65 @@ function Footer(props) {
   const [modalShowPolique, setModalShowPolitique] = React.useState(false);
   const [modalShowMention, setModalShowMention] = React.useState(false);
   const [modalShowShare, setModalShowShare] = React.useState(false);
-
-  
+  const [classAngle, setclassAngle]= useState(false)
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => {
+    setIsOpen(!isOpen)
+    setclassAngle(!classAngle)
+  };  
+
+
+    
+
   
-  const toggle = () => setIsOpen(!isOpen);
-
   return (
-    <div style={{}}>
+    <Row style={{width:"100%", height:"auto", margin:0, background: "rgb(2,0,36)",
+      background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 40%, rgba(84,5,119,1) 70%, rgba(2,0,36,1) 100%)"
+    }}>
+      
+        <Button  color="link" onClick={toggle} style={{ padding: 0, alignItems:"center", width:"50px", height:"51px" }}><img className={`${classAngle}`}  src={require("../images/angle1.svg")} alt=""/></Button>
+    
+    <div style={{padding:0}}>
+    <Collapse isOpen={isOpen} style={{width:"90vw", padding:0}}>      
+    <Nav className="headerFooter" style={{width:"94vw", position: 'sticky', bottom: 0, justifyContent:"space-around", alignItems:"center" }} >
+          <NavItem  >
+            <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowContact(true)}><img   src={require('../images/letter 1.svg')} alt="message"/></NavLink>
+          </NavItem>
+          <ContactModal
+            show={modalShowContact}
+            onHide={() => setModalShowContact(false)}
+          />
+          
+          <NavItem>
+            <NavLink onClick={() => setModalShowPolitique(true)} style={{color :'#EEEEF0', paddingTop:10, cursor:"pointer"}}>Politique de confidentialité</NavLink>
+          </NavItem>
+          <PolitiqueModal
+            show={modalShowPolique}
+            onHide={() => setModalShowPolitique(false)}
+          />
 
-<div>
+          <NavItem>
+            <NavLink onClick={() => setModalShowMention(true)} style={{color :'#EEEEF0', paddingTop:10, cursor:"pointer"}}>Mention Légales</NavLink>
+          </NavItem>
+          <MentionModal
+            show={modalShowMention}
+            onHide={() => setModalShowMention(false)}
+          />
 
+          <NavItem >
+            <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowShare(true)}><img style={{paddingTop:5}} src={require('../images/share 1.svg')}  alt="share"/></NavLink>
+          </NavItem>
+          <ShareModal
+            show={modalShowShare}
+            onHide={() => setModalShowShare(false)}
+          />
+          
+        </Nav >
+      </Collapse>
     </div>
-
-      <Nav className="headerFooter" style={{position: 'sticky', bottom: 0, justifyContent:"space-around", alignItems:"center" }} >
-        
-      <Button onClick={toggle} style={{ marginBottom: '1rem', color: 'white', backgroundColor: '#18198A' }}>^</Button>
-
-        <NavItem>
-          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowContact(true)}><img   src={require('../images/letter 1.svg')} alt="message"/></NavLink>
-        </NavItem>
-        <ContactModal
-          show={modalShowContact}
-          onHide={() => setModalShowContact(false)}
-        />
-        
-        <NavItem>
-          <NavLink onClick={() => setModalShowPolitique(true)} style={{color :'#EEEEF0', cursor:"pointer"}}>Politique de confidentialité</NavLink>
-        </NavItem>
-        <PolitiqueModal
-          show={modalShowPolique}
-          onHide={() => setModalShowPolitique(false)}
-        />
-
-        <NavItem>
-          <NavLink onClick={() => setModalShowMention(true)} style={{color :'#EEEEF0', cursor:"pointer"}}>Mention Légales</NavLink>
-        </NavItem>
-        <MentionModal
-          show={modalShowMention}
-          onHide={() => setModalShowMention(false)}
-        />
-
-        <NavItem >
-          <NavLink style={{padding: "0px", cursor:"pointer"}} onClick={() => setModalShowShare(true)}><img style={{}} src={require('../images/share 1.svg')}  alt="share"/></NavLink>
-        </NavItem>
-      </Nav >
-      <ShareModal
-          show={modalShowShare}
-          onHide={() => setModalShowShare(false)}
-        />
-
-    </div>
+      
+    </Row>
     );
 }
 

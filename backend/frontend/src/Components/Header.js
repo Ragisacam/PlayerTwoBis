@@ -18,7 +18,7 @@ import {connect} from 'react-redux';
     const [signInPassword, setSignInPassword] = useState('')
     const [userExists, setUserExists] = useState(false)
     const [listErrorsSignIn, setErrorsSignIn] = useState([])
-  
+    
   
   
     var handleSubmitSignIn = async () => {
@@ -82,7 +82,7 @@ function CustomIconSwitch (props) {
 
   const [checked, setChecked] = useState(false)
   const [modalShow, setModalShow] = useState(false)
-  // const [userConnected, setUserConnected] = useState(false)
+  const [userConnected, setUserConnected] = useState(false)
 
   const [token, setToken] = useState(null)
 
@@ -194,11 +194,6 @@ function CustomIconSwitch (props) {
 }
     //-----------FIN COMPOSANT PRESENTATION-----------//
 
-
-
-function mapStateToProps(state){
-  return {token: state.token}
-}
 
 function mapStateToProps(state){
   return {token: state.token}

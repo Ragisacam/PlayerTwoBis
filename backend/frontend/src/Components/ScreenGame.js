@@ -14,7 +14,7 @@ function ScreenGame(props) {
   const [plateformIcon, setplateformIcon]= useState('')
   const [serviceSelect, setServiceSelect] =useState('...')
   const [Redirection, setRedirection] = useState(false)
-  const [gameName, setGameName]= useState("")
+  // const [gameName, setGameName]= useState("")
   const [tag, setTag]= useState("")
   const [userConnected, setUserConnected]  = useState(true) /* changer en false quand on aura stocker user dans le Store redux */
   const userId = "5e63bec8b48b0d57c82aa92c" /*Zehekiel*/
@@ -47,8 +47,8 @@ function ScreenGame(props) {
       });const userResponse = await response.json()
       console.log("userResponse", userResponse.service[0].tag);
       setUserConnected(true)
-      setServiceSelect(userResponse.service[0].service)
-      setTag(userResponse.service[0].tag)
+      
+      
     } else {
       setRedirection(false)
     }
@@ -66,7 +66,15 @@ function ScreenGame(props) {
       });
       const response = await serviceResponse.json()
       console.log("serviceresponse", response );
-      
+      console.log("serviceresponse service", response.service[0] )
+      setServiceSelect(response.service[0])
+
+      const usersresponse = await fetch('/users/finduser', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: `userId=${userId}`
+      });const userResponse = await usersresponse.json()
+      setTag(userResponse.service[0].tag)
         //récupéré img et service from back selon plateformeSelect
         setserviceList(response.service)
         setplateformIcon(response.img)
@@ -97,7 +105,7 @@ function ScreenGame(props) {
     for(var i = 0; i<searchGameresponse.length; i++){
       //sinon lui en rajouter un par défaut
       if (searchGameresponse[i].cover === undefined){
-        var object = {... searchGameresponse[i], cover:{'url':''}}
+        var object = {...searchGameresponse[i], cover:{'url':''}}
         searchGameresponse[i] = object
       } 
     }
@@ -122,12 +130,8 @@ function ScreenGame(props) {
 
     var iconGameSelected
     if (addGame !== '') {
-      console.log("gameListSelected cover ",addGame.cover.url);
       iconGameSelected = <img src={`${addGame.cover.url}`} style={{ height: '50px', width:'50px', borderRadius: "10px", marginRight: "10px"}} alt=""/>
     }
-
-
-
 
   //afficher le logo de la plateforme
     let plateformIconaffiche = "";
@@ -150,21 +154,22 @@ function ScreenGame(props) {
       const gameResponse =await fetch('/addgame', {
         method: 'POST',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `plateform=${plateformSelect}&&name=${addGame}&&service=${serviceSelect}&&tag=${tag}&&userId=${userId}`
+        body: `plateform=${plateformSelect}&&name=${addGame.name}&&cover=${addGame.cover.url}&&service=${serviceSelect}&&tag=${tag}&&userId=${userId}`
       });
       const response = await gameResponse.json()
       console.log("gameresponse", response);
       //récupérer result from back pour redirect ou non
-      if (response.result === true){
-        setRedirection(response.result)
+      if (response){
+        setRedirection(true)
       }
     };
 
+console.log(Redirection);
 
     // redirect ou non selon réponse du back
     if(Redirection){
       return( 
-      <Redirect to='/screenwish'/>)
+      <Redirect to='/screenmatchpage'/>)
     };
 
 
@@ -224,6 +229,7 @@ const MyVerticallyCenteredModal= (props) => {
                   <Label style={{ margin:"0px", justifyContent: "start"}} >Plateforme*</Label>
                   <Col>
                   <Input required style={{borderRadius:25}}  onChange={(e) => handlePlateformeSelect(e.target.value) } type="select" >
+                    <option> ... </option> 
                     { plateformList.map((plateform, i)=>(
                       <option onClick={(e) => handleGameSelect(e.target.value) } key={i}>{plateform.plateform}</option>
                     ))}
@@ -255,7 +261,8 @@ const MyVerticallyCenteredModal= (props) => {
               <FormGroup style={{alignItems: "center"}} row>
                   <Label style={{ margin:"0px" }} className="font">Service*</Label>
                   <Col>
-                    <Input style={{borderRadius:25}} onChange={(e) => setServiceSelect(e.target.value)} type="select">
+                    <Input style={{borderRadius:25}} onChange={(e) => setServiceSelect(e.target.value)} type="select" placeholder={serviceSelect}>
+                    <option >{serviceSelect}</option>
                     { serviceList.map((service, i)=>(
                       <option key={i}>{service}</option>
                     ))}
@@ -265,7 +272,7 @@ const MyVerticallyCenteredModal= (props) => {
                 <FormGroup style={{paddingTop:"45px", alignItems: "center"}} row>
                   <Label style={{ margin:"0px" }} className="font" >Service ID*</Label>
                   <Col>
-                    <Input style={{borderRadius:25}} onChange={(e) => setTag(e.target.value)} type="text"/>
+                    <Input style={{borderRadius:25}} onChange={(e) => setTag(e.target.value)} type="text"  placeholder={tag}/>
                   </Col>
                 </FormGroup>
               </Form>

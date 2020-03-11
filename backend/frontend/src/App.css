@@ -144,8 +144,9 @@ body {
 }
 
 .card-text{
+  font-family:  'Comfortaa', cursive;
   margin-left : 10px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .cardbody{

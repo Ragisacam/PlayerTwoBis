@@ -6,28 +6,17 @@ import logo from '../images/logoP2.svg';
 import logout from '../images/logout.svg';
 import {Row, Col, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-<<<<<<< HEAD
-import {Button,Modal,} from 'react-bootstrap'  ; 
-import { Redirect } from 'react-router-dom';
-import {connect} from 'react-redux';
-
-
-
-=======
-import {Button, Card, CardColumns, FormGroup, ListGroup, Modal,} from 'react-bootstrap'  ; 
+import {Button, Modal,} from 'react-bootstrap'  ; 
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 
->>>>>>> e338b74cf3ce512b19a9aac35ca33d47aa147952
   // MODAL 
   const MyVerticallyCenteredModal= (props) => {
 
     const [signInEmailPseudo, setSignInEmailPseudo] = useState('')
     const [signInPassword, setSignInPassword] = useState('')
-  
     const [userExists, setUserExists] = useState(false)
-  
     const [listErrorsSignIn, setErrorsSignIn] = useState([])
   
   
@@ -70,7 +59,7 @@ import {connect} from 'react-redux';
           <Modal.Title id="contained-modal-title-vcenter" style={{color: 'white', backgroundColor: '#010212'}}>
             Connexion
           </Modal.Title>
-          <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}}onClick={props.onHide}><img src={require('../images/cross_modal.svg')}/></Button>
+          <Button style={{color: 'white', backgroundColor: '#010212', justifyContent: 'right', border: 0,}} onClick={props.onHide}><img src={require('../images/cross_modal.svg')} alt=""/></Button>
         </Modal.Header>
         <Modal.Body style={{color: 'white', backgroundColor: '#010212', alignContent:"center"}}>
           <Input onChange={(e) => setSignInEmailPseudo(e.target.value)} type="text" required placeHolder="email" style={{width: 600}}/>
@@ -91,7 +80,7 @@ function CustomIconSwitch (props) {
   
   const [checked,setChecked] = useState(false)
   const [modalShow, setModalShow] = useState(false)
-  const [userConnected, setUserConnected] = useState(false)
+  // const [userConnected, setUserConnected] = useState(false)
 
 
 
@@ -107,8 +96,13 @@ function CustomIconSwitch (props) {
   // }else {
   //   setChecked(true)};
 
-
-
+  // CLICK X de la modal
+  var clickCloseModal = (checkedhandle, modalShowhandle) =>{
+    setChecked(checkedhandle)
+    setModalShow(modalShowhandle)
+    console.log("modalShow",modalShow);
+    console.log("checked",checked);
+  };
 
 
   return(
@@ -131,7 +125,7 @@ function CustomIconSwitch (props) {
       
       <MyVerticallyCenteredModal
         show={modalShow}
-        onHide={() => setModalShow(false)}
+        onHide={() => clickCloseModal(false, false)}
         addToken = {props.addToken}
       />
       
@@ -183,6 +177,10 @@ function CustomIconSwitch (props) {
 
 }
 
+function mapStateToProps(state){
+  return {token: state.token}
+}
+
 function mapDispatchToProps(dispatch){
   return {
     addToken: function(token){
@@ -192,7 +190,7 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(CustomIconSwitch)
 

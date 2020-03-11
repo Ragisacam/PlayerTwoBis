@@ -88,7 +88,7 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
         idGame: gameListUserCopy
       })
       var result = true
-      res.json({game}, {result})
+      res.json({result})
     }
   });
   // //si le jeux existe déjà en DBA
@@ -147,16 +147,152 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
     var addServiceToUser = await userModel.updateOne( {_id:req.body.userId}, {
     service: serviceListUserCopy
     })
+    result = true
     console.log("addServiceToUser", addServiceToUser);
-    res.json({result: true})
+    res.json({result})
   } else if (tagUserExist && serviceUserExist){
     result = true
     res.json(result)
   }   else { 
-    res.json({result: false, error: 'déjà un identifiant service'})
+    result= false
+    res.json({ error: 'déjà un identifiant service'})
   } 
 
 });
+
+
+//API IGBD
+router.post('/searchgame', async function(req, res, next) {
+console.log(req.body.searchGame);
+
+
+  const axios = require('axios').default;
+
+  const API_KEY = "d03577227c5216baadca7ff98c147128";
+
+  const header = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'user-key': API_KEY,
+    }
+  }
+
+  async function getGames(gameName) {
+    const config = header;
+    config.data = `
+      search "${req.body.searchGame}";
+      fields name,genres,cover,rating,url,cover.url,websites.url;
+    `;
+
+    try {
+      const response = await axios("https://api-v3.igdb.com/games", config);
+      console.log('response.data ',response.data);
+      var searchGameList = await response.data
+      console.log("searchGameList", searchGameList);
+      res.json(searchGameList)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  getGames(req.body.searchGame)
+  
+});
+
+// ________ FIND A MATCH ________
+router.post('/findmatch', async function(req, res, next) {
+  
+  var userFind = await userModel.findById(req.body.userId )
+  var usersCount = await userModel.countDocuments()
+  userList=  await userModel.find()
+  
+  var match = {}
+  var matchList = []
+  var exist = true
+  //pour chaque jeux/plateforme d'un user; je veux vérifier dans tous les utilisateurs si quelqu'un à le même jeux
+  for (var k = 0;  k<userFind.idGame.length; k++ ){
+    var match = await userModel.find({_id: {$ne : req.body.userId}, idGame: userFind.idGame[k] })
+    
+    if (match.length !== 0 && matchList.length == 0){
+      matchList = match
+    }else if ( match.length > 1) {
+      for (var o =0; o<match.length; o++){
+        var matchList = [...matchList, match[o]]
+      }
+    }
+  }
+
+  //TESTS
+  // let newMatchList = [...new Set(matchList._id)]
+  // console.log("SET... ", newMatchList) 
+  // console.log("SET.length ", newMatchList.length) 
+  // console.log(matchList.find(matchList._id == matchList._id));
+  
+  var sortmatchlist =  matchList.sort()
+  console.log("sortmatchlist",sortmatchlist);
+  
+    console.log("matchList avant", matchList.length); /*= toutes les personnes qui ont un des jeux en communs*/
+      if(matchList.length>1){
+        for (let a = 1; a < matchList.length; a++){ 
+          if(matchList[a]._id == matchList[a++]._id){
+            matchList.splice(a++, 1)
+            // delete matchList[a]
+          }
+        }
+      }
+      console.log("après",matchList);
+      console.log("matchList après", matchList.length); /*= toutes les personnes qui ont un des jeux en communs*/
+
+//     // 3
+
+// console.log("matchList après", matchList.length); /*= toutes les personnes qui ont un des jeux en communs*/
+// for (let a = 0; a < matchList.length; a++){ 
+//   if(matchList[a]._id == matchList[a]._id){
+//     matchList.splice(a, 1)}
+//   for (let b = 0; b < matchList.length; b++) {
+//     if(matchList[b]._id == matchList[a]._id){
+//       matchList.splice(b, 1)
+//     } 
+//   }
+// }
+// // 4 et 2
+
+
+
+
+
+// // console.log("matchList après2", matchList); /*= toutes les personnes qui ont un des jeux en communs*/
+
+// // console.log("matchList après2", matchList.length); /*= toutes les personnes qui ont un des jeux en communs*/
+
+  //TROUVER via IDGAME les jeux en communs de tous Matchs
+  // for(var i = 0; i<matchList.length; i++){
+  //   for(var j=0; j<matchList[i].idGame.length; j++)
+  //   console.log(matchList[i].idGame[j]);
+  //   var findGames = await gameModel.find(matchList[i].idGame[j])
+  // }
+  // console.log('findGame',findGames); // liste tous les jeux de tous les utilisateurs matché
+
+// //tentative AGGREGATE
+// var aggregate = userModel.aggregate();
+// aggregate.match({"idGame": userFind.idGame, })
+// console.log("aggregate",aggregate);
+
+// aggregate.group({ _id : "$idGame", });
+// var data = await aggregate.exec();
+// console.log("data", data);
+
+
+
+  res.json(matchList) 
+});
+
+
+
+module.exports = router;
+
+
+
 
 
 //route /screenuser pour afficher le profil de l'utilisateur
@@ -226,43 +362,3 @@ var gameExist = await gameModel.findOne({plateforme: req.body.plateform, name: r
 //     }
 //   });
 // });
-
-//API IGBD
-router.post('/searchgame', async function(req, res, next) {
-console.log(req.body.searchGame);
-
-
-  const axios = require('axios').default;
-
-  const API_KEY = "d03577227c5216baadca7ff98c147128";
-
-  const header = {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'user-key': API_KEY,
-    }
-  }
-
-  async function getGames(gameName) {
-    const config = header;
-    config.data = `
-      search "${req.body.searchGame}";
-      fields name,genres,cover,rating,url,cover.url,websites.url;
-    `;
-
-    try {
-      const response = await axios("https://api-v3.igdb.com/games", config);
-      console.log('response.data ',response.data);
-      var searchGameList = await response.data
-      console.log("searchGameList", searchGameList);
-      res.json(searchGameList)
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  getGames(req.body.searchGame)
-  
-});
-
-module.exports = router;

@@ -50,7 +50,7 @@ function MyVerticallyCenteredModal(props) {
         <FormGroup className="nextButton boldFont" style={{margin:0, paddingTop:25, justifyContent:"center"}}>
         <Link to="screenidentity">
                 <img style={{height:"180px", width:"200px",}}  src={require('../images/button.svg')} alt="button start"/>
-                <div style={{paddingBottom:"20px",paddingLeft:"20px", fontSize:"15px"}} className="textButton">Find your Player Two</div>
+                <div style={{paddingBottom:"20px",paddingLeft:"20px", fontSize:"14px"}} className="textButton">Find your Player Two</div>
               </Link>
         </FormGroup>
   </div>
@@ -85,8 +85,8 @@ function MyVerticallyCenteredModal(props) {
   <Card style={{ boxShadow:"0px 4px 4px rgba(144, 14, 205, 0.8)", backgroundColor: '#010212', borderRadius: "0px 50px" }}>
     <Card.Body>
       <Card.Title>Comment ça marche ?</Card.Title>
-      <Card.Text>
-      <h6>C'est simple : Tu cliques sur le gros bouton "Find your Player 2", tu ajoutes une plateforme, tu cherches un jeu et tu trouves ton Player 2 !</h6>
+      <Card.Text style={{font: 'comfortaa'}}>
+      C'est simple : Tu cliques sur le gros bouton "Find your Player 2", tu ajoutes une plateforme, tu cherches un jeu et tu trouves ton Player 2 !
       </Card.Text>
     </Card.Body>
   </Card>
@@ -111,9 +111,7 @@ function MyVerticallyCenteredModal(props) {
     <Card.Body>
       <Card.Title>Notre philosophie</Card.Title>
       <Card.Text> 
-
-      <h5>Rassembler les Gamers afin de ne plus jouer seul !</h5>
-
+        Rassembler les Gamers afin de ne plus jouer seul !
       </Card.Text>
     </Card.Body>
   </Card>
